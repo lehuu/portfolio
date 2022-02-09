@@ -28,6 +28,9 @@ jobs:
       - name: Prepare project environment
         if: ${{ steps.project.outputs.deployment-enabled == 'true' }}
         run: npm ci
+      - name: Test project
+        if: ${{ steps.project.outputs.deployment-enabled == 'true' }}
+        run: npm run test
       - name: Build project
         if: ${{ steps.project.outputs.deployment-enabled == 'true' }}
         run: npm run build
