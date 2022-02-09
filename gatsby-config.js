@@ -8,6 +8,12 @@ module.exports = {
     'gatsby-plugin-typescript',
     'gatsby-plugin-image',
     'gatsby-plugin-sharp',
+    {
+      resolve: 'gatsby-plugin-htaccess',
+      options: {
+        https: true,
+      },
+    },
     'gatsby-transformer-sharp',
     {
       resolve: 'gatsby-source-filesystem',
