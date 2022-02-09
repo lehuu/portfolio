@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Helmet } from 'react-helmet';
+import { GlobalStyle } from '../styles';
 
 interface LayoutProps {
   title: string;
@@ -8,6 +9,7 @@ interface LayoutProps {
 export const Layout: React.FunctionComponent<LayoutProps> = ({ title, children }) => {
   return (
     <div>
+      <GlobalStyle />
       <Helmet>
         <title>{title}</title>
         <html lang="en" />
