@@ -12,6 +12,6 @@
     "plugins": [{ "name": "typescript-styled-plugin" }],
     "target": "es2015"
   },
-  "include": ["**/*.ts", "**/*.tsx", "src/pages/index.js"],
+  "include": ["**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules/*", "public/*"]
 }
