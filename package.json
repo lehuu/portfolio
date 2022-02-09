@@ -4,7 +4,9 @@
   "private": true,
   "description": "portfolio",
   "author": "Phuoc Le",
-  "keywords": ["gatsby"],
+  "keywords": [
+    "gatsby"
+  ],
   "scripts": {
     "develop": "gatsby develop",
     "start": "gatsby develop",
@@ -19,6 +21,7 @@
   "dependencies": {
     "babel-plugin-styled-components": "^2.0.2",
     "gatsby": "^4.6.2",
+    "gatsby-plugin-htaccess": "^1.4.0",
     "gatsby-plugin-image": "^2.7.0",
     "gatsby-plugin-sharp": "^4.7.0",
     "gatsby-plugin-styled-components": "^5.7.0",
