@@ -1,12 +1,7 @@
 import * as React from 'react';
 import { Link } from 'gatsby';
+import { Layout } from '../components';
 
-// styles
-const pageStyles = {
-  color: '#232129',
-  padding: '96px',
-  fontFamily: '-apple-system, Roboto, sans-serif, serif',
-};
 const headingStyles = {
   marginTop: 0,
   marginBottom: 64,
@@ -24,10 +19,8 @@ const codeStyles = {
   borderRadius: 4,
 };
 
-// markup
 const NotFoundPage = () => (
-  <main style={pageStyles}>
-    <title>Not found</title>
+  <Layout title="Not Found">
     <h1 style={headingStyles}>Page not found</h1>
     <p style={paragraphStyles}>
       Sorry{' '}
@@ -47,7 +40,7 @@ const NotFoundPage = () => (
       <br />
       <Link to="/">Go home</Link>.
     </p>
-  </main>
+  </Layout>
 );
 
 export default NotFoundPage;
