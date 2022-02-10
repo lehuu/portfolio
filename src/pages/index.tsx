@@ -14,7 +14,7 @@ const headingStyles = {
 const IndexPage = () => (
   <main style={pageStyles}>
     <title>Phuoc Le</title>
-    <h1 style={headingStyles}>Currently under maintenace</h1>
+    <h1 style={headingStyles}>Currently under maintenance</h1>
   </main>
 );
 
