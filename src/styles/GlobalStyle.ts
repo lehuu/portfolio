@@ -145,6 +145,9 @@ const reset = css`
 export const GlobalStyle = styled.createGlobalStyle`
   ${reset}
   html {
-    font-size: 10px;
+    font-family: Inter, sans-serif;
+    font-size: ${({ theme }) => theme.font.size.m};
+    background-color: ${({ theme }) => theme.backgroundColor};
+    color: ${({ theme }) => theme.font.color.regular};
   }
 `;
