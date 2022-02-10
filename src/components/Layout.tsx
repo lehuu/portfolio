@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Helmet } from 'react-helmet';
-import { GlobalStyle } from '../styles';
+import { ThemeProvider } from 'styled-components';
+import { darkTheme, GlobalStyle, lightTheme } from '../styles';
 
 interface LayoutProps {
   title: string;
@@ -8,7 +9,7 @@ interface LayoutProps {
 
 export const Layout: React.FunctionComponent<LayoutProps> = ({ title, children }) => {
   return (
-    <div>
+    <ThemeProvider theme={lightTheme}>
       <GlobalStyle />
       <Helmet>
         <title>{title}</title>
@@ -19,6 +20,6 @@ export const Layout: React.FunctionComponent<LayoutProps> = ({ title, children }
       </header>
       <main>{children}</main>
       <footer>dummy footer</footer>
-    </div>
+    </ThemeProvider>
   );
 };
