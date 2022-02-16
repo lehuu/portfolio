@@ -12,6 +12,7 @@ module.exports = {
     'gatsby-plugin-typescript',
     'gatsby-plugin-image',
     'gatsby-plugin-sharp',
+    'gatsby-plugin-react-helmet',
     {
       resolve: 'gatsby-plugin-htaccess',
       options: {
@@ -20,12 +21,12 @@ module.exports = {
     },
     'gatsby-transformer-sharp',
     {
-      resolve: 'gatsby-source-filesystem',
+      resolve: 'gatsby-plugin-react-svg',
       options: {
-        name: 'images',
-        path: './src/images/',
+        rule: {
+          include: /icons/,
+        },
       },
-      __key: 'images',
     },
   ],
 };
