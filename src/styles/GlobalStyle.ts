@@ -142,7 +142,7 @@ const reset = css`
   }
 `;
 
-export const GlobalStyle = styled.createGlobalStyle`
+const GlobalStyle = styled.createGlobalStyle`
   ${reset}
   html {
     font-family: Inter, sans-serif;
@@ -151,3 +151,5 @@ export const GlobalStyle = styled.createGlobalStyle`
     color: ${({ theme }) => theme.font.color.regular};
   }
 `;
+
+export default GlobalStyle;
