@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Styled from './styled';
+import Styled from './style';
 
 const Footer: React.FunctionComponent = () => (
   <Styled.Footer>

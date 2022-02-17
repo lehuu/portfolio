@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet';
 import { ThemeProvider } from 'styled-components';
 import { GlobalStyle, lightTheme } from '@styles';
 import Footer from './Footer';
+import Header from './Header';
 
 interface LayoutProps {
   title: string;
@@ -20,9 +21,7 @@ const Layout: React.FunctionComponent<LayoutProps> = ({ title, children }) => (
         content="Phuoc Le's personal portfolio website. Software Engineer."
       />
     </Helmet>
-    <header>
-      <nav>dummy nav component</nav>
-    </header>
+    <Header />
     <main>{children}</main>
     <Footer />
   </ThemeProvider>

@@ -36,6 +36,7 @@ module.exports = {
           '@icons': 'src/icons',
           '@pages': 'src/pages/index',
           '@styles': 'src/styles/index',
+          '@hooks': 'src/hooks/index',
         },
         extensions: ['js', 'jsx', 'ts', 'tsx', 'md', 'mdx'],
       },
