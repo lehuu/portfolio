@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Link } from 'gatsby';
-import { Layout } from '../components';
+import { Layout } from '@components';
 
 const headingStyles = {
   marginTop: 0,

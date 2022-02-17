@@ -1,5 +1,17 @@
 {
   "compilerOptions": {
+    "paths": {
+      "@components/*": ["./components/*"],
+      "@components": ["./components"],
+      "@icons/*": ["./icons/*"],
+      "@icons": ["./icons"],
+      "@pages/*": ["./pages/*"],
+      "@pages": ["./pages"],
+      "@styles/*": ["./styles/*"],
+      "@styles": ["./styles"],
+      "@hooks/*": ["./hooks/*"],
+      "@hooks": ["./hooks"]
+    },
     "allowJs": true,
     "allowSyntheticDefaultImports": true,
     "baseUrl": "./src",
