@@ -32,11 +32,11 @@ module.exports = {
       resolve: `gatsby-plugin-alias-imports`,
       options: {
         alias: {
-          '@components': 'src/components/index',
-          '@icons': 'src/icons',
-          '@pages': 'src/pages/index',
-          '@styles': 'src/styles/index',
-          '@hooks': 'src/hooks/index',
+          '@components': './src/components',
+          '@icons': './src/icons',
+          '@pages': './src/pages',
+          '@styles': './src/styles',
+          '@hooks': './src/hooks',
         },
         extensions: ['js', 'jsx', 'ts', 'tsx', 'md', 'mdx'],
       },

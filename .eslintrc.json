@@ -14,11 +14,11 @@
       },
       "alias": {
         "map": [
-          ["@components", "./src/components/index"],
+          ["@components", "./src/components"],
           ["@icons", "./src/icons"],
-          ["@pages", "./src/pages/index"],
-          ["@styles", "./src/styles/index"],
-          ["@hooks", "./src/hooks/index"]
+          ["@pages", "./src/pages"],
+          ["@styles", "./src/styles"],
+          ["@hooks", "./src/hooks"]
         ],
         "extensions": [".js", ".jsx", ".ts", ".tsx"]
       }
