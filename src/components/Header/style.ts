@@ -69,11 +69,7 @@ const ButtonContainer = styled.div`
 `;
 
 const DownloadLink = styled(StyledExternalLink)`
-  display: none;
   color: ${({ theme }) => theme.font.color.highlight};
-  @media ${breakpoints.tablet} {
-    display: unset;
-  }
 `;
 
 export default {
