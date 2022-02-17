@@ -24,7 +24,7 @@ const Layout: React.FunctionComponent<LayoutProps> = ({ title, children }) => (
     </Helmet>
     <Styled.FlexContainer>
       <Header />
-      <main>{children}</main>
+      <Styled.Main>{children}</Styled.Main>
       <Footer />
     </Styled.FlexContainer>
   </ThemeProvider>
