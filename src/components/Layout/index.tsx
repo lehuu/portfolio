@@ -2,8 +2,8 @@ import * as React from 'react';
 import { Helmet } from 'react-helmet';
 import { ThemeProvider } from 'styled-components';
 import { GlobalStyle, lightTheme } from '@styles';
-import Footer from './Footer';
-import Header from './Header';
+import Footer from './partials/Footer';
+import Header from './partials/Header';
 
 interface LayoutProps {
   title: string;

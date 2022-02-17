@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { transparentize } from 'polished';
 import { breakpoints } from '@styles';
-import { StyledExternalLink, StyledInternalLink } from '../Link';
+import { StyledExternalLink, StyledInternalLink } from '@components';
 
 const Header = styled.header`
   position: sticky;
