@@ -1,11 +1,16 @@
 {
   "compilerOptions": {
     "paths": {
-      "@components": ["./components/index"],
+      "@components/*": ["./components/*"],
+      "@components": ["./components"],
+      "@icons/*": ["./icons/*"],
       "@icons": ["./icons"],
-      "@pages": ["./pages/index"],
-      "@styles": ["./styles/index"]
-      "@hooks": ["./hooks/index"]
+      "@pages/*": ["./pages/*"],
+      "@pages": ["./pages"],
+      "@styles/*": ["./styles/*"],
+      "@styles": ["./styles"],
+      "@hooks/*": ["./hooks/*"],
+      "@hooks": ["./hooks"]
     },
     "allowJs": true,
     "allowSyntheticDefaultImports": true,

@@ -4,6 +4,7 @@ import { ThemeProvider } from 'styled-components';
 import { GlobalStyle, lightTheme } from '@styles';
 import Footer from './partials/Footer';
 import Header from './partials/Header';
+import Styled from './style';
 
 interface LayoutProps {
   title: string;
@@ -21,9 +22,11 @@ const Layout: React.FunctionComponent<LayoutProps> = ({ title, children }) => (
         content="Phuoc Le's personal portfolio website. Software Engineer."
       />
     </Helmet>
-    <Header />
-    <main>{children}</main>
-    <Footer />
+    <Styled.FlexContainer>
+      <Header />
+      <main>{children}</main>
+      <Footer />
+    </Styled.FlexContainer>
   </ThemeProvider>
 );
 
