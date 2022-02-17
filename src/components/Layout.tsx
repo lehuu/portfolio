@@ -2,6 +2,7 @@ import * as React from 'react';
 import { Helmet } from 'react-helmet';
 import { ThemeProvider } from 'styled-components';
 import { GlobalStyle, lightTheme } from '@styles';
+import Footer from './Footer';
 
 interface LayoutProps {
   title: string;
@@ -23,7 +24,7 @@ const Layout: React.FunctionComponent<LayoutProps> = ({ title, children }) => (
       <nav>dummy nav component</nav>
     </header>
     <main>{children}</main>
-    <footer>dummy footer</footer>
+    <Footer />
   </ThemeProvider>
 );
 
