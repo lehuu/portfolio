@@ -1,5 +1,11 @@
 {
   "compilerOptions": {
+    "paths": {
+      "@components": ["./components/index"],
+      "@icons": ["./icons"],
+      "@pages": ["./pages/index"],
+      "@styles": ["./styles/index"]
+    },
     "allowJs": true,
     "allowSyntheticDefaultImports": true,
     "baseUrl": "./src",

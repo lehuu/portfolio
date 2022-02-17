@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Helmet } from 'react-helmet';
 import { ThemeProvider } from 'styled-components';
-import { GlobalStyle, lightTheme } from '../styles';
+import { GlobalStyle, lightTheme } from '@styles';
 
 interface LayoutProps {
   title: string;

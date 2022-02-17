@@ -29,6 +29,18 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-plugin-alias-imports`,
+      options: {
+        alias: {
+          '@components': 'src/components/index',
+          '@icons': 'src/icons',
+          '@pages': 'src/pages/index',
+          '@styles': 'src/styles/index',
+        },
+        extensions: ['js', 'jsx', 'ts', 'tsx', 'md', 'mdx'],
+      },
+    },
+    {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: 'Phuoc Le',
