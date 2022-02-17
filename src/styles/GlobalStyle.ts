@@ -140,6 +140,11 @@ const reset = css`
     border-collapse: collapse;
     border-spacing: 0;
   }
+  button {
+    background: none;
+    box-shadow: none;
+    border: none;
+  }
 `;
 
 const GlobalStyle = styled.createGlobalStyle`

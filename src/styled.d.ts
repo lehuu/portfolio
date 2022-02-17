@@ -22,6 +22,8 @@ declare module 'styled-components' {
         strong: string;
         regular: string;
       };
+      radius: string;
+      hoverfill: string;
     };
     gaps: {
       s: string;

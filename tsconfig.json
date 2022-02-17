@@ -5,6 +5,7 @@
       "@icons": ["./icons"],
       "@pages": ["./pages/index"],
       "@styles": ["./styles/index"]
+      "@hooks": ["./hooks/index"]
     },
     "allowJs": true,
     "allowSyntheticDefaultImports": true,
