@@ -140,15 +140,27 @@ const reset = css`
     border-collapse: collapse;
     border-spacing: 0;
   }
+  button {
+    background: none;
+    box-shadow: none;
+    border: none;
+  }
 `;
 
 const GlobalStyle = styled.createGlobalStyle`
   ${reset}
   html {
+    height: 100%;
     font-family: Inter, sans-serif;
     font-size: ${({ theme }) => theme.font.size.m};
     background-color: ${({ theme }) => theme.backgroundColor};
     color: ${({ theme }) => theme.font.color.regular};
+  }
+
+  body,
+  #gatsby-focus-wrapper,
+  #___gatsby {
+    height: 100%;
   }
 `;
 

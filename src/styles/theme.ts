@@ -36,6 +36,8 @@ export const lightTheme: DefaultTheme = {
       strong: 'hsla(0, 0%, 78%, 1)',
       regular: 'hsla(0, 0%, 78%, 0.5)',
     },
+    radius: '8px',
+    hoverfill: 'hsla(0, 0%, 0%, 0.1)',
   },
   ...gapSizes,
 };
@@ -55,6 +57,8 @@ export const darkTheme: DefaultTheme = {
       strong: 'hsla(0, 0%, 78%, 1)',
       regular: 'hsla(0, 0%, 78%, 0.5)',
     },
+    radius: '8px',
+    hoverfill: 'hsla(0, 0%, 100%, 0.1)',
   },
   ...gapSizes,
 };

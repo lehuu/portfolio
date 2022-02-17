@@ -29,10 +29,24 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-plugin-alias-imports`,
+      options: {
+        alias: {
+          '@components': './src/components',
+          '@icons': './src/icons',
+          '@pages': './src/pages',
+          '@styles': './src/styles',
+          '@hooks': './src/hooks',
+        },
+        extensions: ['js', 'jsx', 'ts', 'tsx', 'md', 'mdx'],
+      },
+    },
+    {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: 'Phuoc Le',
         short_name: 'Phuoc Le',
+        lang: 'en',
         start_url: '/',
         background_color: '#1D1D1F',
         theme_color: '#FAFAFA',
