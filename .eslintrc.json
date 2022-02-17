@@ -11,6 +11,15 @@
     "import/resolver": {
       "node": {
         "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      },
+      "alias": {
+        "map": [
+          ["@components", "./src/components/index"],
+          ["@icons", "./src/icons"],
+          ["@pages", "./src/pages/index"],
+          ["@styles", "./src/styles/index"]
+        ],
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
       }
     }
   },
