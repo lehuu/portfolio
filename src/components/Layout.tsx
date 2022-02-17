@@ -13,6 +13,11 @@ const Layout: React.FunctionComponent<LayoutProps> = ({ title, children }) => (
     <Helmet>
       <title>{title}</title>
       <html lang="en" />
+      <link rel="canonical" href="https://bytecruncher.com" />
+      <meta
+        name="description"
+        content="Phuoc Le's personal portfolio website. Software Engineer."
+      />
     </Helmet>
     <header>
       <nav>dummy nav component</nav>

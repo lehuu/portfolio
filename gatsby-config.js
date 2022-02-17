@@ -33,6 +33,7 @@ module.exports = {
       options: {
         name: 'Phuoc Le',
         short_name: 'Phuoc Le',
+        lang: 'en',
         start_url: '/',
         background_color: '#1D1D1F',
         theme_color: '#FAFAFA',
