@@ -39,6 +39,10 @@ export const lightTheme: DefaultTheme = {
     radius: '8px',
     hoverfill: 'hsla(0, 0%, 0%, 0.1)',
   },
+  themeSwitcher: {
+    backgroundColor: 'hsla(0, 0%, 88%, 0.75)',
+    iconColor: '#FFAA00',
+  },
   ...gapSizes,
 };
 
@@ -59,6 +63,10 @@ export const darkTheme: DefaultTheme = {
     },
     radius: '8px',
     hoverfill: 'hsla(0, 0%, 100%, 0.1)',
+  },
+  themeSwitcher: {
+    backgroundColor: 'hsla(0, 100%, 100%, 0.75)',
+    iconColor: '#3A5D74',
   },
   ...gapSizes,
 };

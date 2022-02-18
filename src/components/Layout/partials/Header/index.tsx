@@ -1,4 +1,5 @@
 import * as React from 'react';
+import ThemeSwitchButton from '../../../ThemeSwitchButton';
 import Styled from './style';
 
 const resumeLink = {
@@ -19,6 +20,7 @@ const Header: React.FunctionComponent = () => (
         </Styled.DownloadLink>
       </Styled.ButtonContainer>
     </Styled.Navigation>
+    <ThemeSwitchButton />
   </Styled.Header>
 );
 

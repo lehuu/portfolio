@@ -1,12 +1,13 @@
 import styled from 'styled-components';
 import { transparentize } from 'polished';
-import { breakpoints } from '@styles';
+import { breakpoints, mixinTransition } from '@styles';
 import { StyledExternalLink, StyledInternalLink } from '@components/Link';
 
 const Header = styled.header`
   position: sticky;
   top: 0;
   background-color: ${({ theme }) => transparentize(0.25, theme.backgroundColor)};
+  ${mixinTransition('background-color')}
 `;
 
 const Navigation = styled.nav`
@@ -28,6 +29,7 @@ const Title = styled(StyledInternalLink)`
   font-size: ${({ theme }) => theme.font.size.l};
   text-decoration: none;
   font-weight: 600;
+  ${mixinTransition('color')}
 `;
 
 const LinkList = styled.ul`

@@ -33,5 +33,9 @@ declare module 'styled-components' {
       xxl: string;
       xxxl: string;
     };
+    themeSwitcher: {
+      backgroundColor: string;
+      iconColor: string;
+    };
   }
 }
