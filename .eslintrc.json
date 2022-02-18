@@ -1,5 +1,5 @@
 {
-  "extends": ["airbnb", "prettier", "airbnb-typescript"],
+  "extends": ["airbnb", "airbnb-typescript", "prettier"],
   "plugins": ["prettier"],
   "parserOptions": {
     "sourceType": "module",
