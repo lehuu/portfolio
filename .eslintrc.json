@@ -1,8 +1,9 @@
 {
-  "extends": ["airbnb", "prettier"],
+  "extends": ["airbnb", "prettier", "airbnb-typescript"],
   "plugins": ["prettier"],
   "parserOptions": {
     "sourceType": "module",
+    "project": "./tsconfig.json",
     "ecmaFeatures": {
       "jsx": true
     }
