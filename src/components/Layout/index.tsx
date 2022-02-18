@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Helmet } from 'react-helmet';
-import { ThemeProvider } from 'styled-components';
-import { GlobalStyle, lightTheme } from '@styles';
+import ThemeProvider from '@components/ThemeProvider';
+import { GlobalStyle } from '@styles';
 import Footer from './partials/Footer';
 import Header from './partials/Header';
 import Styled from './style';
@@ -11,7 +11,7 @@ interface LayoutProps {
 }
 
 const Layout: React.FunctionComponent<LayoutProps> = ({ title, children }) => (
-  <ThemeProvider theme={lightTheme}>
+  <ThemeProvider>
     <GlobalStyle />
     <Helmet>
       <title>{title}</title>

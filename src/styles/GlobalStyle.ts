@@ -1,4 +1,5 @@
 import { createGlobalStyle, css } from 'styled-components';
+import mixinTransition from './mixin-transition';
 
 // Workaround to get prettier working properly
 const styled = { createGlobalStyle };
@@ -155,6 +156,7 @@ const GlobalStyle = styled.createGlobalStyle`
     font-size: ${({ theme }) => theme.font.size.m};
     background-color: ${({ theme }) => theme.backgroundColor};
     color: ${({ theme }) => theme.font.color.regular};
+    ${mixinTransition('color', 'background-color')}
   }
 
   body,
