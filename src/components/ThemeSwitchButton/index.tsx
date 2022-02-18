@@ -1,7 +1,5 @@
 import React from 'react';
 import { useTheme } from '@hooks';
-import MoonIcon from '@icons/moon.svg';
-import SunIcon from '@icons/sun.svg';
 import Styled from './style';
 import { Theme } from '../ThemeProvider';
 
@@ -14,7 +12,8 @@ const ThemeSwitchButton: React.FunctionComponent = () => {
 
   return (
     <Styled.Button type="button" onClick={handleClick}>
-      {theme === Theme.LIGHT ? <SunIcon /> : <MoonIcon />}
+      <Styled.SunIcon $isVisible={theme === Theme.LIGHT} />
+      <Styled.MoonIcon $isVisible={theme !== Theme.LIGHT} />
     </Styled.Button>
   );
 };

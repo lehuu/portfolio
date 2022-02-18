@@ -1,5 +1,28 @@
 import { darken } from 'polished';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+import { mixinTransition } from '@styles';
+import Moon from '@icons/moon.svg';
+import Sun from '@icons/sun.svg';
+
+interface IconProps {
+  readonly $isVisible: boolean;
+}
+
+const CommonIconStyle = css<IconProps>`
+  visibility: ${({ $isVisible }) => ($isVisible ? 'visible' : 'hidden')};
+  opacity: ${({ $isVisible }) => ($isVisible ? 1 : 0)};
+  transform: ${({ $isVisible }) => ($isVisible ? 'rotateZ(0deg)' : 'rotateZ(-360deg)')};
+  ${mixinTransition('all')}
+`;
+
+const MoonIcon = styled(Moon)`
+  ${CommonIconStyle}
+`;
+
+const SunIcon = styled(Sun)`
+  position: absolute;
+  ${CommonIconStyle}
+`;
 
 const Button = styled.button`
   position: absolute;
@@ -16,8 +39,8 @@ const Button = styled.button`
 
   :hover {
     cursor: pointer;
-    background: ${({ theme }) => darken(0.1, theme.themeSwitcher.backgroundColor)};
+    background: ${({ theme }) => darken(0.15, theme.themeSwitcher.backgroundColor)};
   }
 `;
 
-export default { Button };
+export default { Button, MoonIcon, SunIcon };
