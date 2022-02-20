@@ -4,6 +4,9 @@ interface Site {
   site: {
     siteMetadata: {
       title: string;
+      lang: string;
+      siteUrl: string;
+      description: string;
     };
   };
 }
@@ -15,6 +18,9 @@ const useSiteMetadata = () => {
         site {
           siteMetadata {
             title
+            lang
+            siteUrl
+            description
           }
         }
       }
