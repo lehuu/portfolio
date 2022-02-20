@@ -5,7 +5,9 @@ const Main = styled.main`
   flex: 1 0 auto;
   padding: ${({ theme }) => `${theme.gaps.xl} ${theme.gaps.l}`};
   max-width: ${contentWidth.main};
-  display: flex;
+  width: 100%;
+  box-sizing: border-box;
+  display: grid;
 `;
 
 const FlexContainer = styled.div`

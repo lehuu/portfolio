@@ -1,45 +1,47 @@
 import * as React from 'react';
 import { Link } from 'gatsby';
 import { Layout } from '@components';
+import styled from 'styled-components';
+import { breakpoints } from '@styles';
 
-const headingStyles = {
-  marginTop: 0,
-  marginBottom: 64,
-  maxWidth: 320,
-};
-
-const paragraphStyles = {
-  marginBottom: 48,
-};
-const codeStyles = {
-  color: '#8A6534',
-  padding: 4,
-  backgroundColor: '#FFF4DB',
-  fontSize: '1.25rem',
-  borderRadius: 4,
-};
+const Header = styled.h1`
+  color: ${({ theme }) => theme.font.color.highlight};
+  text-align: center;
+  display: block;
+  font-size: clamp(2rem, 40vw, 10rem);
+  @media ${breakpoints.mobileL} {
+    font-size: 10rem;
+  }
+`;
+const SubHeader = styled.h2`
+  text-align: center;
+  display: block;
+  font-size: clamp(1.5rem, 15vw, 3rem);
+  @media ${breakpoints.mobileL} {
+    font-size: 3rem;
+  }
+  margin-bottom: ${({ theme }) => theme.gaps.xxxl};
+`;
+const StyledLink = styled(Link)`
+  color: ${({ theme }) => theme.font.color.highlight};
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  &:hover {
+    text-decoration: underline;
+  }
+`;
+const Container = styled.section`
+  align-self: center;
+`;
 
 const NotFoundPage = () => (
   <Layout additionalTitle="Not Found">
-    <h1 style={headingStyles}>Page not found</h1>
-    <p style={paragraphStyles}>
-      Sorry{' '}
-      <span role="img" aria-label="Pensive emoji">
-        😔
-      </span>{' '}
-      we couldn’t find what you were looking for.
-      <br />
-      {process.env.NODE_ENV === 'development' ? (
-        <>
-          <br />
-          Try creating a page in <code style={codeStyles}>src/pages/</code>
-          .
-          <br />
-        </>
-      ) : null}
-      <br />
-      <Link to="/">Go home</Link>.
-    </p>
+    <Container>
+      <Header>404</Header>
+      <SubHeader>Page Not Found</SubHeader>
+      <StyledLink to="/">Go home</StyledLink>
+    </Container>
   </Layout>
 );
 
