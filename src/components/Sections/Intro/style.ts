@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 import { mixinTransition, breakpoints } from '@styles';
 
 const Container = styled.section`
@@ -20,6 +20,16 @@ const colorWrapperSizeDefaeult = 6;
 const colorWrapperSizeMobileS = 12;
 const colorWrapperSizeMobileL = 15;
 
+const rotate = keyframes`
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+`;
+
 const colorWrapperAttributes = css`
   position: absolute;
   height: calc(100% + ${colorWrapperSizeDefaeult * 2}px);
@@ -27,7 +37,8 @@ const colorWrapperAttributes = css`
   top: -${colorWrapperSizeDefaeult}px;
   left: -${colorWrapperSizeDefaeult}px;
   border-radius: 50%;
-  /* rotate: -45deg; */
+  rotate: -45deg;
+  animation: ${rotate} 12s linear infinite;
   background-image: radial-gradient(
       circle farthest-side at 100% 100%,
       #f24c52,
@@ -72,6 +83,8 @@ const ProfilePicture = styled.div<ProfilePictureProps>`
   border-radius: 50%;
   overflow: hidden;
   width: clamp(100px, 60vw, 400px);
+  max-height: 40vh;
+  max-width: 40vh;
   visibility: ${({ $isVisible }) => ($isVisible ? 'visible' : 'hidden')};
   opacity: ${({ $isVisible }) => ($isVisible ? 1 : 0)};
 
