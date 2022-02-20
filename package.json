@@ -31,6 +31,7 @@
     "gatsby-plugin-styled-components": "^5.7.0",
     "gatsby-plugin-typescript": "^4.7.0",
     "gatsby-source-filesystem": "^4.7.0",
+    "gatsby-transformer-remark": "^5.7.0",
     "gatsby-transformer-sharp": "^4.7.0",
     "polished": "^4.1.4",
     "react": "^17.0.1",
