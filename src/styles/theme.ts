@@ -40,7 +40,7 @@ export const lightTheme: DefaultTheme = {
     hoverfill: 'hsla(0, 0%, 0%, 0.1)',
   },
   themeSwitcher: {
-    backgroundColor: 'hsla(0, 0%, 88%, 0.75)',
+    backgroundColor: 'hsla(0, 0%, 82%, 0.75)',
     iconColor: '#FFAA00',
   },
   ...gapSizes,
