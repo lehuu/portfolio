@@ -16,17 +16,18 @@ const ImageContainer = styled.div`
   margin-bottom: ${({ theme }) => theme.gaps.xxl};
 `;
 
-const colorWrapperSizeMobile = 12;
-const colorWrapperSize = 15;
+const colorWrapperSizeDefaeult = 6;
+const colorWrapperSizeMobileS = 12;
+const colorWrapperSizeMobileL = 15;
 
 const colorWrapperAttributes = css`
   position: absolute;
-  height: calc(100% + ${colorWrapperSizeMobile * 2}px);
-  width: calc(100% + ${colorWrapperSizeMobile * 2}px);
-  top: -${colorWrapperSizeMobile}px;
-  left: -${colorWrapperSizeMobile}px;
+  height: calc(100% + ${colorWrapperSizeDefaeult * 2}px);
+  width: calc(100% + ${colorWrapperSizeDefaeult * 2}px);
+  top: -${colorWrapperSizeDefaeult}px;
+  left: -${colorWrapperSizeDefaeult}px;
   border-radius: 50%;
-  rotate: -45deg;
+  /* rotate: -45deg; */
   background-image: radial-gradient(
       circle farthest-side at 100% 100%,
       #f24c52,
@@ -36,11 +37,18 @@ const colorWrapperAttributes = css`
     radial-gradient(circle farthest-side at 0 0, #873bf5, rgba(135, 59, 245, 0)),
     radial-gradient(circle farthest-side at 100% 0, #cb3688, rgba(203, 54, 136, 0));
 
+  @media ${breakpoints.mobileS} {
+    height: calc(100% + ${colorWrapperSizeMobileS * 2}px);
+    width: calc(100% + ${colorWrapperSizeMobileS * 2}px);
+    top: -${colorWrapperSizeMobileS}px;
+    left: -${colorWrapperSizeMobileS}px;
+  }
+
   @media ${breakpoints.mobileL} {
-    height: calc(100% + ${colorWrapperSize * 2}px);
-    width: calc(100% + ${colorWrapperSize * 2}px);
-    top: -${colorWrapperSize}px;
-    left: -${colorWrapperSize}px;
+    height: calc(100% + ${colorWrapperSizeMobileL * 2}px);
+    width: calc(100% + ${colorWrapperSizeMobileL * 2}px);
+    top: -${colorWrapperSizeMobileL}px;
+    left: -${colorWrapperSizeMobileL}px;
   }
 `;
 
@@ -63,7 +71,7 @@ interface ProfilePictureProps {
 const ProfilePicture = styled.div<ProfilePictureProps>`
   border-radius: 50%;
   overflow: hidden;
-  width: clamp(100px, 80vw, 400px);
+  width: clamp(100px, 60vw, 400px);
   visibility: ${({ $isVisible }) => ($isVisible ? 'visible' : 'hidden')};
   opacity: ${({ $isVisible }) => ($isVisible ? 1 : 0)};
 
@@ -80,14 +88,14 @@ const ProfilePicture = styled.div<ProfilePictureProps>`
 `;
 
 const Header = styled.h1`
-  font-size: clamp(40px, 8vw, 70px);
+  font-size: clamp(40px, 8vw, 65px);
   text-align: center;
   color: ${({ theme }) => theme.font.color.strong};
   ${mixinTransition('color')}
 `;
 
 const SubHeader = styled.h2`
-  font-size: clamp(40px, 8vw, 70px);
+  font-size: clamp(40px, 8vw, 65px);
   text-align: center;
 `;
 
@@ -109,6 +117,8 @@ const DescriptionContainer = styled.div`
 const LinkContainer = styled.div`
   display: flex;
   gap: ${({ theme }) => theme.gaps.xl};
+  flex-wrap: wrap;
+  justify-content: center;
 `;
 
 export default {
