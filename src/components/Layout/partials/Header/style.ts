@@ -1,17 +1,26 @@
 import styled from 'styled-components';
 import { transparentize } from 'polished';
-import { breakpoints, mixinTransition } from '@styles';
+import { breakpoints, mixinTransition, contentWidth } from '@styles';
 import { StyledExternalLink, StyledInternalLink } from '@components/Link';
 
 const Header = styled.header`
   position: sticky;
   top: 0;
+  width: 100%;
   background-color: ${({ theme }) => transparentize(0.25, theme.backgroundColor)};
+  border-bottom: 1px solid ${({ theme }) => theme.border.color.strong};
   ${mixinTransition('background-color')}
+  display: flex;
+  justify-content: center;
+`;
+
+const WidthContainer = styled.div`
+  max-width: ${contentWidth.navigationBar};
+  width: 100%;
+  position: relative;
 `;
 
 const Navigation = styled.nav`
-  border-bottom: 1px solid ${({ theme }) => theme.border.color.strong};
   padding: ${({ theme }) => `${theme.gaps.m} ${theme.gaps.l}`};
   position: sticky;
   top: 0;
@@ -82,5 +91,6 @@ export default {
   MenuButton,
   DownloadLink,
   NavLink,
+  WidthContainer,
   ButtonContainer,
 };

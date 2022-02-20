@@ -26,18 +26,20 @@ const Header: React.FunctionComponent = () => {
 
   return (
     <Styled.Header>
-      <Styled.Navigation>
-        <div>
-          <Styled.Title to="/">{title}</Styled.Title>
-        </div>
+      <Styled.WidthContainer>
+        <Styled.Navigation>
+          <div>
+            <Styled.Title to="/">{title}</Styled.Title>
+          </div>
 
-        <Styled.ButtonContainer>
-          <Styled.DownloadLink href={link} target="_blank">
-            Résumé
-          </Styled.DownloadLink>
-        </Styled.ButtonContainer>
-      </Styled.Navigation>
-      <ThemeSwitchButton />
+          <Styled.ButtonContainer>
+            <Styled.DownloadLink href={link} target="_blank">
+              Résumé
+            </Styled.DownloadLink>
+          </Styled.ButtonContainer>
+        </Styled.Navigation>
+        <ThemeSwitchButton />
+      </Styled.WidthContainer>
     </Styled.Header>
   );
 };
