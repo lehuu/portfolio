@@ -60,5 +60,13 @@ module.exports = {
         icon: 'src/icons/favicon.png',
       },
     },
+    'gatsby-transformer-remark',
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'content',
+        path: `${__dirname}/content/`,
+      },
+    },
   ],
 };
