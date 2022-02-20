@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useSiteMetadata } from '@hooks';
 import ThemeSwitchButton from '../../../ThemeSwitchButton';
 import Styled from './style';
 
@@ -7,21 +8,25 @@ const resumeLink = {
   to: 'https://files.bytecruncher.com/documents/Phuoc_Le_CV.pdf',
 };
 
-const Header: React.FunctionComponent = () => (
-  <Styled.Header>
-    <Styled.Navigation>
-      <div>
-        <Styled.Title to="/">Phuoc Le</Styled.Title>
-      </div>
+const Header: React.FunctionComponent = () => {
+  const { title } = useSiteMetadata();
 
-      <Styled.ButtonContainer>
-        <Styled.DownloadLink href={resumeLink.to} target="_blank">
-          {resumeLink.label}
-        </Styled.DownloadLink>
-      </Styled.ButtonContainer>
-    </Styled.Navigation>
-    <ThemeSwitchButton />
-  </Styled.Header>
-);
+  return (
+    <Styled.Header>
+      <Styled.Navigation>
+        <div>
+          <Styled.Title to="/">{title}</Styled.Title>
+        </div>
+
+        <Styled.ButtonContainer>
+          <Styled.DownloadLink href={resumeLink.to} target="_blank">
+            {resumeLink.label}
+          </Styled.DownloadLink>
+        </Styled.ButtonContainer>
+      </Styled.Navigation>
+      <ThemeSwitchButton />
+    </Styled.Header>
+  );
+};
 
 export default Header;
