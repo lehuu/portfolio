@@ -1,27 +1,47 @@
 import * as React from 'react';
+import { useSiteMetadata } from '@hooks';
+import { graphql, useStaticQuery } from 'gatsby';
 import ThemeSwitchButton from '../../../ThemeSwitchButton';
 import Styled from './style';
 
-const resumeLink = {
-  label: 'Résumé',
-  to: 'https://files.bytecruncher.com/documents/Phuoc_Le_CV.pdf',
+const HEADER_QUERY = graphql`
+  {
+    markdownRemark(fileAbsolutePath: { regex: "/content/resume/index.md/" }) {
+      frontmatter {
+        title
+        link
+      }
+    }
+  }
+`;
+
+const Header: React.FunctionComponent = () => {
+  const { title } = useSiteMetadata();
+
+  const {
+    markdownRemark: {
+      frontmatter: { link },
+    },
+  } = useStaticQuery(HEADER_QUERY);
+
+  return (
+    <Styled.Header>
+      <Styled.WidthContainer>
+        <Styled.Navigation>
+          <div>
+            <Styled.Title to="/">{title}</Styled.Title>
+          </div>
+
+          <Styled.ButtonContainer>
+            <Styled.DownloadLink href={link} target="_blank">
+              Résumé
+            </Styled.DownloadLink>
+          </Styled.ButtonContainer>
+        </Styled.Navigation>
+        <ThemeSwitchButton />
+      </Styled.WidthContainer>
+    </Styled.Header>
+  );
 };
-
-const Header: React.FunctionComponent = () => (
-  <Styled.Header>
-    <Styled.Navigation>
-      <div>
-        <Styled.Title to="/">Phuoc Le</Styled.Title>
-      </div>
-
-      <Styled.ButtonContainer>
-        <Styled.DownloadLink href={resumeLink.to} target="_blank">
-          {resumeLink.label}
-        </Styled.DownloadLink>
-      </Styled.ButtonContainer>
-    </Styled.Navigation>
-    <ThemeSwitchButton />
-  </Styled.Header>
-);
 
 export default Header;
