@@ -1,10 +1,16 @@
 const productionPlugins =
   process.env.NODE_ENV === 'production' ? ['gatsby-plugin-no-sourcemaps'] : [];
 
+const metadata = {
+  title: 'Phuoc Le',
+  siteUrl: 'https://www.bytecruncher.com',
+  description: "Phuoc Le's personal portfolio website. Software Engineer.",
+  lang: 'en',
+};
+
 module.exports = {
   siteMetadata: {
-    title: 'Phuoc Le',
-    siteUrl: 'https://www.bytecruncher.com',
+    ...metadata,
   },
   plugins: [
     ...productionPlugins,
@@ -44,9 +50,9 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: 'Phuoc Le',
-        short_name: 'Phuoc Le',
-        lang: 'en',
+        ...metadata,
+        name: metadata.title,
+        short_name: metadata.title,
         start_url: '/',
         background_color: '#1D1D1F',
         theme_color: '#FAFAFA',
