@@ -1,13 +1,21 @@
 import styled, { css } from 'styled-components';
-import { breakpoints } from '@styles';
+import { breakpoints, contentWidth } from '@styles';
 import { Link } from 'gatsby';
 
 const Footer = styled.footer`
   font-size: ${({ theme }) => theme.font.size.xs};
-
+  width: 100%;
   border-top: 1px solid ${({ theme }) => theme.border.color.strong};
-  margin: ${({ theme }) => theme.gaps.m};
-  margin-top: 0;
+  padding: ${({ theme }) => theme.gaps.m};
+  padding-top: 0;
+  display: flex;
+  justify-content: center;
+  box-sizing: border-box;
+`;
+
+const WidthContainer = styled.div`
+  max-width: ${contentWidth.footer};
+  width: 100%;
 
   > * {
     text-align: center;
@@ -52,4 +60,4 @@ const InternalLink = styled(Link)`
   ${commonLinkStyle}
 `;
 
-export default { Footer, ExternalLink, InternalLink, NoBreakSpan };
+export default { Footer, ExternalLink, InternalLink, NoBreakSpan, WidthContainer };

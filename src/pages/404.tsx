@@ -20,7 +20,7 @@ const codeStyles = {
 };
 
 const NotFoundPage = () => (
-  <Layout title="Not Found">
+  <Layout additionalTitle="Not Found">
     <h1 style={headingStyles}>Page not found</h1>
     <p style={paragraphStyles}>
       Sorry{' '}

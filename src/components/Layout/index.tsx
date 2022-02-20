@@ -2,32 +2,37 @@ import * as React from 'react';
 import { Helmet } from 'react-helmet';
 import ThemeProvider from '@components/ThemeProvider';
 import { GlobalStyle } from '@styles';
+import { useSiteMetadata } from '@hooks';
 import Footer from './partials/Footer';
 import Header from './partials/Header';
 import Styled from './style';
 
 interface LayoutProps {
-  title: string;
+  additionalTitle?: string;
 }
 
-const Layout: React.FunctionComponent<LayoutProps> = ({ title, children }) => (
-  <ThemeProvider>
-    <GlobalStyle />
-    <Helmet>
-      <title>{title}</title>
-      <html lang="en" />
-      <link rel="canonical" href="https://bytecruncher.com" />
-      <meta
-        name="description"
-        content="Phuoc Le's personal portfolio website. Software Engineer."
-      />
-    </Helmet>
-    <Styled.FlexContainer>
-      <Header />
-      <Styled.Main>{children}</Styled.Main>
-      <Footer />
-    </Styled.FlexContainer>
-  </ThemeProvider>
-);
+const Layout: React.FunctionComponent<LayoutProps> = ({ additionalTitle, children }) => {
+  const { title, lang, siteUrl, description } = useSiteMetadata();
+
+  return (
+    <ThemeProvider>
+      <GlobalStyle />
+      <Helmet>
+        <title>
+          {title}
+          {additionalTitle ? ` - ${additionalTitle}` : ''}
+        </title>
+        <html lang={lang} />
+        <link rel="canonical" href={siteUrl} />
+        <meta name="description" content={description} />
+      </Helmet>
+      <Styled.FlexContainer>
+        <Header />
+        <Styled.Main>{children}</Styled.Main>
+        <Footer />
+      </Styled.FlexContainer>
+    </ThemeProvider>
+  );
+};
 
 export default Layout;

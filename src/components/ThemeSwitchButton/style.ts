@@ -8,7 +8,7 @@ interface IconProps {
   readonly $isVisible: boolean;
 }
 
-const CommonIconStyle = css<IconProps>`
+const commonIconStyle = css<IconProps>`
   visibility: ${({ $isVisible }) => ($isVisible ? 'visible' : 'hidden')};
   opacity: ${({ $isVisible }) => ($isVisible ? 1 : 0)};
   transform: ${({ $isVisible }) => ($isVisible ? 'rotateZ(0deg)' : 'rotateZ(-360deg)')};
@@ -16,12 +16,12 @@ const CommonIconStyle = css<IconProps>`
 `;
 
 const MoonIcon = styled(Moon)`
-  ${CommonIconStyle}
+  ${commonIconStyle}
 `;
 
 const SunIcon = styled(Sun)`
   position: absolute;
-  ${CommonIconStyle}
+  ${commonIconStyle}
 `;
 
 const Button = styled.button`
