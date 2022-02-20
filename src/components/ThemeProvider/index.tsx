@@ -1,24 +1,28 @@
 import * as React from 'react';
 import { ThemeProvider as StyledThemeProvider } from 'styled-components';
 import { lightTheme, darkTheme } from '@styles';
-
-export enum Theme {
-  LIGHT,
-  DARK,
-}
+import { useLocalStorage } from 'usehooks-ts';
 
 export const ThemeContext = React.createContext<{
-  theme: Theme;
-  setTheme: React.Dispatch<React.SetStateAction<Theme>>;
+  isDarkMode: boolean;
+  toggle: () => void;
 } | null>(null);
 
 const ThemeProvider: React.FunctionComponent = ({ children }) => {
-  const [theme, setTheme] = React.useState<Theme>(Theme.LIGHT);
+  const [isDarkMode, setDarkMode] = useLocalStorage<boolean>('dark-mode', false);
 
-  const contextValue = React.useMemo(() => ({ theme, setTheme }), [theme]);
+  const contextValue = React.useMemo(
+    () => ({
+      isDarkMode,
+      toggle: () => {
+        setDarkMode((prev) => !prev);
+      },
+    }),
+    [isDarkMode]
+  );
 
   return (
-    <StyledThemeProvider theme={theme === Theme.LIGHT ? lightTheme : darkTheme}>
+    <StyledThemeProvider theme={isDarkMode ? darkTheme : lightTheme}>
       <ThemeContext.Provider value={contextValue}>{children}</ThemeContext.Provider>
     </StyledThemeProvider>
   );

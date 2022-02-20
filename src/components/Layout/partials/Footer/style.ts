@@ -14,7 +14,7 @@ const Footer = styled.footer`
     margin-top: ${({ theme }) => theme.gaps.s};
   }
 
-  @media ${breakpoints.tablet} {
+  @media ${breakpoints.mobileL} {
     display: flex;
     justify-content: space-between;
 
@@ -40,6 +40,10 @@ const commonLinkStyle = css`
   }
 `;
 
+const NoBreakSpan = styled.span`
+  display: inline-block;
+`;
+
 const ExternalLink = styled.a`
   ${commonLinkStyle}
 `;
@@ -48,4 +52,4 @@ const InternalLink = styled(Link)`
   ${commonLinkStyle}
 `;
 
-export default { Footer, ExternalLink, InternalLink };
+export default { Footer, ExternalLink, InternalLink, NoBreakSpan };
