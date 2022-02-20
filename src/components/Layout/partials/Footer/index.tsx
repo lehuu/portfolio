@@ -13,12 +13,12 @@ const Footer: React.FunctionComponent = () => {
       </div>
       <div>
         <Styled.NoBreakSpan>
-          © {year} {title}.&nbsp;
-        </Styled.NoBreakSpan>
+          © {year} {title}.
+        </Styled.NoBreakSpan>{' '}
         <Styled.NoBreakSpan>All rights reserved.</Styled.NoBreakSpan>
       </div>
       <div>
-        <Styled.NoBreakSpan>Inspired by&nbsp;</Styled.NoBreakSpan>
+        <Styled.NoBreakSpan>Inspired by</Styled.NoBreakSpan>{' '}
         <Styled.NoBreakSpan>
           <Styled.ExternalLink href="https://brittanychiang.com/" target="_blank">
             Brittany Chiang
