@@ -24,8 +24,6 @@ const INTRO_QUERY = graphql`
             }
           }
         }
-        headline
-        subheader
         links {
           type
           link
@@ -57,9 +55,7 @@ const Intro: React.FunctionComponent = () => {
         </Styled.ProfilePicture>
       </Styled.ImageContainer>
 
-      <Styled.Header>{frontmatter.headline}</Styled.Header>
-      <Styled.SubHeader>{frontmatter.subheader}</Styled.SubHeader>
-      <Styled.DescriptionContainer dangerouslySetInnerHTML={{ __html: markdownRemark.html }} />
+      <Styled.TextContainer dangerouslySetInnerHTML={{ __html: markdownRemark.html }} />
       <Styled.LinkContainer>
         {frontmatter.links.map((link) => (
           <React.Fragment key={link.type}>
