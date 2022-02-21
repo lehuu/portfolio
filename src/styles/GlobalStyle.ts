@@ -159,6 +159,12 @@ const GlobalStyle = styled.createGlobalStyle`
     ${mixinTransition('color', 'background-color')}
   }
 
+  h1,
+  h2,
+  h3 {
+    font-weight: 600;
+  }
+
   body,
   #gatsby-focus-wrapper,
   #___gatsby {
