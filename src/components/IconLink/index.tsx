@@ -22,7 +22,7 @@ const IconLink: React.FunctionComponent<IconLinkProps> = ({ type, link }) => {
   const Icon = iconTypes[type];
 
   return (
-    <Styled.Anchor target="_blank" href={link}>
+    <Styled.Anchor target="_blank" href={link} aria-label={type}>
       <Icon />
     </Styled.Anchor>
   );
