@@ -8,6 +8,7 @@ const Main = styled.main`
   width: 100%;
   box-sizing: border-box;
   display: grid;
+  align-items: center;
 `;
 
 const FlexContainer = styled.div`

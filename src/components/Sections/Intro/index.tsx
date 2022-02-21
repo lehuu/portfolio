@@ -15,12 +15,12 @@ const INTRO_QUERY = graphql`
         pictures {
           light {
             childImageSharp {
-              gatsbyImageData(width: 700, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
+              gatsbyImageData(width: 700, placeholder: NONE, formats: [AUTO, WEBP, AVIF])
             }
           }
           dark {
             childImageSharp {
-              gatsbyImageData(width: 700, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
+              gatsbyImageData(width: 700, placeholder: NONE, formats: [AUTO, WEBP, AVIF])
             }
           }
         }
@@ -51,7 +51,7 @@ const Intro: React.FunctionComponent = () => {
           <GatsbyImage image={lightImage} alt="porrait" />
         </Styled.ProfilePicture>
         <Styled.ProfilePicture $isAbsolute $isVisible={isDarkMode}>
-          <GatsbyImage alt="porrait" image={darkImage} />
+          <GatsbyImage image={darkImage} alt="porrait" />
         </Styled.ProfilePicture>
       </Styled.ImageContainer>
 
