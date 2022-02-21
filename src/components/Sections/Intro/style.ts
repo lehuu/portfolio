@@ -14,6 +14,7 @@ const ImageContainer = styled.div`
   position: relative;
   z-index: -10;
   margin-bottom: ${({ theme }) => theme.gaps.xxl};
+  user-select: none;
 `;
 
 const colorWrapperSizeDefaeult = 6;
@@ -100,29 +101,33 @@ const ProfilePicture = styled.div<ProfilePictureProps>`
       : ''}
 `;
 
-const Header = styled.h1`
-  font-size: clamp(40px, 8vw, 60px);
-  text-align: center;
-  color: ${({ theme }) => theme.font.color.strong};
-  ${mixinTransition('color')}
-`;
+const TextContainer = styled.div`
+  h1 {
+    font-size: clamp(40px, 8vw, 60px);
+    text-align: center;
+    color: ${({ theme }) => theme.font.color.strong};
+    margin-bottom: ${({ theme }) => theme.gaps.m};
+    ${mixinTransition('color')}
+  }
 
-const SubHeader = styled.h2`
-  font-size: clamp(40px, 8vw, 60px);
-  text-align: center;
-`;
+  h2 {
+    font-size: clamp(40px, 8vw, 60px);
+    margin-bottom: ${({ theme }) => theme.gaps.xl};
+    text-align: center;
+  }
 
-const DescriptionContainer = styled.div`
-  text-align: center;
-  margin: ${({ theme }) => theme.gaps.m} 0;
-  white-space: pre-wrap;
+  p {
+    text-align: center;
+    margin: ${({ theme }) => theme.gaps.m} 0;
+    white-space: pre-wrap;
 
-  a {
-    color: ${({ theme }) => theme.font.color.highlight};
-    text-decoration: none;
+    a {
+      color: ${({ theme }) => theme.font.color.highlight};
+      text-decoration: none;
 
-    &:hover {
-      text-decoration: underline;
+      &:hover {
+        text-decoration: underline;
+      }
     }
   }
 `;
@@ -136,9 +141,7 @@ const LinkContainer = styled.div`
 
 export default {
   Container,
-  DescriptionContainer,
-  Header,
-  SubHeader,
+  TextContainer,
   LinkContainer,
   ImageContainer,
   ProfilePicture,
