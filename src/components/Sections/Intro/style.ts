@@ -32,6 +32,7 @@ const rotate = keyframes`
 `;
 
 const colorWrapperAttributes = css`
+  box-sizing: border-box;
   position: absolute;
   height: calc(100% + ${colorWrapperSizeDefaeult * 2}px);
   width: calc(100% + ${colorWrapperSizeDefaeult * 2}px);
