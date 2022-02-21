@@ -15,6 +15,7 @@ module.exports = {
   plugins: [
     ...productionPlugins,
     'gatsby-plugin-styled-components',
+    'gatsby-plugin-catch-links',
     'gatsby-plugin-typescript',
     'gatsby-plugin-image',
     'gatsby-plugin-sharp',
