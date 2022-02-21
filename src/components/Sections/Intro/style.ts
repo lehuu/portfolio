@@ -101,14 +101,14 @@ const ProfilePicture = styled.div<ProfilePictureProps>`
 `;
 
 const Header = styled.h1`
-  font-size: clamp(40px, 8vw, 65px);
+  font-size: clamp(40px, 8vw, 60px);
   text-align: center;
   color: ${({ theme }) => theme.font.color.strong};
   ${mixinTransition('color')}
 `;
 
 const SubHeader = styled.h2`
-  font-size: clamp(40px, 8vw, 65px);
+  font-size: clamp(40px, 8vw, 60px);
   text-align: center;
 `;
 
