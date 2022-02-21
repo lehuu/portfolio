@@ -9,6 +9,7 @@ const Container = styled.section`
   width: 100%;
   justify-self: center;
   padding: ${({ theme }) => `0 ${theme.gaps.l}`};
+  align-self: start;
 
   p {
     white-space: pre-wrap;
