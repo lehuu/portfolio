@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 import { mixinTransition, breakpoints } from '@styles';
 
 const Container = styled.section`
@@ -7,18 +7,29 @@ const Container = styled.section`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: calc(100vh - ${({ theme }) => theme.gaps.m} * 10);
+  /* min-height: calc(100vh - ${({ theme }) => theme.gaps.m} * 10); */
 `;
 
 const ImageContainer = styled.div`
   position: relative;
   z-index: -10;
   margin-bottom: ${({ theme }) => theme.gaps.xxl};
+  user-select: none;
 `;
 
 const colorWrapperSizeDefaeult = 6;
 const colorWrapperSizeMobileS = 12;
 const colorWrapperSizeMobileL = 15;
+
+const rotate = keyframes`
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+`;
 
 const colorWrapperAttributes = css`
   position: absolute;
@@ -27,7 +38,8 @@ const colorWrapperAttributes = css`
   top: -${colorWrapperSizeDefaeult}px;
   left: -${colorWrapperSizeDefaeult}px;
   border-radius: 50%;
-  /* rotate: -45deg; */
+  rotate: -45deg;
+  animation: ${rotate} 12s linear infinite;
   background-image: radial-gradient(
       circle farthest-side at 100% 100%,
       #f24c52,
@@ -72,6 +84,8 @@ const ProfilePicture = styled.div<ProfilePictureProps>`
   border-radius: 50%;
   overflow: hidden;
   width: clamp(100px, 60vw, 400px);
+  max-height: 40vh;
+  max-width: 40vh;
   visibility: ${({ $isVisible }) => ($isVisible ? 'visible' : 'hidden')};
   opacity: ${({ $isVisible }) => ($isVisible ? 1 : 0)};
 
@@ -87,29 +101,33 @@ const ProfilePicture = styled.div<ProfilePictureProps>`
       : ''}
 `;
 
-const Header = styled.h1`
-  font-size: clamp(40px, 8vw, 65px);
-  text-align: center;
-  color: ${({ theme }) => theme.font.color.strong};
-  ${mixinTransition('color')}
-`;
+const TextContainer = styled.div`
+  h1 {
+    font-size: clamp(40px, 8vw, 60px);
+    text-align: center;
+    color: ${({ theme }) => theme.font.color.strong};
+    margin-bottom: ${({ theme }) => theme.gaps.m};
+    ${mixinTransition('color')}
+  }
 
-const SubHeader = styled.h2`
-  font-size: clamp(40px, 8vw, 65px);
-  text-align: center;
-`;
+  h2 {
+    font-size: clamp(40px, 8vw, 60px);
+    margin-bottom: ${({ theme }) => theme.gaps.xl};
+    text-align: center;
+  }
 
-const DescriptionContainer = styled.div`
-  text-align: center;
-  margin: ${({ theme }) => theme.gaps.m} 0;
-  white-space: pre-wrap;
+  p {
+    text-align: center;
+    margin: ${({ theme }) => theme.gaps.m} 0;
+    white-space: pre-wrap;
 
-  a {
-    color: ${({ theme }) => theme.font.color.highlight};
-    text-decoration: none;
+    a {
+      color: ${({ theme }) => theme.font.color.highlight};
+      text-decoration: none;
 
-    &:hover {
-      text-decoration: underline;
+      &:hover {
+        text-decoration: underline;
+      }
     }
   }
 `;
@@ -123,9 +141,7 @@ const LinkContainer = styled.div`
 
 export default {
   Container,
-  DescriptionContainer,
-  Header,
-  SubHeader,
+  TextContainer,
   LinkContainer,
   ImageContainer,
   ProfilePicture,
