@@ -88,6 +88,8 @@ const ProfilePicture = styled.div<ProfilePictureProps>`
   max-width: 40vh;
   visibility: ${({ $isVisible }) => ($isVisible ? 'visible' : 'hidden')};
   opacity: ${({ $isVisible }) => ($isVisible ? 1 : 0)};
+  // Workaround for Safari overflow
+  mask-image: radial-gradient(white, black);
 
   ${mixinTransition('visibility', 'opacity')}
 
@@ -98,7 +100,9 @@ const ProfilePicture = styled.div<ProfilePictureProps>`
           left: 0;
           top: 0;
         `
-      : ''}
+      : css`
+          position: relative;
+        `}
 `;
 
 const TextContainer = styled.div`
