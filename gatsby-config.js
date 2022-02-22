@@ -20,6 +20,7 @@ module.exports = {
     'gatsby-plugin-image',
     'gatsby-plugin-sharp',
     'gatsby-plugin-theme-ui',
+    'gatsby-plugin-emotion',
     'gatsby-plugin-react-helmet',
     {
       resolve: 'gatsby-plugin-htaccess',

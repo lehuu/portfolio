@@ -1,5 +1,5 @@
 import styled, { css, keyframes } from 'styled-components';
-import { mixinTransition, breakpoints } from '@styles';
+import { mixinTransitionOld, breakpoints } from '@styles';
 
 const Container = styled.section`
   display: flex;
@@ -92,7 +92,7 @@ const ProfilePicture = styled.div<ProfilePictureProps>`
   // Workaround for Safari overflow
   mask-image: radial-gradient(white, black);
 
-  ${mixinTransition('visibility', 'opacity')}
+  ${mixinTransitionOld('visibility', 'opacity')}
 
   ${(props) =>
     props.$isAbsolute
@@ -112,7 +112,7 @@ const TextContainer = styled.div`
     text-align: center;
     color: ${({ theme }) => theme.font.color.strong};
     margin-bottom: ${({ theme }) => theme.gaps.m};
-    ${mixinTransition('color')}
+    ${mixinTransitionOld('color')}
   }
 
   h2 {

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { transparentize } from 'polished';
-import { breakpoints, mixinTransition, contentWidth } from '@styles';
+import { breakpoints, mixinTransitionOld, contentWidth } from '@styles';
 import { StyledExternalLink, StyledInternalLink } from '@components/Link';
 
 const Header = styled.header`
@@ -9,7 +9,7 @@ const Header = styled.header`
   width: 100%;
   background-color: ${({ theme }) => transparentize(0.25, theme.backgroundColor)};
   border-bottom: 1px solid ${({ theme }) => theme.border.color.strong};
-  ${mixinTransition('background-color')}
+  ${mixinTransitionOld('background-color')}
   display: flex;
   justify-content: center;
 `;
@@ -38,7 +38,7 @@ const Title = styled(StyledInternalLink)`
   font-size: ${({ theme }) => theme.font.size.l};
   text-decoration: none;
   font-weight: 600;
-  ${mixinTransition('color')}
+  ${mixinTransitionOld('color')}
 `;
 
 const LinkList = styled.ul`

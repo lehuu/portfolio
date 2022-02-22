@@ -3,7 +3,7 @@ import LinkedIn from '@icons/linkedin.svg';
 import Github from '@icons/github.svg';
 import Instagram from '@icons/instagram.svg';
 import ExternalLink from '@icons/external-link.svg';
-import { mixinTransition } from '@styles';
+import { mixinTransitionOld } from '@styles';
 import styled, { css } from 'styled-components';
 
 const commonIconStyle = css`
@@ -38,7 +38,7 @@ const ExternalLinkIcon = styled(ExternalLink)`
 const Anchor = styled.a`
   display: inline-block;
   height: ${({ theme }) => theme.font.size.xl};
-  ${mixinTransition('color')}
+  ${mixinTransitionOld('color')}
   color: ${({ theme }) => theme.font.color.strong};
 
   &:hover {

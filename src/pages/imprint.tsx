@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Layout } from '@components';
 import styled from 'styled-components';
-import { contentWidth, mixinTransition } from '@styles';
+import { contentWidth, mixinTransitionOld } from '@styles';
 import { graphql, useStaticQuery } from 'gatsby';
 
 const Container = styled.section`
@@ -28,7 +28,7 @@ const Container = styled.section`
   h1,
   h2 {
     color: ${({ theme }) => theme.font.color.strong};
-    ${mixinTransition('color')}
+    ${mixinTransitionOld('color')}
   }
 
   h1 {
