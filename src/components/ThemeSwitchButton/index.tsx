@@ -1,5 +1,4 @@
 import React from 'react';
-import { useTheme } from '@hooks';
 import { useColorMode } from 'theme-ui';
 import Styled from './style';
 

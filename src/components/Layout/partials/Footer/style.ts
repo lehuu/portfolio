@@ -1,16 +1,16 @@
-import styled, { css } from 'styled-components';
+import styled from '@emotion/styled';
+import { css } from '@emotion/react';
 import { breakpoints, contentWidth } from '@styles';
 import { Link } from 'gatsby';
 
 const Footer = styled.footer`
-  font-size: ${({ theme }) => theme.font.size.xs};
   width: 100%;
-  border-top: 1px solid ${({ theme }) => theme.border.color.strong};
-  padding: ${({ theme }) => theme.gaps.m};
   padding-top: 0;
   display: flex;
   justify-content: center;
-  box-sizing: border-box;
+  padding: ${({ theme }) => theme.space.s};
+  border-top: 1px solid ${({ theme }) => theme.borders.bold};
+  font-size: ${({ theme }) => theme.fontSizes.xs};
 `;
 
 const WidthContainer = styled.div`
@@ -19,7 +19,7 @@ const WidthContainer = styled.div`
 
   > * {
     text-align: center;
-    margin-top: ${({ theme }) => theme.gaps.s};
+    margin-top: ${({ theme }) => theme.space.s};
   }
 
   @media ${breakpoints.mobileL} {
