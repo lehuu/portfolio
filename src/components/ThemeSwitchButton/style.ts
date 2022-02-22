@@ -1,6 +1,6 @@
 import { darken } from 'polished';
 import styled, { css } from 'styled-components';
-import { mixinTransition } from '@styles';
+import { mixinTransitionOld } from '@styles';
 import Moon from '@icons/moon.svg';
 import Sun from '@icons/sun.svg';
 
@@ -12,7 +12,7 @@ const commonIconStyle = css<IconProps>`
   visibility: ${({ $isVisible }) => ($isVisible ? 'visible' : 'hidden')};
   opacity: ${({ $isVisible }) => ($isVisible ? 1 : 0)};
   transform: ${({ $isVisible }) => ($isVisible ? 'rotateZ(0deg)' : 'rotateZ(-360deg)')};
-  ${mixinTransition('all')}
+  ${mixinTransitionOld('all')}
 `;
 
 const MoonIcon = styled(Moon)`
