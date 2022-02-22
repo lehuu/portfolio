@@ -19,6 +19,8 @@
     "lint-fix": "eslint . --ext ts --ext tsx --fix"
   },
   "dependencies": {
+    "@emotion/react": "^11.8.1",
+    "@emotion/styled": "^11.8.1",
     "babel-plugin-styled-components": "^2.0.2",
     "gatsby": "^4.6.2",
     "gatsby-plugin-alias-imports": "^1.0.5",
@@ -30,6 +32,7 @@
     "gatsby-plugin-react-svg": "^3.1.0",
     "gatsby-plugin-sharp": "^4.7.0",
     "gatsby-plugin-styled-components": "^5.7.0",
+    "gatsby-plugin-theme-ui": "^0.13.1",
     "gatsby-plugin-typescript": "^4.7.0",
     "gatsby-remark-external-links": "^0.0.4",
     "gatsby-remark-images": "^6.7.0",
@@ -41,6 +44,7 @@
     "react-dom": "^17.0.1",
     "react-helmet": "^6.1.0",
     "styled-components": "^5.3.3",
+    "theme-ui": "^0.13.1",
     "usehooks-ts": "^2.4.0"
   },
   "devDependencies": {
