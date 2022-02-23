@@ -1,6 +1,6 @@
-import { darken } from 'polished';
-import styled, { css } from 'styled-components';
-import { mixinTransitionOld } from '@styles';
+import styled from '@emotion/styled';
+import { css } from '@emotion/react';
+import { mixinTransition } from '@styles';
 import Moon from '@icons/moon.svg';
 import Sun from '@icons/sun.svg';
 
@@ -8,38 +8,38 @@ interface IconProps {
   readonly $isVisible: boolean;
 }
 
-const commonIconStyle = css<IconProps>`
-  visibility: ${({ $isVisible }) => ($isVisible ? 'visible' : 'hidden')};
-  opacity: ${({ $isVisible }) => ($isVisible ? 1 : 0)};
-  transform: ${({ $isVisible }) => ($isVisible ? 'rotateZ(0deg)' : 'rotateZ(-360deg)')};
-  ${mixinTransitionOld('all')}
+const commonIconStyle = ({ $isVisible }: IconProps) => css`
+  visibility: ${$isVisible ? 'visible' : 'hidden'};
+  opacity: ${$isVisible ? 1 : 0};
+  transform: ${$isVisible ? 'rotateZ(0deg)' : 'rotateZ(-360deg)'};
+  ${mixinTransition('all')}
 `;
 
-const MoonIcon = styled(Moon)`
-  ${commonIconStyle}
+const MoonIcon = styled(Moon)<IconProps>`
+  ${(props) => commonIconStyle(props)}
 `;
 
 const SunIcon = styled(Sun)`
   position: absolute;
-  ${commonIconStyle}
+  ${(props) => commonIconStyle(props)}
 `;
 
 const Button = styled.button`
   position: absolute;
-  right: ${({ theme }) => theme.gaps.l};
-  top: calc(100% + ${({ theme }) => theme.gaps.m});
+  right: ${({ theme }) => theme.space.l};
+  top: calc(100% + ${({ theme }) => theme.space.m});
 
-  padding: ${({ theme }) => theme.gaps.s};
-  background: ${({ theme }) => theme.themeSwitcher.backgroundColor};
-  border-radius: ${({ theme }) => theme.border.radius};
+  padding: ${({ theme }) => theme.space.s};
+  background: ${({ theme }) => theme.colors.themeSwitcher.backgroundColor};
+  border-radius: ${({ theme }) => theme.radii.regular};
   svg {
-    height: ${({ theme }) => theme.font.size.l};
-    color: ${({ theme }) => theme.themeSwitcher.iconColor};
+    height: ${({ theme }) => theme.fontSizes.l};
+    color: ${({ theme }) => theme.colors.themeSwitcher.iconColor};
   }
 
   :hover {
     cursor: pointer;
-    background: ${({ theme }) => darken(0.15, theme.themeSwitcher.backgroundColor)};
+    background: ${({ theme }) => theme.colors.themeSwitcher.hoverBgColor};
   }
 `;
 

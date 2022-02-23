@@ -14,12 +14,22 @@ const theme = makeTheme({
     background: '#FAFAFA',
     accent: '#3997F7',
     hoverBg: 'hsla(0, 0%, 0%, 0.1)',
+    themeSwitcher: {
+      backgroundColor: 'hsla(0, 0%, 87%, 0.75)',
+      iconColor: '#FFAA00',
+      hoverBgColor: 'hsla(0, 0%, 80%, 0.75)',
+    },
     modes: {
       dark: {
         text: 'hsla(0, 0%, 100%, 0.75)',
         textStrong: 'hsla(0, 0%, 100%, 1)',
         background: '#1D1D1F',
         hoverBg: 'hsla(0, 0%, 100%, 0.1)',
+        themeSwitcher: {
+          backgroundColor: 'hsla(0, 0%, 100%, 0.75)',
+          iconColor: '#3A5D74',
+          hoverBgColor: 'hsla(0, 0%, 85%, 0.75)',
+        },
       },
     },
   },
