@@ -8,7 +8,7 @@ const Footer = styled.footer`
   padding-top: 0;
   display: flex;
   justify-content: center;
-  padding: ${({ theme }) => theme.space.s};
+  padding: ${({ theme }) => `${theme.space.none} ${theme.space.l} ${theme.space.s}`};
   border-top: 1px solid ${({ theme }) => theme.borders.bold};
   font-size: ${({ theme }) => theme.fontSizes.xs};
 `;
