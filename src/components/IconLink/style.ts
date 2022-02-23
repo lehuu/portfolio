@@ -3,43 +3,44 @@ import LinkedIn from '@icons/linkedin.svg';
 import Github from '@icons/github.svg';
 import Instagram from '@icons/instagram.svg';
 import ExternalLink from '@icons/external-link.svg';
-import { mixinTransitionOld } from '@styles';
-import styled, { css } from 'styled-components';
+import { mixinTransition } from '@styles';
+import styled from '@emotion/styled';
+import { css, Theme } from '@emotion/react';
 
-const commonIconStyle = css`
-  height: ${({ theme }) => theme.font.size.xl};
+const commonIconStyle = (theme: Theme) => css`
+  height: ${theme.fontSizes.xl};
   cursor: pointer;
 
   &:hover {
-    color: ${({ theme }) => theme.font.color.highlight};
+    color: ${theme.colors.accent};
   }
 `;
 
 const MailIcon = styled(Mail)`
-  ${commonIconStyle}
+  ${(props) => commonIconStyle(props.theme)}
 `;
 
 const LinkedInIcon = styled(LinkedIn)`
-  ${commonIconStyle}
+  ${(props) => commonIconStyle(props.theme)}
 `;
 
 const GithubIcon = styled(Github)`
-  ${commonIconStyle}
+  ${(props) => commonIconStyle(props.theme)}
 `;
 
 const InstagramIcon = styled(Instagram)`
-  ${commonIconStyle}
+  ${(props) => commonIconStyle(props.theme)}
 `;
 
 const ExternalLinkIcon = styled(ExternalLink)`
-  ${commonIconStyle}
+  ${(props) => commonIconStyle(props.theme)}
 `;
 
 const Anchor = styled.a`
   display: inline-block;
-  height: ${({ theme }) => theme.font.size.xl};
-  ${mixinTransitionOld('color')}
-  color: ${({ theme }) => theme.font.color.strong};
+  height: ${({ theme }) => theme.fontSizes.xl};
+  ${mixinTransition('color')}
+  color: ${({ theme }) => theme.colors.textStrong};
 
   &:hover {
     transition: none !important;

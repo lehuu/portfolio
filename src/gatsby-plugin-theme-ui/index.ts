@@ -13,14 +13,18 @@ const theme = makeTheme({
     textStrong: 'hsla(0, 0%, 0%, 1)',
     background: '#FAFAFA',
     accent: '#3997F7',
-
+    hoverBg: 'hsla(0, 0%, 0%, 0.1)',
     modes: {
       dark: {
         text: 'hsla(0, 0%, 100%, 0.75)',
         textStrong: 'hsla(0, 0%, 100%, 1)',
         background: '#1D1D1F',
+        hoverBg: 'hsla(0, 0%, 100%, 0.1)',
       },
     },
+  },
+  radii: {
+    regular: '8px',
   },
   fonts: {
     regular: 'Inter, sans-serif',
