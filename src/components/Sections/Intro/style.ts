@@ -78,8 +78,8 @@ const ImageColorBlur = styled.div`
 `;
 
 interface ProfilePictureProps {
-  $isAbsolute?: boolean;
-  $isVisible?: boolean;
+  isAbsolute?: boolean;
+  isVisible?: boolean;
 }
 
 const ProfilePicture = styled.div<ProfilePictureProps>`
@@ -88,15 +88,15 @@ const ProfilePicture = styled.div<ProfilePictureProps>`
   width: clamp(100px, 60vw, 400px);
   max-height: 40vh;
   max-width: 40vh;
-  visibility: ${({ $isVisible }) => ($isVisible ? 'visible' : 'hidden')};
-  opacity: ${({ $isVisible }) => ($isVisible ? 1 : 0)};
+  visibility: ${({ isVisible }) => (isVisible ? 'visible' : 'hidden')};
+  opacity: ${({ isVisible }) => (isVisible ? 1 : 0)};
   // Workaround for Safari overflow
   mask-image: radial-gradient(white, black);
 
   ${mixinTransition('visibility', 'opacity')}
 
   ${(props) =>
-    props.$isAbsolute
+    props.isAbsolute
       ? css`
           position: absolute;
           left: 0;

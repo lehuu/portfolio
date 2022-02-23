@@ -61,12 +61,11 @@ const LinkList = styled.ul`
 `;
 
 interface NavLinkProps {
-  readonly $isActive?: boolean;
+  readonly isActive?: boolean;
 }
 
 const NavLink = styled(StyledInternalLink)<NavLinkProps>`
-  color: ${(props) =>
-    props.$isActive ? props.theme.colors.accent : props.theme.colors.textStrong};
+  color: ${(props) => (props.isActive ? props.theme.colors.accent : props.theme.colors.textStrong)};
 `;
 
 const MenuButton = styled.button`
