@@ -1,9 +1,9 @@
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 import { contentWidth } from '@styles';
 
 const Main = styled.main`
   flex: 1 0 auto;
-  padding: ${({ theme }) => `${theme.gaps.xl} ${theme.gaps.l}`};
+  padding: ${({ theme }) => `${theme.space.xl} ${theme.space.l}`};
   max-width: ${contentWidth.main};
   width: 100%;
   box-sizing: border-box;
