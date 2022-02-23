@@ -1,17 +1,26 @@
-import styled from 'styled-components';
-import { transparentize } from 'polished';
-import { breakpoints, mixinTransitionOld, contentWidth } from '@styles';
+import styled from '@emotion/styled';
+import { breakpoints, mixinTransition, contentWidth } from '@styles';
 import { StyledExternalLink, StyledInternalLink } from '@components/Link';
 
 const Header = styled.header`
   position: sticky;
   top: 0;
   width: 100%;
-  background-color: ${({ theme }) => transparentize(0.25, theme.backgroundColor)};
-  border-bottom: 1px solid ${({ theme }) => theme.border.color.strong};
-  ${mixinTransitionOld('background-color')}
+  border-bottom: 1px solid ${({ theme }) => theme.borders.bold};
   display: flex;
   justify-content: center;
+
+  &:before {
+    background-color: ${({ theme }) => theme.colors.background};
+    ${mixinTransition('background-color')}
+    content: '';
+    opacity: 0.75;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+  }
 `;
 
 const WidthContainer = styled.div`
@@ -21,7 +30,7 @@ const WidthContainer = styled.div`
 `;
 
 const Navigation = styled.nav`
-  padding: ${({ theme }) => `${theme.gaps.m} ${theme.gaps.l}`};
+  padding: ${({ theme }) => `${theme.space.m} ${theme.space.l}`};
   position: sticky;
   top: 0;
   display: flex;
@@ -34,17 +43,17 @@ const Navigation = styled.nav`
 `;
 
 const Title = styled(StyledInternalLink)`
-  color: ${({ theme }) => theme.font.color.strong};
-  font-size: ${({ theme }) => theme.font.size.l};
+  color: ${({ theme }) => theme.colors.textStrong};
+  font-size: ${({ theme }) => theme.fontSizes.l};
   text-decoration: none;
-  font-weight: 600;
-  ${mixinTransitionOld('color')}
+  font-weight: ${({ theme }) => theme.fontWeights.bold};
+  ${mixinTransition('color')}
 `;
 
 const LinkList = styled.ul`
   display: none;
-  font-size: ${({ theme }) => theme.font.size.xs};
-  gap: ${({ theme }) => theme.gaps.xl};
+  font-size: ${({ theme }) => theme.fontSizes.xs};
+  gap: ${({ theme }) => theme.space.xl};
   @media ${breakpoints.tablet} {
     display: flex;
     justify-content: center;
@@ -57,11 +66,11 @@ interface NavLinkProps {
 
 const NavLink = styled(StyledInternalLink)<NavLinkProps>`
   color: ${(props) =>
-    props.$isActive ? props.theme.font.color.highlight : props.theme.font.color.strong};
+    props.$isActive ? props.theme.colors.accent : props.theme.colors.textStrong};
 `;
 
 const MenuButton = styled.button`
-  color: ${({ theme }) => theme.font.color.highlight};
+  color: ${({ theme }) => theme.colors.accent};
   svg {
     height: 24px;
   }
@@ -80,7 +89,7 @@ const ButtonContainer = styled.div`
 `;
 
 const DownloadLink = styled(StyledExternalLink)`
-  color: ${({ theme }) => theme.font.color.highlight};
+  color: ${({ theme }) => theme.colors.accent};
 `;
 
 export default {
