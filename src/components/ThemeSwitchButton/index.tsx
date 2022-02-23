@@ -3,7 +3,6 @@ import { useColorMode } from 'theme-ui';
 import Styled from './style';
 
 const ThemeSwitchButton: React.FunctionComponent = () => {
-  // const { isDarkMode, toggle } = useTheme();
   const [colorMode, setColorMode] = useColorMode();
 
   const isDarkMode = colorMode === 'dark';
