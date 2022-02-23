@@ -1,5 +1,7 @@
 import React from 'react';
 import { useColorMode } from 'theme-ui';
+import MoonIcon from '@icons/moon.svg';
+import SunIcon from '@icons/sun.svg';
 import Styled from './style';
 
 const ThemeSwitchButton: React.FunctionComponent = () => {
@@ -13,8 +15,12 @@ const ThemeSwitchButton: React.FunctionComponent = () => {
 
   return (
     <Styled.Button type="button" onClick={handleButtonClick} aria-label="switch theme">
-      <Styled.SunIcon $isVisible={!isDarkMode} />
-      <Styled.MoonIcon $isVisible={isDarkMode} />
+      <Styled.IconContainer isVisible={!isDarkMode}>
+        <SunIcon />
+      </Styled.IconContainer>
+      <Styled.IconContainer isVisible={isDarkMode} isAbsolute>
+        <MoonIcon />
+      </Styled.IconContainer>
     </Styled.Button>
   );
 };

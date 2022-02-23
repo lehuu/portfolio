@@ -1,27 +1,28 @@
-import styled from '@emotion/styled';
 import { css } from '@emotion/react';
+import styled from '@emotion/styled';
 import { mixinTransition } from '@styles';
-import Moon from '@icons/moon.svg';
-import Sun from '@icons/sun.svg';
 
 interface IconProps {
-  readonly $isVisible: boolean;
+  readonly isVisible: boolean;
+  readonly isAbsolute?: boolean;
 }
 
-const commonIconStyle = ({ $isVisible }: IconProps) => css`
-  visibility: ${$isVisible ? 'visible' : 'hidden'};
-  opacity: ${$isVisible ? 1 : 0};
-  transform: ${$isVisible ? 'rotateZ(0deg)' : 'rotateZ(-360deg)'};
+const IconContainer = styled.div<IconProps>`
+  visibility: ${(props) => (props.isVisible ? 'visible' : 'hidden')};
+  opacity: ${(props) => (props.isVisible ? 1 : 0)};
+  transform: ${(props) => (props.isVisible ? 'rotateZ(0deg)' : 'rotateZ(-360deg)')};
+  ${(props) =>
+    props.isAbsolute &&
+    css`
+      position: absolute;
+      top: ${props.theme.space.s};
+    `}
+  line-height: 0;
   ${mixinTransition('all')}
-`;
-
-const MoonIcon = styled(Moon)<IconProps>`
-  ${(props) => commonIconStyle(props)}
-`;
-
-const SunIcon = styled(Sun)`
-  position: absolute;
-  ${(props) => commonIconStyle(props)}
+  svg {
+    height: ${({ theme }) => theme.fontSizes.l};
+    color: ${({ theme }) => theme.colors.themeSwitcher.iconColor};
+  }
 `;
 
 const Button = styled.button`
@@ -32,10 +33,6 @@ const Button = styled.button`
   padding: ${({ theme }) => theme.space.s};
   background: ${({ theme }) => theme.colors.themeSwitcher.backgroundColor};
   border-radius: ${({ theme }) => theme.radii.regular};
-  svg {
-    height: ${({ theme }) => theme.fontSizes.l};
-    color: ${({ theme }) => theme.colors.themeSwitcher.iconColor};
-  }
 
   :hover {
     cursor: pointer;
@@ -43,4 +40,4 @@ const Button = styled.button`
   }
 `;
 
-export default { Button, MoonIcon, SunIcon };
+export default { Button, IconContainer };

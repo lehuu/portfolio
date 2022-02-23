@@ -33,7 +33,7 @@ const WidthContainer = styled.div`
     > *:last-child {
       text-align: end;
     }
-    > *:first-child {
+    > *:first-of-type {
       text-align: left;
     }
   }

@@ -9,6 +9,9 @@ const metadata = {
 };
 
 module.exports = {
+  flags: {
+    DEV_SSR: true,
+  },
   siteMetadata: {
     ...metadata,
   },
