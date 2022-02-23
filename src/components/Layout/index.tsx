@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { Helmet } from 'react-helmet';
-import ThemeProvider from '@components/ThemeProvider';
 import { GlobalStyle } from '@styles';
 import { useSiteMetadata } from '@hooks';
 import Footer from './partials/Footer';
@@ -15,7 +14,7 @@ const Layout: React.FunctionComponent<LayoutProps> = ({ additionalTitle, childre
   const { title, lang, siteUrl, description } = useSiteMetadata();
 
   return (
-    <ThemeProvider>
+    <>
       <GlobalStyle />
       <Helmet>
         <title>
@@ -31,7 +30,7 @@ const Layout: React.FunctionComponent<LayoutProps> = ({ additionalTitle, childre
         <Styled.Main>{children}</Styled.Main>
         <Footer />
       </Styled.FlexContainer>
-    </ThemeProvider>
+    </>
   );
 };
 
