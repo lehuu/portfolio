@@ -10,11 +10,14 @@ const theme = makeTheme({
   },
   colors: {
     text: 'hsla(0, 0%, 0%, 0.65)',
+    textStrong: 'hsla(0, 0%, 0%, 1)',
     background: '#FAFAFA',
+    accent: '#3997F7',
 
     modes: {
       dark: {
         text: 'hsla(0, 0%, 100%, 0.75)',
+        textStrong: 'hsla(0, 0%, 100%, 1)',
         background: '#1D1D1F',
       },
     },
@@ -25,7 +28,7 @@ const theme = makeTheme({
   },
   fontWeights: {
     regular: 400,
-    bold: 600,
+    bold: 700,
   },
   fontSizes: {
     xs: '14px',
