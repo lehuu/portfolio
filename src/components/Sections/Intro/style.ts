@@ -14,7 +14,7 @@ const Container = styled.section`
 const ImageContainer = styled.div`
   position: relative;
   z-index: -10;
-  margin-bottom: ${({ theme }) => theme.space.xxl};
+  margin-bottom: ${({ theme }) => theme.space.xl};
   user-select: none;
 `;
 
@@ -113,13 +113,11 @@ const TextContainer = styled.div`
     font-size: clamp(40px, 8vw, 60px);
     text-align: center;
     color: ${({ theme }) => theme.colors.textStrong};
-    margin-bottom: ${({ theme }) => theme.space.m};
     ${mixinTransition('color')}
   }
 
   h2 {
     font-size: clamp(40px, 8vw, 60px);
-    margin-bottom: ${({ theme }) => theme.space.xl};
     text-align: center;
   }
 
