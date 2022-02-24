@@ -9,6 +9,6 @@ links: [
  ]
 ---
 # Phuoc Le
-## I create things for the digital world
-I’m a Software Engineer from the south of Germany specializing in building digital products and experiences.
-Currently, I’m helping build the customer portal at [Gebrüder Weiß](https://www.gw-world.com/).
+## Software Engineer
+I’m from the south of Germany with a passion for building digital products and experiences.
+Currently, I’m focused on building the online presence of [Gebrüder Weiß](https://www.gw-world.com/).
