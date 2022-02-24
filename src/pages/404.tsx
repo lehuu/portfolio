@@ -9,6 +9,7 @@ const Header = styled.h1`
   text-align: center;
   display: block;
   font-size: clamp(2rem, 40vw, 10rem);
+  line-height: normal;
   @media ${breakpoints.mobileL} {
     font-size: 10rem;
   }
@@ -20,7 +21,7 @@ const SubHeader = styled.h2`
   @media ${breakpoints.mobileL} {
     font-size: 3rem;
   }
-  margin-bottom: ${({ theme }) => theme.space.xxxl};
+  margin-bottom: ${({ theme }) => theme.space.xxl};
 `;
 const StyledLink = styled(Link)`
   color: ${({ theme }) => theme.colors.accent};

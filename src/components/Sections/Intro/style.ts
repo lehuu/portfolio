@@ -3,6 +3,7 @@ import { css, keyframes } from '@emotion/react';
 import { mixinTransition, breakpoints } from '@styles';
 
 const Container = styled.section`
+  margin-top: ${({ theme }) => theme.space.l};
   display: flex;
   gap: ${({ theme }) => theme.space.m};
   flex-direction: column;
@@ -14,7 +15,7 @@ const Container = styled.section`
 const ImageContainer = styled.div`
   position: relative;
   z-index: -10;
-  margin-bottom: ${({ theme }) => theme.space.xxl};
+  margin-bottom: ${({ theme }) => theme.space.xl};
   user-select: none;
 `;
 
@@ -110,16 +111,14 @@ const ProfilePicture = styled.div<ProfilePictureProps>`
 
 const TextContainer = styled.div`
   h1 {
-    font-size: clamp(40px, 8vw, 60px);
+    font-size: clamp(25px, 6vw, 40px);
     text-align: center;
     color: ${({ theme }) => theme.colors.textStrong};
-    margin-bottom: ${({ theme }) => theme.space.m};
     ${mixinTransition('color')}
   }
 
   h2 {
-    font-size: clamp(40px, 8vw, 60px);
-    margin-bottom: ${({ theme }) => theme.space.xl};
+    font-size: clamp(35px, 7vw, 50px);
     text-align: center;
   }
 
