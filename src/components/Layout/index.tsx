@@ -1,8 +1,7 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { GlobalStyle, THEME_TRANSITION_TIME, THEME_TRANSITION_VAR } from '@styles';
 import { useSiteMetadata } from '@hooks';
-import { useColorMode } from 'theme-ui';
 import Footer from './partials/Footer';
 import Header from './partials/Header';
 import Styled from './style';
@@ -13,10 +12,11 @@ interface LayoutProps {
 
 const Layout: React.FunctionComponent<LayoutProps> = ({ additionalTitle, children }) => {
   const { title, lang, siteUrl, description } = useSiteMetadata();
-  const [colorMode] = useColorMode();
+  const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
     document.documentElement.style.setProperty(THEME_TRANSITION_VAR, THEME_TRANSITION_TIME);
+    setIsClient(true);
   }, []);
 
   return (
@@ -31,13 +31,11 @@ const Layout: React.FunctionComponent<LayoutProps> = ({ additionalTitle, childre
         <link rel="canonical" href={siteUrl} />
         <meta name="description" content={description} />
       </Helmet>
-      {colorMode && (
-        <Styled.FlexContainer>
-          <Header />
-          <Styled.Main>{children}</Styled.Main>
-          <Footer />
-        </Styled.FlexContainer>
-      )}
+      <Styled.FlexContainer key={String(isClient)}>
+        <Header />
+        <Styled.Main>{children}</Styled.Main>
+        <Footer />
+      </Styled.FlexContainer>
     </>
   );
 };

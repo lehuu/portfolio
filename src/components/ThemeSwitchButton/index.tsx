@@ -15,12 +15,16 @@ const ThemeSwitchButton: React.FunctionComponent = () => {
 
   return (
     <Styled.Button type="button" onClick={handleButtonClick} aria-label="switch theme">
-      <Styled.IconContainer isVisible={!isDarkMode}>
-        <SunIcon />
-      </Styled.IconContainer>
-      <Styled.IconContainer isVisible={isDarkMode} isAbsolute>
-        <MoonIcon />
-      </Styled.IconContainer>
+      {colorMode ? (
+        <>
+          <Styled.IconContainer isVisible={!isDarkMode}>
+            <SunIcon />
+          </Styled.IconContainer>
+          <Styled.IconContainer isVisible={isDarkMode}>
+            <MoonIcon />
+          </Styled.IconContainer>
+        </>
+      ) : null}
     </Styled.Button>
   );
 };

@@ -86,6 +86,7 @@ const ProfilePicture = styled.div<ProfilePictureProps>`
   border-radius: 50%;
   overflow: hidden;
   width: clamp(100px, 60vw, 400px);
+  height: clamp(100px, 60vw, 400px);
   max-height: 40vh;
   max-width: 40vh;
   visibility: ${({ isVisible }) => (isVisible ? 'visible' : 'hidden')};
