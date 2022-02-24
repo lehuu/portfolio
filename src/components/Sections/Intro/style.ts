@@ -111,14 +111,14 @@ const ProfilePicture = styled.div<ProfilePictureProps>`
 
 const TextContainer = styled.div`
   h1 {
-    font-size: clamp(40px, 8vw, 60px);
+    font-size: clamp(25px, 6vw, 40px);
     text-align: center;
     color: ${({ theme }) => theme.colors.textStrong};
     ${mixinTransition('color')}
   }
 
   h2 {
-    font-size: clamp(40px, 8vw, 60px);
+    font-size: clamp(35px, 7vw, 50px);
     text-align: center;
   }
 
