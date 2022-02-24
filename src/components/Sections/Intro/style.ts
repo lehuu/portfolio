@@ -3,6 +3,7 @@ import { css, keyframes } from '@emotion/react';
 import { mixinTransition, breakpoints } from '@styles';
 
 const Container = styled.section`
+  margin-top: ${({ theme }) => theme.space.l};
   display: flex;
   gap: ${({ theme }) => theme.space.m};
   flex-direction: column;
