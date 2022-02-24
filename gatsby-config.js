@@ -9,16 +9,20 @@ const metadata = {
 };
 
 module.exports = {
+  flags: {
+    DEV_SSR: true,
+  },
   siteMetadata: {
     ...metadata,
   },
   plugins: [
     ...productionPlugins,
-    'gatsby-plugin-styled-components',
     'gatsby-plugin-catch-links',
     'gatsby-plugin-typescript',
     'gatsby-plugin-image',
     'gatsby-plugin-sharp',
+    'gatsby-plugin-theme-ui',
+    'gatsby-plugin-emotion',
     'gatsby-plugin-react-helmet',
     {
       resolve: 'gatsby-plugin-htaccess',

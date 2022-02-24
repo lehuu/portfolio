@@ -1,11 +1,11 @@
-import * as React from 'react';
+import React from 'react';
 import { Link } from 'gatsby';
 import { Layout } from '@components';
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 import { breakpoints } from '@styles';
 
 const Header = styled.h1`
-  color: ${({ theme }) => theme.font.color.highlight};
+  color: ${({ theme }) => theme.colors.accent};
   text-align: center;
   display: block;
   font-size: clamp(2rem, 40vw, 10rem);
@@ -20,10 +20,10 @@ const SubHeader = styled.h2`
   @media ${breakpoints.mobileL} {
     font-size: 3rem;
   }
-  margin-bottom: ${({ theme }) => theme.gaps.xxxl};
+  margin-bottom: ${({ theme }) => theme.space.xxxl};
 `;
 const StyledLink = styled(Link)`
-  color: ${({ theme }) => theme.font.color.highlight};
+  color: ${({ theme }) => theme.colors.accent};
   text-align: center;
   text-decoration: none;
   display: block;

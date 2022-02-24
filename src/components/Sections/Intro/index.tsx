@@ -2,7 +2,7 @@
 import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
-import { useTheme } from '@hooks';
+import { useColorMode } from 'theme-ui';
 import IconLink from '../../IconLink';
 import Styled from './style';
 
@@ -35,7 +35,8 @@ const INTRO_QUERY = graphql`
 
 const Intro: React.FunctionComponent = () => {
   const { markdownRemark } = useStaticQuery(INTRO_QUERY);
-  const { isDarkMode } = useTheme();
+  const [colorMode] = useColorMode();
+  const isDarkMode = colorMode === 'dark';
 
   const { frontmatter } = markdownRemark;
 
@@ -47,10 +48,10 @@ const Intro: React.FunctionComponent = () => {
       <Styled.ImageContainer>
         <Styled.ImageColorBlur />
         <Styled.ImageColorWrapper />
-        <Styled.ProfilePicture $isVisible={!isDarkMode}>
+        <Styled.ProfilePicture isVisible={!isDarkMode}>
           <GatsbyImage image={lightImage} alt="porrait" />
         </Styled.ProfilePicture>
-        <Styled.ProfilePicture $isAbsolute $isVisible={isDarkMode}>
+        <Styled.ProfilePicture isAbsolute isVisible={isDarkMode}>
           <GatsbyImage image={darkImage} alt="porrait" />
         </Styled.ProfilePicture>
       </Styled.ImageContainer>

@@ -1,19 +1,20 @@
-import styled, { css, keyframes } from 'styled-components';
+import styled from '@emotion/styled';
+import { css, keyframes } from '@emotion/react';
 import { mixinTransition, breakpoints } from '@styles';
 
 const Container = styled.section`
   display: flex;
-  gap: ${({ theme }) => theme.gaps.m};
+  gap: ${({ theme }) => theme.space.m};
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  /* min-height: calc(100vh - ${({ theme }) => theme.gaps.m} * 10); */
+  /* min-height: calc(100vh - ${({ theme }) => theme.space.m} * 10); */
 `;
 
 const ImageContainer = styled.div`
   position: relative;
   z-index: -10;
-  margin-bottom: ${({ theme }) => theme.gaps.xxl};
+  margin-bottom: ${({ theme }) => theme.space.xxl};
   user-select: none;
 `;
 
@@ -77,8 +78,8 @@ const ImageColorBlur = styled.div`
 `;
 
 interface ProfilePictureProps {
-  $isAbsolute?: boolean;
-  $isVisible?: boolean;
+  isAbsolute?: boolean;
+  isVisible?: boolean;
 }
 
 const ProfilePicture = styled.div<ProfilePictureProps>`
@@ -87,15 +88,15 @@ const ProfilePicture = styled.div<ProfilePictureProps>`
   width: clamp(100px, 60vw, 400px);
   max-height: 40vh;
   max-width: 40vh;
-  visibility: ${({ $isVisible }) => ($isVisible ? 'visible' : 'hidden')};
-  opacity: ${({ $isVisible }) => ($isVisible ? 1 : 0)};
+  visibility: ${({ isVisible }) => (isVisible ? 'visible' : 'hidden')};
+  opacity: ${({ isVisible }) => (isVisible ? 1 : 0)};
   // Workaround for Safari overflow
   mask-image: radial-gradient(white, black);
 
   ${mixinTransition('visibility', 'opacity')}
 
   ${(props) =>
-    props.$isAbsolute
+    props.isAbsolute
       ? css`
           position: absolute;
           left: 0;
@@ -110,24 +111,24 @@ const TextContainer = styled.div`
   h1 {
     font-size: clamp(40px, 8vw, 60px);
     text-align: center;
-    color: ${({ theme }) => theme.font.color.strong};
-    margin-bottom: ${({ theme }) => theme.gaps.m};
+    color: ${({ theme }) => theme.colors.textStrong};
+    margin-bottom: ${({ theme }) => theme.space.m};
     ${mixinTransition('color')}
   }
 
   h2 {
     font-size: clamp(40px, 8vw, 60px);
-    margin-bottom: ${({ theme }) => theme.gaps.xl};
+    margin-bottom: ${({ theme }) => theme.space.xl};
     text-align: center;
   }
 
   p {
     text-align: center;
-    margin: ${({ theme }) => theme.gaps.m} 0;
+    margin: ${({ theme }) => theme.space.m} 0;
     white-space: pre-wrap;
 
     a {
-      color: ${({ theme }) => theme.font.color.highlight};
+      color: ${({ theme }) => theme.colors.accent};
       text-decoration: none;
 
       &:hover {
@@ -139,7 +140,7 @@ const TextContainer = styled.div`
 
 const LinkContainer = styled.div`
   display: flex;
-  gap: ${({ theme }) => theme.gaps.xl};
+  gap: ${({ theme }) => theme.space.xl};
   flex-wrap: wrap;
   justify-content: center;
 `;
