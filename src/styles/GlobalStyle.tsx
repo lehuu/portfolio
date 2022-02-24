@@ -115,7 +115,7 @@ const reset = css`
     display: none;
   }
   body {
-    line-height: 1;
+    line-height: 1.25;
   }
   menu,
   ol,

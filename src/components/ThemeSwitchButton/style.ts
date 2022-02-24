@@ -1,3 +1,4 @@
+import { css, keyframes } from '@emotion/react';
 import styled from '@emotion/styled';
 import { mixinTransition } from '@styles';
 
@@ -5,13 +6,34 @@ interface IconProps {
   readonly isVisible: boolean;
 }
 
+const rotateIn = keyframes`
+  0% {
+    visibility: hidden;
+    opacity: 0;
+    transform: rotateZ(0deg);
+    scale: 0.2;
+  }
+  100% {
+    visibility: visible;
+    opacity: 1;
+    transform: rotateZ(-360deg);
+    scale: 1;
+  }
+`;
+
 const IconContainer = styled.div<IconProps>`
   visibility: ${(props) => (props.isVisible ? 'visible' : 'hidden')};
   opacity: ${(props) => (props.isVisible ? 1 : 0)};
   transform: ${(props) => (props.isVisible ? 'rotateZ(0deg)' : 'rotateZ(-360deg)')};
+  scale: ${(props) => (props.isVisible ? 1 : 0.2)};
   position: absolute;
   top: ${({ theme }) => theme.space.s};
   line-height: 0;
+  ${(props) =>
+    props.isVisible &&
+    css`
+      animation: 0.25s linear 0s 1 ${rotateIn};
+    `};
   ${mixinTransition('all')}
   svg {
     height: ${({ theme }) => theme.fontSizes.l};
