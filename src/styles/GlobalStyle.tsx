@@ -1,6 +1,6 @@
 import React from 'react';
 import { Global, css } from '@emotion/react';
-import mixinTransition from './mixin-transition';
+import mixinTransition, { THEME_TRANSITION_VAR } from './mixin-transition';
 
 const reset = css`
   /* http://meyerweb.com/eric/tools/css/reset/
@@ -154,6 +154,11 @@ const GlobalStyle = () => (
       html {
         height: 100%;
         ${mixinTransition('color', 'background-color')};
+      }
+
+      :root {
+        // initially set to zero so to first render does not flash from white to black for dark mode
+        ${THEME_TRANSITION_VAR}: 0s;
       }
 
       body,

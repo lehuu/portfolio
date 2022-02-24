@@ -1,7 +1,10 @@
 import { css } from '@emotion/react';
 
+export const THEME_TRANSITION_VAR = '--theme-transition-time';
+export const THEME_TRANSITION_TIME = '0.25s';
+
 const mixinTransition = (...properties: string[]) => css`
-  transition: ${properties.map((prop) => `${prop} 0.25s linear`).join(', ')};
+  transition: ${properties.map((prop) => `${prop} var(${THEME_TRANSITION_VAR}) linear`).join(', ')};
 `;
 
 export default mixinTransition;
