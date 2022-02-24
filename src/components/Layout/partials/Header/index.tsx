@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { useSiteMetadata } from '@hooks';
 import { graphql, useStaticQuery } from 'gatsby';
 import ThemeSwitchButton from '../../../ThemeSwitchButton';

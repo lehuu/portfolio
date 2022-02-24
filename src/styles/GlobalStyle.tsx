@@ -1,8 +1,6 @@
-import { createGlobalStyle, css } from 'styled-components';
-import mixinTransition from './mixin-transition';
-
-// Workaround to get prettier working properly
-const styled = { createGlobalStyle };
+import React from 'react';
+import { Global, css } from '@emotion/react';
+import mixinTransition, { THEME_TRANSITION_VAR } from './mixin-transition';
 
 const reset = css`
   /* http://meyerweb.com/eric/tools/css/reset/
@@ -95,8 +93,6 @@ const reset = css`
     margin: 0;
     padding: 0;
     border: 0;
-    font-size: 100%;
-    font: inherit;
     vertical-align: baseline;
   }
   /* HTML5 display-role reset for older browsers */
@@ -146,30 +142,32 @@ const reset = css`
     box-shadow: none;
     border: none;
   }
-`;
-
-const GlobalStyle = styled.createGlobalStyle`
-  ${reset}
-  html {
-    height: 100%;
-    font-family: Inter, sans-serif;
-    font-size: ${({ theme }) => theme.font.size.m};
-    background-color: ${({ theme }) => theme.backgroundColor};
-    color: ${({ theme }) => theme.font.color.regular};
-    ${mixinTransition('color', 'background-color')}
-  }
-
-  h1,
-  h2,
-  h3 {
-    font-weight: 600;
-  }
-
-  body,
-  #gatsby-focus-wrapper,
-  #___gatsby {
-    height: 100%;
+  * {
+    box-sizing: border-box;
   }
 `;
+
+const GlobalStyle = () => (
+  <Global
+    styles={css`
+      ${reset}
+      html {
+        height: 100%;
+        ${mixinTransition('color', 'background-color')};
+      }
+
+      :root {
+        // initially set to zero so to first render does not flash from white to black for dark mode
+        ${THEME_TRANSITION_VAR}: 0s;
+      }
+
+      body,
+      #gatsby-focus-wrapper,
+      #___gatsby {
+        height: 100%;
+      }
+    `}
+  />
+);
 
 export default GlobalStyle;

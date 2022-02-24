@@ -1,7 +1,8 @@
 import { Link } from 'gatsby';
-import styled, { css } from 'styled-components';
+import styled from '@emotion/styled';
+import { css, Theme } from '@emotion/react';
 
-const commonStyle = css`
+const commonStyle = (theme: Theme) => css`
   text-decoration: none;
   color: inherit;
   position: relative;
@@ -10,12 +11,12 @@ const commonStyle = css`
     &::before {
       z-index: -1;
       width: 100%;
-      background: ${({ theme }) => theme.border.hoverfill};
+      background: ${theme.colors.hoverBg};
       position: absolute;
-      border-radius: ${({ theme }) => theme.border.radius};
-      padding: ${({ theme }) => `${theme.gaps.s} ${theme.gaps.m}`};
-      top: -${({ theme }) => theme.gaps.s};
-      left: -${({ theme }) => theme.gaps.m};
+      border-radius: ${theme.radii.regular};
+      padding: ${`${theme.space.s} ${theme.space.m}`};
+      top: -${theme.space.s};
+      left: -${theme.space.m};
       width: 100%;
       height: 100%;
       content: '';
@@ -24,9 +25,9 @@ const commonStyle = css`
 `;
 
 export const StyledInternalLink = styled(Link)`
-  ${commonStyle}
+  ${(props) => commonStyle(props.theme)}
 `;
 
 export const StyledExternalLink = styled.a`
-  ${commonStyle}
+  ${(props) => commonStyle(props.theme)}
 `;
