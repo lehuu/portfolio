@@ -1,22 +1,16 @@
-import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 import { mixinTransition } from '@styles';
 
 interface IconProps {
   readonly isVisible: boolean;
-  readonly isAbsolute?: boolean;
 }
 
 const IconContainer = styled.div<IconProps>`
   visibility: ${(props) => (props.isVisible ? 'visible' : 'hidden')};
   opacity: ${(props) => (props.isVisible ? 1 : 0)};
   transform: ${(props) => (props.isVisible ? 'rotateZ(0deg)' : 'rotateZ(-360deg)')};
-  ${(props) =>
-    props.isAbsolute &&
-    css`
-      position: absolute;
-      top: ${props.theme.space.s};
-    `}
+  position: absolute;
+  top: ${({ theme }) => theme.space.s};
   line-height: 0;
   ${mixinTransition('all')}
   svg {
@@ -29,7 +23,9 @@ const Button = styled.button`
   position: absolute;
   right: ${({ theme }) => theme.space.l};
   top: calc(100% + ${({ theme }) => theme.space.m});
-
+  height: ${({ theme }) => theme.fontSizes.l};
+  width: ${({ theme }) => theme.fontSizes.l};
+  box-sizing: content-box;
   padding: ${({ theme }) => theme.space.s};
   background: ${({ theme }) => theme.colors.themeSwitcher.backgroundColor};
   border-radius: ${({ theme }) => theme.radii.regular};

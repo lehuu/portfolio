@@ -49,10 +49,10 @@ const Intro: React.FunctionComponent = () => {
         <Styled.ImageColorBlur />
         <Styled.ImageColorWrapper />
         <Styled.ProfilePicture isVisible={!isDarkMode}>
-          <GatsbyImage image={lightImage} alt="porrait" />
+          {colorMode && <GatsbyImage image={lightImage} alt="porrait" />}
         </Styled.ProfilePicture>
         <Styled.ProfilePicture isAbsolute isVisible={isDarkMode}>
-          <GatsbyImage image={darkImage} alt="porrait" />
+          {colorMode && <GatsbyImage image={darkImage} alt="porrait" />}
         </Styled.ProfilePicture>
       </Styled.ImageContainer>
 
