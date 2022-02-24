@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { Layout } from '@components';
 import styled from '@emotion/styled';
 import { contentWidth, mixinTransition } from '@styles';
