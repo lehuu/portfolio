@@ -1,9 +1,10 @@
 import React from 'react';
-import { IntroSection, Layout } from '@components';
+import { IntroSection, Layout, AboutSection } from '@components';
 
 const IndexPage = () => (
   <Layout>
     <IntroSection />
+    <AboutSection />
   </Layout>
 );
 
