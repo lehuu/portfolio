@@ -7,7 +7,8 @@ const commonStyle = (theme: Theme) => css`
   color: inherit;
   position: relative;
 
-  &:hover {
+  &:hover,
+  &:active {
     &::before {
       z-index: -1;
       width: 100%;
