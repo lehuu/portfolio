@@ -52,7 +52,8 @@ const Button = styled.button`
   background: ${({ theme }) => theme.colors.themeSwitcher.backgroundColor};
   border-radius: ${({ theme }) => theme.radii.regular};
 
-  :hover {
+  :hover,
+  :active {
     cursor: pointer;
     background: ${({ theme }) => theme.colors.themeSwitcher.hoverBgColor};
   }
