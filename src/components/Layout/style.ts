@@ -9,6 +9,9 @@ const Main = styled.main`
   box-sizing: border-box;
   display: grid;
   align-items: center;
+  > section:not(:first-child) {
+    margin: ${({ theme }) => `${theme.space.section} 0`};
+  }
 `;
 
 const FlexContainer = styled.div`

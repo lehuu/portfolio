@@ -131,7 +131,8 @@ const TextContainer = styled.div`
       color: ${({ theme }) => theme.colors.accent};
       text-decoration: none;
 
-      &:hover {
+      &:hover,
+      &:active {
         text-decoration: underline;
       }
     }

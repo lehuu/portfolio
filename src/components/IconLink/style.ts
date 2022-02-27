@@ -11,7 +11,8 @@ const commonIconStyle = (theme: Theme) => css`
   height: ${theme.fontSizes.xl};
   cursor: pointer;
 
-  &:hover {
+  &:hover,
+  &:active {
     color: ${theme.colors.accent};
   }
 `;

@@ -19,7 +19,8 @@ const Container = styled.section`
     color: ${({ theme }) => theme.colors.accent};
     text-decoration: none;
 
-    &:hover {
+    &:hover,
+    &:active {
       text-decoration: underline;
     }
   }
