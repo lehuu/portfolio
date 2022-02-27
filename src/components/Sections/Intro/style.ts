@@ -9,7 +9,7 @@ const Container = styled.section`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  /* min-height: calc(100vh - ${({ theme }) => theme.space.m} * 10); */
+  min-height: calc(100vh - ${({ theme }) => theme.space.xl} * 4);
 `;
 
 const ImageContainer = styled.div`
