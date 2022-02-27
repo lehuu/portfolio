@@ -43,7 +43,8 @@ const commonLinkStyle = css`
   color: inherit;
   text-decoration: none;
 
-  &:hover {
+  &:hover,
+  &:active {
     text-decoration: underline;
   }
 `;
