@@ -6,7 +6,7 @@ const Header = styled.header`
   position: sticky;
   top: 0;
   width: 100%;
-  border-bottom: 1px solid ${({ theme }) => theme.borders.bold};
+  border-bottom: 1px solid ${({ theme }) => theme.borders.regular};
   display: flex;
   justify-content: center;
 

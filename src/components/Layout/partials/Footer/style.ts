@@ -9,7 +9,7 @@ const Footer = styled.footer`
   display: flex;
   justify-content: center;
   padding: ${({ theme }) => `${theme.space.none} ${theme.space.l} ${theme.space.s}`};
-  border-top: 1px solid ${({ theme }) => theme.borders.bold};
+  border-top: 1px solid ${({ theme }) => theme.borders.regular};
   font-size: ${({ theme }) => theme.fontSizes.xs};
 `;
 
