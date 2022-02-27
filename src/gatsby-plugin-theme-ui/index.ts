@@ -3,7 +3,16 @@ import { Theme } from 'theme-ui';
 const makeTheme = <T extends Theme>(t: T) => t;
 
 const theme = makeTheme({
-  space: { none: 0, s: '8px', m: '16px', l: '24px', xl: '30px', xxl: '45px', xxxl: '60px' },
+  space: {
+    none: 0,
+    s: '8px',
+    m: '16px',
+    l: '24px',
+    xl: '30px',
+    xxl: '45px',
+    xxxl: '60px',
+    section: '100px',
+  },
   borders: {
     bold: 'hsla(0, 0%, 78%, 1)',
     regular: 'hsla(0, 0%, 78%, 0.5)',
