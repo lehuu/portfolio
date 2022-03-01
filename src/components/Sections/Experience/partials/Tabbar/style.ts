@@ -3,6 +3,8 @@ import styled from '@emotion/styled';
 
 const Container = styled.div`
   position: relative;
+  width: calc(100% + ${({ theme }) => theme.space.xl});
+  margin: 0 calc(-${({ theme }) => theme.space.xl} / 2); ;
 `;
 
 const TabContainer = styled.div`
@@ -45,6 +47,13 @@ const ScrollButton = styled.button<ScrollButtonProps>`
 
   > * {
     height: ${({ theme }) => theme.fontSizes.s};
+  }
+
+  &:disabled {
+    opacity: 0.25;
+    &:hover {
+      cursor: not-allowed;
+    }
   }
 
   &:hover {
