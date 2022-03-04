@@ -4,7 +4,7 @@ import styled from '@emotion/styled';
 const Container = styled.div`
   position: relative;
   width: calc(100% + ${({ theme }) => theme.space.xl});
-  margin: 0 calc(-${({ theme }) => theme.space.xl} / 2); ;
+  margin: 0 calc(-${({ theme }) => theme.space.xl} / 2) ${({ theme }) => theme.space.m};
 `;
 
 const TabContainer = styled.div`

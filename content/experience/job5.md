@@ -1,9 +1,9 @@
 ---
-date: '2015-12-21'
+startDate: '2017-12-21'
+endDate: '2017-12-21'
 title: 'UI Engineer Co-op'
-company: 'Applefqweqwe3'
+company: 'Apple5'
 location: 'Cupertino, CA'
-range: 'July - December 2017'
 url: 'https://www.apple.com/music/'
 ---
 
