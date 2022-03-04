@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import SectionHeader from '@components/SectionHeader';
 import { graphql, useStaticQuery } from 'gatsby';
-import { Tabbar } from './partials';
+import { Tabbar, TabContent } from './partials';
 import Styled from './style';
 
 const CONTACT_QUERY = graphql`
   {
     jobs: allMarkdownRemark(
       filter: { fileAbsolutePath: { regex: "/content/experience/" } }
-      sort: { fields: [frontmatter___date], order: DESC }
+      sort: { fields: [frontmatter___endDate], order: DESC }
     ) {
       edges {
         node {
@@ -16,8 +16,9 @@ const CONTACT_QUERY = graphql`
             title
             company
             location
-            range
             url
+            startDate
+            endDate
           }
           html
         }
@@ -30,7 +31,10 @@ const Contact: React.FunctionComponent = () => {
   const { jobs } = useStaticQuery(CONTACT_QUERY);
   const [selectedTab, setSelectedTab] = useState(0);
 
-  const content = jobs.edges.map((edge) => ({ ...edge.node.frontmatter, tasks: edge.node.html }));
+  const content = jobs.edges.map((edge) => ({
+    ...edge.node.frontmatter,
+    tasksHTML: edge.node.html,
+  }));
 
   return (
     <section>
@@ -40,6 +44,7 @@ const Contact: React.FunctionComponent = () => {
         selectedTab={selectedTab}
         onChange={setSelectedTab}
       />
+      <TabContent {...content[selectedTab]} />
     </section>
   );
 };
