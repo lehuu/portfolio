@@ -14,7 +14,7 @@ const Header = styled.header`
     background-color: ${({ theme }) => theme.colors.background};
     ${mixinTransition('background-color')}
     content: '';
-    opacity: 0.75;
+    opacity: 0.95;
     position: absolute;
     left: 0;
     right: 0;
