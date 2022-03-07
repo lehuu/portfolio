@@ -36,6 +36,11 @@ const Contact: React.FunctionComponent = () => {
     tasksHTML: edge.node.html,
   }));
 
+  const selectedContent = content[selectedTab];
+
+  const startDate = new Date(selectedContent.startDate);
+  const endDate = selectedContent.endDate === 'now' ? 'now' : new Date(selectedContent.endDate);
+
   return (
     <section>
       <SectionHeader title="Experience" />
@@ -45,7 +50,7 @@ const Contact: React.FunctionComponent = () => {
           selectedTab={selectedTab}
           onChange={setSelectedTab}
         />
-        <TabContent {...content[selectedTab]} />
+        <TabContent {...selectedContent} startDate={startDate} endDate={endDate} />
       </Styled.TabView>
     </section>
   );
