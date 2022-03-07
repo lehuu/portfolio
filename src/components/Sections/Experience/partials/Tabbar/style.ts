@@ -1,16 +1,22 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
+import { mixinTransition } from '@styles';
 
-const Container = styled.div`
+interface OverflowProps {
+  hasOverflow?: boolean;
+}
+
+const Container = styled.div<OverflowProps>`
   position: relative;
-  width: calc(100% + ${({ theme }) => theme.space.xl});
-  margin: 0 calc(-${({ theme }) => theme.space.xl} / 2) ${({ theme }) => theme.space.m};
+  width: calc(100% + ${({ theme, hasOverflow }) => (hasOverflow ? theme.space.xl : '0px')});
+  margin: 0 ${({ theme, hasOverflow }) => (hasOverflow ? `calc(-${theme.space.xl} / 2)` : 0)};
+  margin-bottom: ${({ theme }) => theme.space.m};
 `;
 
-const TabContainer = styled.div`
+const TabContainer = styled.div<OverflowProps>`
   display: flex;
   overflow: hidden;
-  padding: 0 40px;
+  padding: 0 ${(props) => (props.hasOverflow ? '40px' : 0)};
 `;
 
 interface ScrollButtonProps {
@@ -23,27 +29,20 @@ const ScrollButton = styled.button<ScrollButtonProps>`
   position: absolute;
   height: 42px;
   width: 40px;
-  transition: background-color 0.05s linear;
   top: 0;
 
   ${(props) =>
     props.alignment === 'start'
       ? css`
           left: 0;
-          background: linear-gradient(
-            90deg,
-            ${props.theme.colors.background} 70%,
-            rgba(0, 0, 0, 0) 100%
-          );
+          background-color: ${props.theme.colors.background};
         `
       : css`
           right: 0;
-          background: linear-gradient(
-            90deg,
-            rgba(0, 0, 0, 0) 0%,
-            ${props.theme.colors.background} 30%
-          );
+          background-color: ${props.theme.colors.background};
         `}
+
+  ${mixinTransition('background', 'color')}
 
   > * {
     height: ${({ theme }) => theme.fontSizes.s};
@@ -61,7 +60,6 @@ const ScrollButton = styled.button<ScrollButtonProps>`
   }
 
   &:active {
-    /* background-color: ${({ theme }) => theme.colors.hoverBg}; */
     color: ${({ theme }) => theme.colors.accent};
   }
 `;
