@@ -39,7 +39,7 @@ const ScrollButton = styled.button<ScrollButtonProps>`
   padding: 0;
   color: ${({ theme }) => theme.colors.textStrong};
   position: absolute;
-  height: 42px;
+  height: 44px;
   width: 40px;
   top: 0;
 
@@ -86,30 +86,42 @@ interface TabProps {
 const Tab = styled.button<TabProps>`
   font-size: inherit;
   border-radius: ${(props) => props.theme.radii.regular};
-  padding: ${(props) => props.theme.space.s};
-
-  @media ${breakpoints.tablet} {
-    text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: nowrap;
-    width: 100%;
-    text-align: start;
-  }
+  padding: ${(props) => props.theme.space.s} ${(props) => props.theme.space.m};
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  border-bottom: 2px solid;
 
   ${(props) =>
     props.isSelected
       ? css`
           color: ${props.theme.colors.accent};
           background: ${props.theme.colors.hoverBg};
+          border-color: ${props.theme.colors.accent};
         `
       : css`
           color: inherit;
+          border-color: ${props.theme.borders.regular};
         `}
 
   &:hover,
   &:active {
     cursor: pointer;
     color: ${({ theme }) => theme.colors.accent};
+  }
+
+  @media ${breakpoints.tablet} {
+    padding: ${(props) => props.theme.space.m};
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 100%;
+    text-align: start;
+    border-radius: ${(props) => props.theme.radii.regular};
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-bottom: unset;
+    border-left: 2px solid
+      ${(props) => (props.isSelected ? props.theme.colors.accent : props.theme.borders.regular)};
   }
 `;
 
