@@ -1,6 +1,6 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
-import { mixinTransition } from '@styles';
+import { mixinTransition, breakpoints } from '@styles';
 
 interface OverflowProps {
   hasOverflow?: boolean;
@@ -10,13 +10,25 @@ const Container = styled.div<OverflowProps>`
   position: relative;
   width: calc(100% + ${({ theme, hasOverflow }) => (hasOverflow ? theme.space.xl : '0px')});
   margin: 0 ${({ theme, hasOverflow }) => (hasOverflow ? `calc(-${theme.space.xl} / 2)` : 0)};
-  margin-bottom: ${({ theme }) => theme.space.m};
+  margin-bottom: ${({ theme }) => theme.space.l};
+
+  @media ${breakpoints.tablet} {
+    width: 100%;
+    margin: 0;
+    max-width: 22ch;
+    flex: 1 1 fit-content;
+  }
 `;
 
 const TabContainer = styled.div<OverflowProps>`
   display: flex;
+  align-items: start;
   overflow: hidden;
   padding: 0 ${(props) => (props.hasOverflow ? '40px' : 0)};
+  @media ${breakpoints.tablet} {
+    flex-direction: column;
+    padding: 0;
+  }
 `;
 
 interface ScrollButtonProps {
@@ -62,6 +74,10 @@ const ScrollButton = styled.button<ScrollButtonProps>`
   &:active {
     color: ${({ theme }) => theme.colors.accent};
   }
+
+  @media ${breakpoints.tablet} {
+    display: none;
+  }
 `;
 
 interface TabProps {
@@ -71,6 +87,14 @@ const Tab = styled.button<TabProps>`
   font-size: inherit;
   border-radius: ${(props) => props.theme.radii.regular};
   padding: ${(props) => props.theme.space.s};
+
+  @media ${breakpoints.tablet} {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 100%;
+    text-align: start;
+  }
 
   ${(props) =>
     props.isSelected

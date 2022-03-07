@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import SectionHeader from '@components/SectionHeader';
 import { graphql, useStaticQuery } from 'gatsby';
 import { Tabbar, TabContent } from './partials';
-// import Styled from './style';
+import Styled from './style';
 
 const CONTACT_QUERY = graphql`
   {
@@ -39,12 +39,14 @@ const Contact: React.FunctionComponent = () => {
   return (
     <section>
       <SectionHeader title="Experience" />
-      <Tabbar
-        tabs={content.map((job) => job.company)}
-        selectedTab={selectedTab}
-        onChange={setSelectedTab}
-      />
-      <TabContent {...content[selectedTab]} />
+      <Styled.TabView>
+        <Tabbar
+          tabs={content.map((job) => job.company)}
+          selectedTab={selectedTab}
+          onChange={setSelectedTab}
+        />
+        <TabContent {...content[selectedTab]} />
+      </Styled.TabView>
     </section>
   );
 };

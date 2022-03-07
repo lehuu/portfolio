@@ -1,4 +1,5 @@
 import React from 'react';
+import Styled from './style';
 
 interface TabContentProps {
   title: string;
@@ -17,7 +18,7 @@ const TabContent: React.FunctionComponent<TabContentProps> = ({
   endDate,
   tasksHTML,
 }) => (
-  <div>
+  <Styled.Container>
     <div>{title}</div>
     <div>{company}</div>
     <div>{url}</div>
@@ -25,7 +26,7 @@ const TabContent: React.FunctionComponent<TabContentProps> = ({
     <div>{endDate}</div>
     {/* eslint-disable-next-line react/no-danger */}
     <div dangerouslySetInnerHTML={{ __html: tasksHTML }} />
-  </div>
+  </Styled.Container>
 );
 
 export default TabContent;
