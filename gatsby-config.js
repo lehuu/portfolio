@@ -48,6 +48,7 @@ module.exports = {
           '@pages': './src/pages',
           '@styles': './src/styles',
           '@hooks': './src/hooks',
+          '@utils': './src/utils',
         },
         extensions: ['js', 'jsx', 'ts', 'tsx', 'md', 'mdx'],
       },

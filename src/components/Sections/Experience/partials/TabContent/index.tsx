@@ -1,4 +1,5 @@
 import React from 'react';
+import { translateMonth } from '@utils';
 import Styled from './style';
 
 interface TabContentProps {
@@ -17,16 +18,35 @@ const TabContent: React.FunctionComponent<TabContentProps> = ({
   startDate,
   endDate,
   tasksHTML,
-}) => (
-  <Styled.Container>
-    <div>{title}</div>
-    <div>{company}</div>
-    <div>{url}</div>
-    <div>{startDate}</div>
-    <div>{endDate}</div>
-    {/* eslint-disable-next-line react/no-danger */}
-    <div dangerouslySetInnerHTML={{ __html: tasksHTML }} />
-  </Styled.Container>
-);
+}) => {
+  const startDateFormatted = `${translateMonth(
+    startDate.getMonth()
+  )} ${startDate.getUTCFullYear()}`;
+  const endDateFormatted =
+    endDate === 'now'
+      ? 'Present'
+      : `${translateMonth(endDate.getMonth())} ${endDate.getUTCFullYear()}`;
+
+  return (
+    <Styled.Container>
+      <Styled.TitleContainer>
+        <b>
+          <Styled.Title>{title} </Styled.Title>
+          <Styled.Link href={url} target="_blank">
+            @&nbsp;{company}
+          </Styled.Link>
+        </b>
+      </Styled.TitleContainer>
+      <Styled.DateContainer>
+        <time dateTime={startDate.toISOString()}>{startDateFormatted}</time> -{' '}
+        <time dateTime={(endDate === 'now' ? new Date() : endDate).toISOString()}>
+          {endDateFormatted}
+        </time>
+      </Styled.DateContainer>
+      {/* eslint-disable-next-line react/no-danger */}
+      <Styled.TaskContainer dangerouslySetInnerHTML={{ __html: tasksHTML }} />
+    </Styled.Container>
+  );
+};
 
 export default TabContent;
