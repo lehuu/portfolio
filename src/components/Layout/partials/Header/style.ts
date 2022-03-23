@@ -4,6 +4,7 @@ import { StyledExternalLink, StyledInternalLink } from '@components/Link';
 
 const Header = styled.header`
   position: sticky;
+  z-index: 500;
   top: 0;
   width: 100%;
   border-bottom: 1px solid ${({ theme }) => theme.borders.regular};
@@ -14,7 +15,7 @@ const Header = styled.header`
     background-color: ${({ theme }) => theme.colors.background};
     ${mixinTransition('background-color')}
     content: '';
-    opacity: 0.75;
+    opacity: 0.95;
     position: absolute;
     left: 0;
     right: 0;

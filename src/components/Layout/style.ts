@@ -2,14 +2,12 @@ import styled from '@emotion/styled';
 import { contentWidth } from '@styles';
 
 const Main = styled.main`
-  flex: 1 0 auto;
   padding: ${({ theme }) => `${theme.space.xl} ${theme.space.l}`};
   max-width: ${contentWidth.main};
   width: 100%;
   box-sizing: border-box;
-  display: grid;
   align-items: center;
-  > section:not(:first-child) {
+  > section:not(:first-of-type) {
     margin: ${({ theme }) => `${theme.space.section} 0`};
   }
 `;
