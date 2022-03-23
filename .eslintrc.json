@@ -19,7 +19,8 @@
           ["@icons", "./src/icons"],
           ["@pages", "./src/pages"],
           ["@styles", "./src/styles"],
-          ["@hooks", "./src/hooks"]
+          ["@hooks", "./src/hooks"],
+          ["@utils", "./src/utils"]
         ],
         "extensions": [".js", ".jsx", ".ts", ".tsx"]
       }
@@ -37,6 +38,7 @@
         "tsx": "never"
       }
     ],
+    "react/jsx-props-no-spreading": 0,
     "react/function-component-definition": [
       2,
       {
