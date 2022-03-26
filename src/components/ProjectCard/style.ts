@@ -1,14 +1,10 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
-import { mixinTransition } from '@styles';
+import { mixinTransition, breakpoints } from '@styles';
 
 interface RoundedContainerProps {
   hasShadow?: boolean;
 }
-
-const CardContainer = styled.div`
-  position: relative;
-`;
 
 const RoundedContainer = styled.div<RoundedContainerProps>`
   border-radius: ${(props) => props.theme.radii.large};
@@ -19,6 +15,11 @@ const RoundedContainer = styled.div<RoundedContainerProps>`
           box-shadow: ${props.theme.shadows.box};
         `
       : ''};
+
+  @media ${breakpoints.tablet} {
+    width: 75%;
+    max-width: 500px;
+  }
 `;
 
 const ImageContainer = styled(RoundedContainer)`
@@ -40,7 +41,7 @@ const LinkContainer = styled.ul`
 const TextContainer = styled.div`
   padding: ${({ theme }) => theme.space.m};
   background-color: ${({ theme }) => theme.colors.background};
-  opacity: 0.9;
+  opacity: 0.93;
   ${mixinTransition('background-color')}
 `;
 
@@ -52,15 +53,59 @@ const ProjectTitle = styled.h4`
 `;
 
 const TechList = styled.ul`
-  margin: ${({ theme }) => theme.space.m} 0;
+  margin: ${({ theme }) => theme.space.m} 0 ${({ theme }) => theme.space.l};
   display: flex;
   flex-wrap: wrap;
+  font-size: ${({ theme }) => theme.fontSizes.s};
 
   & > *:not(:last-of-type) {
     &::after {
       opacity: 0.75;
       content: '\\2022';
       margin: 0 ${({ theme }) => theme.space.m};
+    }
+  }
+`;
+
+interface PositionProps {
+  imagePosition: 'left' | 'right';
+}
+
+const CardContainer = styled.div<PositionProps>`
+  position: relative;
+  display: flex;
+  ${({ imagePosition }) =>
+    imagePosition === 'left' &&
+    css`
+      justify-content: end;
+    `}
+
+  ${ImageContainer} {
+    @media ${breakpoints.tablet} {
+      ${({ imagePosition }) =>
+        imagePosition === 'left'
+          ? css`
+              left: 0;
+            `
+          : css`
+              right: 0;
+            `}
+
+      top: ${({ theme }) => theme.space.m};
+      height: ${({ theme }) => `calc(100% - 2 * ${theme.space.m})`};
+    }
+  }
+
+  ${TextContainer} {
+    @media ${breakpoints.tablet} {
+      ${({ theme, imagePosition }) =>
+        imagePosition === 'left'
+          ? css`
+              padding: ${theme.space.m} 0 ${theme.space.m} ${theme.space.l}};
+            `
+          : css`
+              padding: ${theme.space.m} ${theme.space.l} ${theme.space.m} 0};
+            `}
     }
   }
 `;
