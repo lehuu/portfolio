@@ -60,7 +60,7 @@ const Intro: React.FunctionComponent = () => {
       <Styled.LinkContainer>
         {frontmatter.links.map((link) => (
           <React.Fragment key={link.type}>
-            <IconLink type={link.type} link={link.link} />
+            <IconLink type={link.type} link={link.link} size="xl" />
           </React.Fragment>
         ))}
       </Styled.LinkContainer>

@@ -1,8 +1,10 @@
 import React from 'react';
+import { Theme } from '@emotion/react';
 import Styled from './style';
 
 const iconTypes = {
   github: Styled.GithubIcon,
+  githubOutline: Styled.GithubOutlineIcon,
   instagram: Styled.InstagramIcon,
   linkedin: Styled.LinkedInIcon,
   mail: Styled.MailIcon,
@@ -10,19 +12,20 @@ const iconTypes = {
 };
 
 interface IconLinkProps {
-  type: string;
+  type: keyof typeof iconTypes;
   link: string;
+  size?: keyof Theme['fontSizes'];
 }
 
-const IconLink: React.FunctionComponent<IconLinkProps> = ({ type, link }) => {
-  if (!iconTypes[type]) {
+const IconLink: React.FunctionComponent<IconLinkProps> = ({ type, link, size = 'm' }) => {
+  const Icon = iconTypes[type];
+
+  if (!Icon) {
     return null;
   }
 
-  const Icon = iconTypes[type];
-
   return (
-    <Styled.Anchor target="_blank" href={link} aria-label={type}>
+    <Styled.Anchor target="_blank" href={link} aria-label={type} size={size}>
       <Icon />
     </Styled.Anchor>
   );
