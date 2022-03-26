@@ -78,6 +78,7 @@ const Contact: React.FunctionComponent = () => {
             imagePosition="left"
             techstack={project.techstack}
             description={project.descriptionHTML}
+            links={project.links}
           />
         ))}
       </Styled.CardContainer>
