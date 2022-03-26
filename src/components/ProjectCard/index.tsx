@@ -20,7 +20,7 @@ const ProjectCard: React.FunctionComponent<ProjectCardProps> = ({
   imagePosition = 'left',
   links,
 }) => (
-  <Styled.CardContainer>
+  <Styled.CardContainer imagePosition={imagePosition}>
     <Styled.ImageContainer hasShadow>
       <Img fluid={image} alt="Project Image" />
     </Styled.ImageContainer>
@@ -39,6 +39,7 @@ const ProjectCard: React.FunctionComponent<ProjectCardProps> = ({
             <li>
               <IconLink
                 key={link.link}
+                size="l"
                 type={
                   link.type.toLocaleLowerCase() === 'github' ? 'githubOutline' : (link.type as any)
                 }

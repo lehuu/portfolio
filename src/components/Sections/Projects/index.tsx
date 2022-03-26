@@ -70,12 +70,12 @@ const Contact: React.FunctionComponent = () => {
     <section>
       <SectionHeader title="Featured Projects" />
       <Styled.CardContainer>
-        {content.map((project) => (
+        {content.map((project, index) => (
           <ProjectCard
             key={`${project.name}${project.startDate}`}
             title={project.name}
             image={project.picture.childImageSharp.fluid}
-            imagePosition="left"
+            imagePosition={index % 2 === 0 ? 'right' : 'left'}
             techstack={project.techstack}
             description={project.descriptionHTML}
             links={project.links}
