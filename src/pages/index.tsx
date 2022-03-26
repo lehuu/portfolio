@@ -1,5 +1,12 @@
 import React from 'react';
-import { IntroSection, Layout, AboutSection, ContactSection, ExperienceSection, ProjectSection } from '@components';
+import {
+  IntroSection,
+  Layout,
+  AboutSection,
+  ContactSection,
+  ExperienceSection,
+  ProjectSection,
+} from '@components';
 
 const IndexPage = () => (
   <Layout>
