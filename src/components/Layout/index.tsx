@@ -28,6 +28,7 @@ const Layout: React.FunctionComponent<LayoutProps> = ({ additionalTitle, childre
           {additionalTitle ? ` - ${additionalTitle}` : ''}
         </title>
         <html lang={lang} />
+        <meta charSet="utf-8" />
         <link rel="canonical" href={siteUrl} />
         <meta name="description" content={description} />
       </Helmet>

@@ -4,7 +4,7 @@ import { graphql, useStaticQuery } from 'gatsby';
 import { Tabbar, TabContent } from './partials';
 import Styled from './style';
 
-const CONTACT_QUERY = graphql`
+const EXPERIENCE_QUERY = graphql`
   {
     jobs: allMarkdownRemark(
       filter: { fileAbsolutePath: { regex: "/content/experience/" } }
@@ -28,7 +28,7 @@ const CONTACT_QUERY = graphql`
 `;
 
 const Contact: React.FunctionComponent = () => {
-  const { jobs } = useStaticQuery(CONTACT_QUERY);
+  const { jobs } = useStaticQuery(EXPERIENCE_QUERY);
   const [selectedTab, setSelectedTab] = useState(0);
 
   const content = jobs.edges.map((edge) => ({

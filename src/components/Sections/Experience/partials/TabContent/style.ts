@@ -11,7 +11,7 @@ const TitleContainer = styled.div`
   margin-bottom: ${(props) => props.theme.space.s};
 `;
 
-const Title = styled.h3`
+const Title = styled.h4`
   display: inline;
   font-size: inherit;
   color: ${(props) => props.theme.colors.textStrong};
