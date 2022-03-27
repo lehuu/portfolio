@@ -1,7 +1,7 @@
 ---
 startDate: '2017-12-21'
 endDate: '2017-12-21'
-name: 'myGW'
+name: 'myGW5'
 picture: ./job1.jpg
 company: 'Gebrüder Weiss'
 links: [

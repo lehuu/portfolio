@@ -36,9 +36,8 @@ const ProjectCard: React.FunctionComponent<ProjectCardProps> = ({
         </Styled.TechList>
         <Styled.LinkContainer>
           {links?.map((link) => (
-            <li>
+            <li key={link.link}>
               <IconLink
-                key={link.link}
                 size="l"
                 type={
                   link.type.toLocaleLowerCase() === 'github' ? 'githubOutline' : (link.type as any)
