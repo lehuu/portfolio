@@ -19,9 +19,15 @@ const ProjectTable: React.FunctionComponent<ProjectTableProps> = ({ projects }) 
   <Styled.Table>
     <thead>
       <tr>
-        <th>Year</th>
-        <th>Title</th>
-        <th>Link</th>
+        <Styled.CellWithBreakpoint as="th">Year</Styled.CellWithBreakpoint>
+        <Styled.CellWithBreakpoint as="th">Title</Styled.CellWithBreakpoint>
+        <Styled.CellWithBreakpoint as="th" visibleFrom="mobileXL">
+          Made at
+        </Styled.CellWithBreakpoint>
+        <Styled.CellWithBreakpoint as="th" visibleFrom="tablet">
+          Built with
+        </Styled.CellWithBreakpoint>
+        <Styled.CellWithBreakpoint as="th">Link</Styled.CellWithBreakpoint>
       </tr>
     </thead>
     <tbody>
@@ -29,7 +35,15 @@ const ProjectTable: React.FunctionComponent<ProjectTableProps> = ({ projects }) 
         <tr key={`${project.name}${project.endDate}`}>
           <Styled.DateCell>{project.endDate.getFullYear()}</Styled.DateCell>
           <Styled.TitleCell>{project.name}</Styled.TitleCell>
-          <Styled.RegularCell>
+          <Styled.CompanyCell visibleFrom="mobileXL">{project.company}</Styled.CompanyCell>
+          <Styled.TechCell visibleFrom="tablet">
+            <Styled.TechList>
+              {project.techstack.map((tech) => (
+                <li key={tech}>{tech}</li>
+              ))}
+            </Styled.TechList>
+          </Styled.TechCell>
+          <Styled.CellWithBreakpoint fitContent>
             <Styled.LinkContainer>
               {project.links?.map((link) => (
                 <li key={link.link}>
@@ -45,7 +59,7 @@ const ProjectTable: React.FunctionComponent<ProjectTableProps> = ({ projects }) 
                 </li>
               ))}
             </Styled.LinkContainer>
-          </Styled.RegularCell>
+          </Styled.CellWithBreakpoint>
         </tr>
       ))}
     </tbody>

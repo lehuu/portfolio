@@ -1,12 +1,13 @@
+import { css } from '@emotion/react';
 import styled from '@emotion/styled';
-import mixinTransition from '@styles/mixin-transition';
+import { mixinTransition, breakpoints } from '@styles';
 
 const LinkContainer = styled.ul`
   display: flex;
   gap: ${({ theme }) => theme.space.m};
 
   li {
-    height: ${({ theme }) => theme.fontSizes.l};
+    line-height: 0;
   }
 `;
 
@@ -56,19 +57,78 @@ const Table = styled.table`
   }
 `;
 
-const RegularCell = styled.td`
-  width: 0;
+interface CellWithBreakpointProps {
+  visibleFrom?: keyof typeof breakpoints;
+  fitContent?: boolean;
+}
+
+const CellWithBreakpoint = styled.td<CellWithBreakpointProps>`
+  ${({ fitContent }) =>
+    fitContent &&
+    css`
+      width: 0;
+    `}
+
+  ${({ visibleFrom }) =>
+    visibleFrom &&
+    css`
+      display: none;
+      @media ${breakpoints[visibleFrom]} {
+        display: table-cell;
+      }
+    `}
 `;
 
-const TitleCell = styled.td`
+const TechCell = styled(CellWithBreakpoint)`
+  min-width: 0;
+  width: 40%;
+  max-width: 300px;
+`;
+
+const TechList = styled.ul`
+  display: flex;
+  flex-wrap: wrap;
+  font-size: ${({ theme }) => theme.fontSizes.s};
+
+  & > *:not(:last-of-type) {
+    &::after {
+      opacity: 0.75;
+      content: '\\2022';
+      margin: 0 ${({ theme }) => theme.space.s};
+    }
+  }
+`;
+
+const TitleCell = styled(CellWithBreakpoint)`
   color: ${({ theme }) => theme.colors.textStrong};
   font-weight: ${({ theme }) => theme.fontWeights.bold};
   ${mixinTransition('color')}
+  max-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+
+  @media ${breakpoints.tablet} {
+    width: 40%;
+  }
 `;
 
-const DateCell = styled.td`
+const DateCell = styled(CellWithBreakpoint)`
   color: ${({ theme }) => theme.colors.accent};
   width: 8ch;
 `;
 
-export default { LinkContainer, Table, TitleCell, DateCell, RegularCell };
+const CompanyCell = styled(CellWithBreakpoint)`
+  min-width: 18ch;
+`;
+
+export default {
+  LinkContainer,
+  Table,
+  CompanyCell,
+  TitleCell,
+  DateCell,
+  CellWithBreakpoint,
+  TechList,
+  TechCell,
+};
