@@ -28,25 +28,31 @@ const ProjectCard: React.FunctionComponent<ProjectCardProps> = ({
       <Styled.TextContainer>
         <Styled.ProjectTitle>{title}</Styled.ProjectTitle>
         {/* eslint-disable-next-line react/no-danger */}
-        <span dangerouslySetInnerHTML={{ __html: description }} />
-        <Styled.TechList>
-          {techstack.map((tech) => (
-            <li key={tech}>{tech}</li>
-          ))}
-        </Styled.TechList>
-        <Styled.LinkContainer>
-          {links?.map((link) => (
-            <li key={link.link}>
-              <IconLink
-                size="l"
-                type={
-                  link.type.toLocaleLowerCase() === 'github' ? 'githubOutline' : (link.type as any)
-                }
-                link={link.link}
-              />
-            </li>
-          ))}
-        </Styled.LinkContainer>
+        {description && <span dangerouslySetInnerHTML={{ __html: description }} />}
+        {techstack && (
+          <Styled.TechList>
+            {techstack.map((tech) => (
+              <li key={tech}>{tech}</li>
+            ))}
+          </Styled.TechList>
+        )}
+        {links && (
+          <Styled.LinkContainer>
+            {links.map((link) => (
+              <li key={link.link}>
+                <IconLink
+                  size="l"
+                  type={
+                    link.type.toLocaleLowerCase() === 'github'
+                      ? 'githubOutline'
+                      : (link.type as any)
+                  }
+                  link={link.link}
+                />
+              </li>
+            ))}
+          </Styled.LinkContainer>
+        )}
       </Styled.TextContainer>
     </Styled.RoundedContainer>
   </Styled.CardContainer>
