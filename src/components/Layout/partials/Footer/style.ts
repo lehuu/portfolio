@@ -8,7 +8,7 @@ const Footer = styled.footer`
   padding-top: 0;
   display: flex;
   justify-content: center;
-  padding: ${({ theme }) => `${theme.space.none} ${theme.space.l} ${theme.space.s}`};
+  padding: ${({ theme }) => `${theme.space.none} ${theme.space.l} ${theme.space.xs}`};
   border-top: 1px solid ${({ theme }) => theme.borders.regular};
   font-size: ${({ theme }) => theme.fontSizes.xs};
 `;
@@ -19,7 +19,7 @@ const WidthContainer = styled.div`
 
   > * {
     text-align: center;
-    margin-top: ${({ theme }) => theme.space.s};
+    margin-top: ${({ theme }) => theme.space.xs};
   }
 
   @media ${breakpoints.mobileL} {

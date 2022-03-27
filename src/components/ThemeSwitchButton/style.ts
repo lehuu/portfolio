@@ -27,7 +27,7 @@ const IconContainer = styled.div<IconProps>`
   transform: ${(props) => (props.isVisible ? 'rotateZ(0deg)' : 'rotateZ(-360deg)')};
   scale: ${(props) => (props.isVisible ? 1 : 0.2)};
   position: absolute;
-  top: ${({ theme }) => theme.space.s};
+  top: ${({ theme }) => theme.space.xs};
   line-height: 0;
   ${(props) =>
     props.isVisible &&
@@ -48,7 +48,7 @@ const Button = styled.button`
   height: ${({ theme }) => theme.fontSizes.l};
   width: ${({ theme }) => theme.fontSizes.l};
   box-sizing: content-box;
-  padding: ${({ theme }) => theme.space.s};
+  padding: ${({ theme }) => theme.space.xs};
   background: ${({ theme }) => theme.colors.themeSwitcher.backgroundColor};
   border-radius: ${({ theme }) => theme.radii.regular};
 
