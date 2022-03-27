@@ -1,8 +1,8 @@
 import React from 'react';
 import SectionHeader from '@components/SectionHeader';
-import ProjectCard from '@components/ProjectCard';
 import { graphql, useStaticQuery } from 'gatsby';
 import { Project } from 'types';
+import { ProjectCard } from './partials';
 import Styled from './style';
 
 const PROJECT_QUERY = graphql`

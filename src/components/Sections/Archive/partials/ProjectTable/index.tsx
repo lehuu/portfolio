@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import IconLink from '@components/IconLink';
 import { FluidObject } from 'gatsby-image';
-import ProjectCard from '@components/ProjectCard';
+import ProjectCard from '@components/Sections/Projects/partials/ProjectCard';
 import Styled from './style';
 
 interface ProjectTableProps {
