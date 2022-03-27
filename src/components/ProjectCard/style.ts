@@ -105,6 +105,25 @@ const CardContainer = styled.div<PositionProps>`
       ${({ theme, imagePosition }) =>
         imagePosition === 'left'
           ? css`
+              ${TechList}, ${LinkContainer}{
+                justify-content: end;
+              }
+              ${TechList} {
+                & > * {
+                  &::after{
+                    content: '';
+                    margin: 0;
+                  }
+                }
+                & > *:not(:first-of-type) {
+                  &::before {
+                    opacity: 0.75;
+                    content: '\\2022';
+                    margin: 0 ${theme.space.m};
+                  }
+                }
+              }
+              text-align: right;
               padding: ${theme.space.m} 0 ${theme.space.m} ${theme.space.l}};
             `
           : css`
