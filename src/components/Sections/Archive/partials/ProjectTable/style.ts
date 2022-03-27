@@ -11,6 +11,8 @@ const LinkContainer = styled.ul`
   }
 `;
 
+const ProjectCardRow = styled.tr``;
+
 const Table = styled.table`
   width: 100%;
 
@@ -32,7 +34,7 @@ const Table = styled.table`
   }
 
   tbody {
-    tr {
+    tr:not(${ProjectCardRow}) {
       cursor: pointer;
       border-radius: ${({ theme }) => theme.radii.regular};
       overflow: hidden;
@@ -120,5 +122,6 @@ export default {
   DateCell,
   CellWithBreakpoint,
   TechList,
+  ProjectCardRow,
   TechCell,
 };
