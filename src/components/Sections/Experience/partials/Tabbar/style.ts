@@ -23,11 +23,17 @@ const Container = styled.div<OverflowProps>`
 const TabContainer = styled.div<OverflowProps>`
   display: flex;
   align-items: start;
-  overflow: hidden;
+  -ms-overflow-style: none; /* for Internet Explorer, Edge */
+  scrollbar-width: none; /* for Firefox */
+  overflow-x: auto;
   padding: 0 ${(props) => (props.hasOverflow ? '40px' : 0)};
   @media ${breakpoints.tablet} {
     flex-direction: column;
     padding: 0;
+  }
+
+  &::-webkit-scrollbar {
+    display: none; /* for Chrome, Safari, and Opera */
   }
 `;
 
