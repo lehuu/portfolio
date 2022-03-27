@@ -67,7 +67,7 @@ const Contact: React.FunctionComponent = () => {
   }));
 
   return (
-    <section>
+    <Styled.Section>
       <SectionHeader title="Featured Projects" />
       <Styled.CardContainer>
         {content.map((project, index) => (
@@ -82,7 +82,7 @@ const Contact: React.FunctionComponent = () => {
           />
         ))}
       </Styled.CardContainer>
-    </section>
+    </Styled.Section>
   );
 };
 
