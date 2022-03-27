@@ -35,7 +35,9 @@ const ProjectTable: React.FunctionComponent<ProjectTableProps> = ({ projects }) 
         <tr key={`${project.name}${project.endDate}`}>
           <Styled.DateCell>{project.endDate.getFullYear()}</Styled.DateCell>
           <Styled.TitleCell>{project.name}</Styled.TitleCell>
-          <Styled.CompanyCell visibleFrom="mobileXL">{project.company}</Styled.CompanyCell>
+          <Styled.CompanyCell visibleFrom="mobileXL">
+            {project.company ?? '\u23AF'}
+          </Styled.CompanyCell>
           <Styled.TechCell visibleFrom="tablet">
             <Styled.TechList>
               {project.techstack.map((tech) => (
