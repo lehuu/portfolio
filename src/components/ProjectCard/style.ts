@@ -38,7 +38,7 @@ const LinkContainer = styled.ul`
   gap: ${({ theme }) => theme.space.m};
 
   li {
-    height: ${({ theme }) => theme.fontSizes.l};
+    line-height: 0;
   }
 `;
 
@@ -66,7 +66,7 @@ const TechList = styled.ul`
     &::after {
       opacity: 0.75;
       content: '\\2022';
-      margin: 0 ${({ theme }) => theme.space.m};
+      margin: 0 ${({ theme }) => theme.space.s};
     }
   }
 `;
@@ -119,7 +119,7 @@ const CardContainer = styled.div<PositionProps>`
                   &::before {
                     opacity: 0.75;
                     content: '\\2022';
-                    margin: 0 ${theme.space.m};
+                    margin: 0 ${theme.space.s};
                   }
                 }
               }
