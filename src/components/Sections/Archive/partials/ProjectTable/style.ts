@@ -79,11 +79,7 @@ const CellWithBreakpoint = styled.td<CellWithBreakpointProps>`
     `}
 `;
 
-const TechCell = styled(CellWithBreakpoint)`
-  min-width: 0;
-  width: 40%;
-  max-width: 300px;
-`;
+const TechCell = styled(CellWithBreakpoint)``;
 
 const TechList = styled.ul`
   display: flex;
@@ -103,14 +99,8 @@ const TitleCell = styled(CellWithBreakpoint)`
   color: ${({ theme }) => theme.colors.textStrong};
   font-weight: ${({ theme }) => theme.fontWeights.bold};
   ${mixinTransition('color')}
-  max-width: 0;
   overflow: hidden;
   text-overflow: ellipsis;
-  width: 100%;
-
-  @media ${breakpoints.tablet} {
-    width: 40%;
-  }
 `;
 
 const DateCell = styled(CellWithBreakpoint)`
