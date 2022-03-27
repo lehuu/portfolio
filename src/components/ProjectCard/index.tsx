@@ -26,7 +26,7 @@ const ProjectCard: React.FunctionComponent<ProjectCardProps> = ({
     </Styled.ImageContainer>
     <Styled.RoundedContainer>
       <Styled.TextContainer>
-        <Styled.ProjectTitle>{title}</Styled.ProjectTitle>
+        {title && <Styled.ProjectTitle>{title}</Styled.ProjectTitle>}
         {/* eslint-disable-next-line react/no-danger */}
         {description && <span dangerouslySetInnerHTML={{ __html: description }} />}
         {techstack && (
