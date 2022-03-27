@@ -92,7 +92,7 @@ interface TabProps {
 const Tab = styled.button<TabProps>`
   font-size: inherit;
   border-radius: ${(props) => props.theme.radii.regular};
-  padding: ${(props) => props.theme.space.s} ${(props) => props.theme.space.m};
+  padding: ${(props) => props.theme.space.xs} ${(props) => props.theme.space.m};
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
   border-bottom: 2px solid;

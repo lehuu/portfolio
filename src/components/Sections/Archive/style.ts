@@ -1,9 +1,10 @@
 import styled from '@emotion/styled';
 
-const Container = styled.div`
+const Container = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: ${({ theme }) => theme.space.xxxl} !important;
 `;
 
 const OpenArchiveButton = styled.button`
@@ -16,4 +17,9 @@ const OpenArchiveButton = styled.button`
   }
 `;
 
-export default { OpenArchiveButton, Container };
+const ExpandableContainer = styled.div`
+  width: 100%;
+  margin-top: ${({ theme }) => theme.space.l};
+`;
+
+export default { OpenArchiveButton, Container, ExpandableContainer };

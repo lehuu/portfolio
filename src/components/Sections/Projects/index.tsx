@@ -2,7 +2,7 @@ import React from 'react';
 import SectionHeader from '@components/SectionHeader';
 import ProjectCard from '@components/ProjectCard';
 import { graphql, useStaticQuery } from 'gatsby';
-import { FluidObject } from 'gatsby-image';
+import { Project } from 'types';
 import Styled from './style';
 
 const PROJECT_QUERY = graphql`
@@ -40,23 +40,6 @@ const PROJECT_QUERY = graphql`
     }
   }
 `;
-
-interface Project {
-  frontmatter: {
-    startDate: string;
-    endDate: string;
-    name: string;
-    company: string;
-    techstack: string[];
-    links: { type: string; link: string }[];
-    picture: {
-      childImageSharp: {
-        fluid: FluidObject[];
-      };
-    };
-  };
-  html: string;
-}
 
 const Contact: React.FunctionComponent = () => {
   const { projects } = useStaticQuery<{ projects: { edges: { node: Project }[] } }>(PROJECT_QUERY);

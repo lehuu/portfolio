@@ -36,6 +36,10 @@ const ImageContainer = styled(RoundedContainer)`
 const LinkContainer = styled.ul`
   display: flex;
   gap: ${({ theme }) => theme.space.m};
+
+  li {
+    height: ${({ theme }) => theme.fontSizes.l};
+  }
 `;
 
 const TextContainer = styled.div`
