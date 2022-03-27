@@ -59,19 +59,21 @@ const ProjectTable: React.FunctionComponent<ProjectTableProps> = ({ projects }) 
               </Styled.TechCell>
               <Styled.CellWithBreakpoint fitContent>
                 <Styled.LinkContainer>
-                  {project.links?.map((link) => (
-                    <li key={link.link}>
-                      <IconLink
-                        size="l"
-                        type={
-                          link.type.toLocaleLowerCase() === 'github'
-                            ? 'githubOutline'
-                            : (link.type as any)
-                        }
-                        link={link.link}
-                      />
-                    </li>
-                  ))}
+                  {project.links
+                    ? project.links.map((link) => (
+                        <li key={link.link}>
+                          <IconLink
+                            size="l"
+                            type={
+                              link.type.toLocaleLowerCase() === 'github'
+                                ? 'githubOutline'
+                                : (link.type as any)
+                            }
+                            link={link.link}
+                          />
+                        </li>
+                      ))
+                    : '\u23AF'}
                 </Styled.LinkContainer>
               </Styled.CellWithBreakpoint>
             </tr>
