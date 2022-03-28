@@ -1,8 +1,8 @@
 import React from 'react';
 import SectionHeader from '@components/SectionHeader';
-import ProjectCard from '@components/ProjectCard';
 import { graphql, useStaticQuery } from 'gatsby';
-import { FluidObject } from 'gatsby-image';
+import { Project } from 'types';
+import { ProjectCard } from './partials';
 import Styled from './style';
 
 const PROJECT_QUERY = graphql`
@@ -41,23 +41,6 @@ const PROJECT_QUERY = graphql`
   }
 `;
 
-interface Project {
-  frontmatter: {
-    startDate: string;
-    endDate: string;
-    name: string;
-    company: string;
-    techstack: string[];
-    links: { type: string; link: string }[];
-    picture: {
-      childImageSharp: {
-        fluid: FluidObject[];
-      };
-    };
-  };
-  html: string;
-}
-
 const Contact: React.FunctionComponent = () => {
   const { projects } = useStaticQuery<{ projects: { edges: { node: Project }[] } }>(PROJECT_QUERY);
 
@@ -67,7 +50,7 @@ const Contact: React.FunctionComponent = () => {
   }));
 
   return (
-    <section>
+    <Styled.Section>
       <SectionHeader title="Featured Projects" />
       <Styled.CardContainer>
         {content.map((project, index) => (
@@ -82,7 +65,7 @@ const Contact: React.FunctionComponent = () => {
           />
         ))}
       </Styled.CardContainer>
-    </section>
+    </Styled.Section>
   );
 };
 

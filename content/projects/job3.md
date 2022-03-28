@@ -1,13 +1,9 @@
 ---
 startDate: '2017-12-21'
 endDate: '2017-12-21'
-name: 'myGW'
+name: 'myGW3'
 picture: ./job1.jpg
 company: 'Gebrüder Weiss'
-links: [
- {type: "external", link: https://www.apple.com/music/},
- {type: "github", link: https://github.com/lehuu}
- ]
 techstack: ['Next.js', 'TypeScript', 'Redux Toolkit', 'Stripe', 'Algolia', 'Firebase Auth', 'Formik', 'Yup', 'Vercel']
 featured: 4
 ---

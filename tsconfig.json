@@ -23,6 +23,8 @@
     "noImplicitAny": false,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
+    "strictFunctionTypes": true,
+    "strictNullChecks": true,
     "plugins": [{ "name": "typescript-styled-plugin" }],
     "target": "es2015"
   },

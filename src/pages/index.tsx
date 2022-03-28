@@ -6,6 +6,7 @@ import {
   ContactSection,
   ExperienceSection,
   ProjectSection,
+  ArchiveSection,
 } from '@components';
 
 const IndexPage = () => (
@@ -14,6 +15,7 @@ const IndexPage = () => (
     <AboutSection />
     <ExperienceSection />
     <ProjectSection />
+    <ArchiveSection />
     <ContactSection />
   </Layout>
 );

@@ -8,7 +8,7 @@ const Container = styled.div`
 `;
 
 const TitleContainer = styled.div`
-  margin-bottom: ${(props) => props.theme.space.s};
+  margin-bottom: ${(props) => props.theme.space.xs};
 `;
 
 const Title = styled.h4`

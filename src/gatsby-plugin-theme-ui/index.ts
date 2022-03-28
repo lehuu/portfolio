@@ -5,7 +5,8 @@ const makeTheme = <T extends Theme>(t: T) => t;
 const theme = makeTheme({
   space: {
     none: 0,
-    s: '8px',
+    xs: '8px',
+    s: '12px',
     m: '16px',
     l: '24px',
     xl: '30px',
