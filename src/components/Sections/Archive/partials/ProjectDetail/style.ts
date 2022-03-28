@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 import breakpoints from '@styles/breakpoints';
 import mixinTransition from '@styles/mixin-transition';
+import slideTransition from '@styles/slide-transition';
 
 const RoundedContainer = styled.div`
   border-radius: ${(props) => props.theme.radii.large};
@@ -12,6 +13,10 @@ const DetailsContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   align-items: center;
+
+  padding: ${({ theme }) => theme.space.s} ${({ theme }) => theme.space.m};
+
+  ${slideTransition('table-detail-transition', true)}
 `;
 
 const ImageContainer = styled(RoundedContainer)`

@@ -11,7 +11,13 @@ const LinkContainer = styled.ul`
   }
 `;
 
-const ProjectCardRow = styled.tr``;
+const ProjectCardRow = styled.tr`
+  td {
+    padding: 0;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+`;
 
 const Table = styled.table`
   width: 100%;
