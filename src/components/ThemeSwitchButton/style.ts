@@ -1,6 +1,6 @@
 import { css, keyframes } from '@emotion/react';
 import styled from '@emotion/styled';
-import { mixinTransition } from '@styles';
+import { breakpoints, mixinTransition } from '@styles';
 
 interface IconProps {
   readonly isVisible: boolean;
@@ -36,8 +36,12 @@ const IconContainer = styled.div<IconProps>`
     `};
   ${mixinTransition('all')}
   svg {
-    height: ${({ theme }) => theme.fontSizes.l};
+    height: ${({ theme }) => theme.fontSizes.xl};
     color: ${({ theme }) => theme.colors.themeSwitcher.iconColor};
+
+    @media ${breakpoints.tablet} {
+      height: ${({ theme }) => theme.fontSizes.l};
+    }
   }
 `;
 
@@ -45,12 +49,17 @@ const Button = styled.button`
   position: absolute;
   right: ${({ theme }) => theme.space.l};
   top: calc(100% + ${({ theme }) => theme.space.m});
-  height: ${({ theme }) => theme.fontSizes.l};
-  width: ${({ theme }) => theme.fontSizes.l};
+  height: ${({ theme }) => theme.fontSizes.xl};
+  width: ${({ theme }) => theme.fontSizes.xl};
   box-sizing: content-box;
   padding: ${({ theme }) => theme.space.xs};
   background: ${({ theme }) => theme.colors.themeSwitcher.backgroundColor};
   border-radius: ${({ theme }) => theme.radii.regular};
+
+  @media ${breakpoints.tablet} {
+    height: ${({ theme }) => theme.fontSizes.l};
+    width: ${({ theme }) => theme.fontSizes.l};
+  }
 
   :hover,
   :active {
