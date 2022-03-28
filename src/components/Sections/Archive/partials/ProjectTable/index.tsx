@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import IconLink from '@components/IconLink';
 import { FluidObject } from 'gatsby-image';
-import ProjectCard from '@components/Sections/Projects/partials/ProjectCard';
 import Styled from './style';
+import { ProjectDetail } from './partials';
 
 interface ProjectTableProps {
   projects: {
@@ -80,7 +80,7 @@ const ProjectTable: React.FunctionComponent<ProjectTableProps> = ({ projects }) 
             {selectedProject != null && selectedProject === index && (
               <Styled.ProjectCardRow>
                 <td colSpan={5}>
-                  <ProjectCard image={project.image} description={project.description} />
+                  <ProjectDetail image={project.image} description={project.description} />
                 </td>
               </Styled.ProjectCardRow>
             )}
