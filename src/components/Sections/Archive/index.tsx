@@ -2,6 +2,8 @@ import SectionHeader from '@components/SectionHeader';
 import { graphql, useStaticQuery } from 'gatsby';
 import React, { useState } from 'react';
 import { Project } from 'types';
+import { CSSTransition } from 'react-transition-group';
+import { THEME_TRANSITION_TIME_MS } from '@styles/mixin-transition';
 import { ProjectTable } from './partials';
 import Styled from './style';
 
@@ -62,12 +64,17 @@ const Archive: React.FunctionComponent = () => {
       <Styled.OpenArchiveButton onClick={handleShowButton}>
         {isTableShown ? 'Hide' : 'Show'} All Projects
       </Styled.OpenArchiveButton>
-      {isTableShown && (
+      <CSSTransition
+        in={isTableShown}
+        unmountOnExit
+        timeout={THEME_TRANSITION_TIME_MS}
+        classNames="table-transition"
+      >
         <Styled.ExpandableContainer>
           <SectionHeader title="All Projects" />
           <ProjectTable projects={content} />
         </Styled.ExpandableContainer>
-      )}
+      </CSSTransition>
     </Styled.Container>
   );
 };

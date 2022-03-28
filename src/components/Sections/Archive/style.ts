@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import slideTransition from '@styles/slide-transition';
 
 const Container = styled.section`
   display: flex;
@@ -19,7 +20,9 @@ const OpenArchiveButton = styled.button`
 
 const ExpandableContainer = styled.div`
   width: 100%;
-  margin-top: ${({ theme }) => theme.space.l};
+  padding-top: ${({ theme }) => theme.space.l};
+
+  ${slideTransition('table-transition')}
 `;
 
 export default { OpenArchiveButton, Container, ExpandableContainer };
