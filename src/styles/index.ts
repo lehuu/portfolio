@@ -5,4 +5,5 @@ export {
   THEME_TRANSITION_VAR,
   THEME_TRANSITION_TIME,
 } from './mixin-transition';
+export { default as slideTransition } from './slide-transition';
 export { default as contentWidth } from './contentWidth';

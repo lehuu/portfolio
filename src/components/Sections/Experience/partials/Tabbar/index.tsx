@@ -17,12 +17,14 @@ const Tabbar: React.FunctionComponent<TabbarProps> = ({ tabs, selectedTab = 0, o
   const [hasOverflow, setHasOverflow] = useState(false);
 
   const handleScroll = () => {
+    if (!tabContainerRef.current) return;
     setCanScrollLeft(tabContainerRef.current?.scrollLeft > 0);
     const { scrollWidth, clientWidth, scrollLeft } = tabContainerRef.current;
     setCanScrollRight(scrollWidth - clientWidth !== scrollLeft);
   };
 
   const checkOverflowWidths = () => {
+    if (!tabContainerRef.current) return;
     if (tabContainerRef.current.offsetWidth < tabContainerRef.current.scrollWidth) {
       setHasOverflow(true);
     } else {
@@ -47,6 +49,7 @@ const Tabbar: React.FunctionComponent<TabbarProps> = ({ tabs, selectedTab = 0, o
   };
 
   const handlePreviousClick = () => {
+    if (!tabContainerRef.current) return;
     tabContainerRef.current.scrollTo({
       top: 0,
       left: tabContainerRef.current.scrollLeft - 200,
@@ -54,6 +57,7 @@ const Tabbar: React.FunctionComponent<TabbarProps> = ({ tabs, selectedTab = 0, o
     });
   };
   const handleNextClick = () => {
+    if (!tabContainerRef.current) return;
     tabContainerRef.current.scrollTo({
       top: 0,
       left: tabContainerRef.current.scrollLeft + 200,

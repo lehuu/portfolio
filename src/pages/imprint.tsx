@@ -38,7 +38,7 @@ const Container = styled.section`
 
   h2 {
     font-size: ${({ theme }) => theme.fontSizes.l};
-    margin-bottom: ${({ theme }) => theme.space.s};
+    margin-bottom: ${({ theme }) => theme.space.xs};
   }
 `;
 

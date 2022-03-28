@@ -6,4 +6,8 @@ const CardContainer = styled.div`
   gap: ${({ theme }) => theme.space.xl};
 `;
 
-export default { CardContainer };
+const Section = styled.section`
+  margin-bottom: ${({ theme }) => theme.space.xxxl} !important;
+`;
+
+export default { CardContainer, Section };

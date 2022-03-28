@@ -36,6 +36,10 @@ const ImageContainer = styled(RoundedContainer)`
 const LinkContainer = styled.ul`
   display: flex;
   gap: ${({ theme }) => theme.space.m};
+
+  li {
+    line-height: 0;
+  }
 `;
 
 const TextContainer = styled.div`
@@ -62,7 +66,7 @@ const TechList = styled.ul`
     &::after {
       opacity: 0.75;
       content: '\\2022';
-      margin: 0 ${({ theme }) => theme.space.m};
+      margin: 0 ${({ theme }) => theme.space.s};
     }
   }
 `;
@@ -101,6 +105,25 @@ const CardContainer = styled.div<PositionProps>`
       ${({ theme, imagePosition }) =>
         imagePosition === 'left'
           ? css`
+              ${TechList}, ${LinkContainer}{
+                justify-content: end;
+              }
+              ${TechList} {
+                & > * {
+                  &::after{
+                    content: '';
+                    margin: 0;
+                  }
+                }
+                & > *:not(:first-of-type) {
+                  &::before {
+                    opacity: 0.75;
+                    content: '\\2022';
+                    margin: 0 ${theme.space.s};
+                  }
+                }
+              }
+              text-align: right;
               padding: ${theme.space.m} 0 ${theme.space.m} ${theme.space.l}};
             `
           : css`
