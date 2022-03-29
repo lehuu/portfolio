@@ -53,7 +53,7 @@ const Title = styled(StyledInternalLink)`
 
 const LinkList = styled.ul`
   display: none;
-  font-size: ${({ theme }) => theme.fontSizes.xs};
+  font-size: ${({ theme }) => theme.fontSizes.s};
   gap: ${({ theme }) => theme.space.xl};
   @media ${breakpoints.tablet} {
     display: flex;
