@@ -18,7 +18,7 @@ const Contact: React.FunctionComponent = () => {
 
   return (
     <section>
-      <SectionHeader title="Contact" />
+      <SectionHeader title="Contact" id="contact" />
       {/* eslint-disable-next-line react/no-danger */}
       <Styled.TextContainer dangerouslySetInnerHTML={{ __html: html }} />
     </section>

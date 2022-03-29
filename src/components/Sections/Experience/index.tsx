@@ -43,7 +43,7 @@ const Contact: React.FunctionComponent = () => {
 
   return (
     <section>
-      <SectionHeader title="Experience" />
+      <SectionHeader title="Experience" id="experience" />
       <Styled.TabView>
         <Tabbar
           tabs={content.map((job) => job.company)}
