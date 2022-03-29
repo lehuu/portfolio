@@ -1,9 +1,11 @@
 import styled from '@emotion/styled';
 import { css, keyframes } from '@emotion/react';
 import { mixinTransition, breakpoints } from '@styles';
+import SectionContainer from '@components/SectionContainer';
 
-const Container = styled.section`
+const Container = styled(SectionContainer)`
   margin-top: ${({ theme }) => theme.space.s};
+  margin-bottom: 0;
   display: flex;
   gap: ${({ theme }) => theme.space.m};
   flex-direction: column;
