@@ -15,7 +15,15 @@ const HEADER_QUERY = graphql`
   }
 `;
 
+const navItems = [
+  { label: 'About', to: '/#about' },
+  { label: 'Experience', to: '/#experience' },
+  { label: 'Projects', to: '/#projects' },
+  { label: 'Contact', to: '/#contact' },
+];
+
 const Header: React.FunctionComponent = () => {
+  const hash = typeof window !== 'undefined' ? `/${window.location.hash}` : '';
   const { title } = useSiteMetadata();
 
   const {
@@ -31,7 +39,15 @@ const Header: React.FunctionComponent = () => {
           <div>
             <Styled.Title to="/">{title}</Styled.Title>
           </div>
-
+          <Styled.LinkList>
+            {navItems.map((item) => (
+              <li key={item.label}>
+                <Styled.NavLink isActive={hash === item.to} to={item.to}>
+                  {item.label}
+                </Styled.NavLink>
+              </li>
+            ))}
+          </Styled.LinkList>
           <Styled.ButtonContainer>
             <Styled.DownloadLink href={link} target="_blank">
               Résumé
