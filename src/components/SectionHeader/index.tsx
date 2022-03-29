@@ -22,19 +22,12 @@ const Line = styled.div`
   height: 1px;
 `;
 
-const ScrollAnchor = styled.div`
-  position: absolute;
-  top: -100px;
-`;
-
 interface SectionHeaderProps {
   title: string;
-  id?: string;
 }
 
-const SectionHeader: React.FunctionComponent<SectionHeaderProps> = ({ title, id }) => (
+const SectionHeader: React.FunctionComponent<SectionHeaderProps> = ({ title }) => (
   <Container>
-    <ScrollAnchor aria-hidden="true" id={id} />
     <Line />
     <Title>{title}</Title>
     <Line />

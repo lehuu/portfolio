@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import SectionHeader from '@components/SectionHeader';
 import { graphql, useStaticQuery } from 'gatsby';
+import SectionContainer from '@components/SectionContainer';
 import { Tabbar, TabContent } from './partials';
 import Styled from './style';
 
@@ -42,8 +43,8 @@ const Contact: React.FunctionComponent = () => {
   const endDate = selectedContent.endDate === 'now' ? 'now' : new Date(selectedContent.endDate);
 
   return (
-    <section>
-      <SectionHeader title="Experience" id="experience" />
+    <SectionContainer id="experience">
+      <SectionHeader title="Experience" />
       <Styled.TabView>
         <Tabbar
           tabs={content.map((job) => job.company)}
@@ -52,7 +53,7 @@ const Contact: React.FunctionComponent = () => {
         />
         <TabContent {...selectedContent} startDate={startDate} endDate={endDate} />
       </Styled.TabView>
-    </section>
+    </SectionContainer>
   );
 };
 

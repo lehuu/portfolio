@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import SectionContainer from '@components/SectionContainer';
 
 const CardContainer = styled.div`
   display: flex;
@@ -6,8 +7,8 @@ const CardContainer = styled.div`
   gap: ${({ theme }) => theme.space.xl};
 `;
 
-const Section = styled.section`
-  margin-bottom: ${({ theme }) => theme.space.xxxl} !important;
+const Section = styled(SectionContainer)`
+  margin-bottom: ${({ theme }) => theme.space.xxxl};
 `;
 
 export default { CardContainer, Section };

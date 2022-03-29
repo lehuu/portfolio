@@ -1,6 +1,7 @@
 import React from 'react';
 import SectionHeader from '@components/SectionHeader';
 import { graphql, useStaticQuery } from 'gatsby';
+import SectionContainer from '@components/SectionContainer';
 import Styled from './style';
 
 const ABOUT_QUERY = graphql`
@@ -17,11 +18,11 @@ const About: React.FunctionComponent = () => {
   } = useStaticQuery(ABOUT_QUERY);
 
   return (
-    <section>
-      <SectionHeader title="About Me" id="about" />
+    <SectionContainer id="about">
+      <SectionHeader title="About Me" />
       {/* eslint-disable-next-line react/no-danger */}
       <Styled.TextContainer dangerouslySetInnerHTML={{ __html: html }} />
-    </section>
+    </SectionContainer>
   );
 };
 
