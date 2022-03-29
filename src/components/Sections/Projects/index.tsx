@@ -51,7 +51,7 @@ const Contact: React.FunctionComponent = () => {
 
   return (
     <Styled.Section>
-      <SectionHeader title="Featured Projects" />
+      <SectionHeader title="Featured Projects" id="projects" />
       <Styled.CardContainer>
         {content.map((project, index) => (
           <ProjectCard

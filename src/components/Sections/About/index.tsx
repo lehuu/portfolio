@@ -18,7 +18,7 @@ const About: React.FunctionComponent = () => {
 
   return (
     <section>
-      <SectionHeader title="About Me" />
+      <SectionHeader title="About Me" id="about" />
       {/* eslint-disable-next-line react/no-danger */}
       <Styled.TextContainer dangerouslySetInnerHTML={{ __html: html }} />
     </section>

@@ -3,6 +3,7 @@ import React from 'react';
 
 const Container = styled.div`
   display: flex;
+  position: relative;
   align-items: center;
   gap: ${({ theme }) => theme.space.m};
   margin-bottom: ${({ theme }) => theme.space.l};
@@ -21,12 +22,19 @@ const Line = styled.div`
   height: 1px;
 `;
 
+const ScrollAnchor = styled.div`
+  position: absolute;
+  top: -100px;
+`;
+
 interface SectionHeaderProps {
   title: string;
+  id?: string;
 }
 
-const SectionHeader: React.FunctionComponent<SectionHeaderProps> = ({ title }) => (
+const SectionHeader: React.FunctionComponent<SectionHeaderProps> = ({ title, id }) => (
   <Container>
+    <ScrollAnchor aria-hidden="true" id={id} />
     <Line />
     <Title>{title}</Title>
     <Line />

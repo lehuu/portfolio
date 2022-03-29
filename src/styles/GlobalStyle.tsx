@@ -153,6 +153,7 @@ const GlobalStyle = () => (
       ${reset}
       html {
         height: 100%;
+        scroll-behavior: smooth;
         ${mixinTransition('color', 'background-color')};
       }
 
