@@ -42,11 +42,8 @@ const ProjectTable: React.FunctionComponent<ProjectTableProps> = ({ projects }) 
       </thead>
       <tbody>
         {projects.map((project, index) => (
-          <>
-            <tr
-              key={`${project.name}${project.endDate}`}
-              onClick={() => handleSelectProject(index)}
-            >
+          <React.Fragment key={`${project.name}${project.endDate}`}>
+            <tr onClick={() => handleSelectProject(index)}>
               <Styled.DateCell>{project.endDate.getFullYear()}</Styled.DateCell>
               <Styled.TitleCell>{project.name}</Styled.TitleCell>
               <Styled.CompanyCell visibleFrom="mobileXL">
@@ -91,7 +88,7 @@ const ProjectTable: React.FunctionComponent<ProjectTableProps> = ({ projects }) 
                 </td>
               </Styled.ProjectCardRow>
             </CSSTransition>
-          </>
+          </React.Fragment>
         ))}
       </tbody>
     </Styled.Table>
