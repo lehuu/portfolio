@@ -2,8 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { GlobalStyle, THEME_TRANSITION_TIME, THEME_TRANSITION_VAR } from '@styles';
 import { useSiteMetadata } from '@hooks';
-import Footer from './partials/Footer';
-import Header from './partials/Header';
+import { Footer, Header } from './partials';
 import Styled from './style';
 
 interface LayoutProps {

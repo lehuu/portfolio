@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSiteMetadata } from '@hooks';
 import { graphql, useStaticQuery } from 'gatsby';
-import ThemeSwitchButton from '@components/ThemeSwitchButton';
+import ThemeSwitchButton from '../ThemeSwitchButton';
 import Styled from './style';
 
 const HEADER_QUERY = graphql`
