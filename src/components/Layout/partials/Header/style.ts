@@ -92,6 +92,20 @@ const ButtonContainer = styled.div`
 
 const DownloadLink = styled(StyledExternalLink)`
   color: ${({ theme }) => theme.colors.accent};
+  display: none;
+  @media ${breakpoints.tablet} {
+    display: block;
+  }
+`;
+
+const ThemeButtonContainer = styled.div`
+  position: absolute;
+  right: ${({ theme }) => theme.space.l};
+  top: calc(100% + ${({ theme }) => theme.space.m});
+  display: none;
+  @media ${breakpoints.tablet} {
+    display: block;
+  }
 `;
 
 export default {
@@ -104,4 +118,5 @@ export default {
   NavLink,
   WidthContainer,
   ButtonContainer,
+  ThemeButtonContainer,
 };

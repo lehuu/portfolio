@@ -54,7 +54,9 @@ const Header: React.FunctionComponent = () => {
             </Styled.DownloadLink>
           </Styled.ButtonContainer>
         </Styled.Navigation>
-        <ThemeSwitchButton />
+        <Styled.ThemeButtonContainer>
+          <ThemeSwitchButton />
+        </Styled.ThemeButtonContainer>
       </Styled.WidthContainer>
     </Styled.Header>
   );
