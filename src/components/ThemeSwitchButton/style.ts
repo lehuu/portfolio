@@ -46,9 +46,7 @@ const IconContainer = styled.div<IconProps>`
 `;
 
 const Button = styled.button`
-  position: absolute;
-  right: ${({ theme }) => theme.space.l};
-  top: calc(100% + ${({ theme }) => theme.space.m});
+  position: relative;
   height: ${({ theme }) => theme.fontSizes.xl};
   width: ${({ theme }) => theme.fontSizes.xl};
   box-sizing: content-box;
