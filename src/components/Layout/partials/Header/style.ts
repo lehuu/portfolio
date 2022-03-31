@@ -65,7 +65,9 @@ interface NavLinkProps {
   readonly isActive?: boolean;
 }
 
-const NavLink = styled(StyledInternalLink)<NavLinkProps>`
+const NavLink = styled(StyledInternalLink, {
+  shouldForwardProp: (prop) => prop !== 'isActive',
+})<NavLinkProps>`
   color: ${(props) => (props.isActive ? props.theme.colors.accent : props.theme.colors.textStrong)};
 `;
 
