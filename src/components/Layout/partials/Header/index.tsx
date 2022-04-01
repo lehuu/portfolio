@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useSiteMetadata } from '@hooks';
 import { graphql, useStaticQuery } from 'gatsby';
 import ThemeSwitchButton from '../ThemeSwitchButton';
 import Styled from './style';
+import HamburgerButton from '../HamburgerButton';
+import SlideIn from '../SlideIn';
 
 const HEADER_QUERY = graphql`
   {
@@ -23,6 +25,8 @@ const navItems = [
 ];
 
 const Header: React.FunctionComponent = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
   const hash = typeof window !== 'undefined' ? `/${window.location.hash}` : '';
   const { title } = useSiteMetadata();
 
@@ -49,6 +53,10 @@ const Header: React.FunctionComponent = () => {
             ))}
           </Styled.LinkList>
           <Styled.ButtonContainer>
+            <HamburgerButton
+              isOpen={isOpen}
+              onClick={(isCurrentlyOpen) => setIsOpen(!isCurrentlyOpen)}
+            />
             <Styled.DownloadLink href={link} target="_blank">
               Résumé
             </Styled.DownloadLink>
@@ -58,6 +66,7 @@ const Header: React.FunctionComponent = () => {
           <ThemeSwitchButton />
         </Styled.ThemeButtonContainer>
       </Styled.WidthContainer>
+      <SlideIn isOpen={isOpen} />
     </Styled.Header>
   );
 };
