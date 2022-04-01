@@ -162,6 +162,11 @@ const GlobalStyle = () => (
         ${THEME_TRANSITION_VAR}: 0s;
       }
 
+      body {
+        width: 100%;
+        overflow-x: hidden;
+      }
+
       body,
       #gatsby-focus-wrapper,
       #___gatsby {
