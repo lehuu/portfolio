@@ -11,7 +11,7 @@ const rotateIn = keyframes`
     visibility: hidden;
     opacity: 0;
     transform: translateX(-50%) rotateZ(0deg);
-    scale: 0.2;
+    scale: 0.8;
   }
   100% {
     visibility: visible;
@@ -30,7 +30,7 @@ const IconContainer = styled.div<IconProps>`
   opacity: ${(props) => (props.isVisible ? 1 : 0)};
   transform: ${(props) =>
     props.isVisible ? 'translateX(-50%) rotateZ(0deg)' : 'translateX(-50%) rotateZ(-360deg)'};
-  scale: ${(props) => (props.isVisible ? 1 : 0.2)};
+  scale: ${(props) => (props.isVisible ? 1 : 0.8)};
   line-height: 0;
   ${(props) =>
     props.isVisible &&
