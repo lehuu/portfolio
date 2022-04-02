@@ -24,9 +24,12 @@ const navItems = [
   { label: 'Contact', to: '/#contact' },
 ];
 
-const Header: React.FunctionComponent = () => {
-  const [isOpen, setIsOpen] = useState(false);
+interface HeaderProps {
+  isMenuOpen: boolean;
+  onMenuClick: (isOpen: boolean) => void;
+}
 
+const Header: React.FunctionComponent<HeaderProps> = ({ isMenuOpen, onMenuClick }) => {
   const hash = typeof window !== 'undefined' ? `/${window.location.hash}` : '';
   const { title } = useSiteMetadata();
 
@@ -53,20 +56,17 @@ const Header: React.FunctionComponent = () => {
             ))}
           </Styled.LinkList>
           <Styled.ButtonContainer>
-            <HamburgerButton
-              isOpen={isOpen}
-              onClick={(isCurrentlyOpen) => setIsOpen(!isCurrentlyOpen)}
-            />
+            <HamburgerButton isOpen={isMenuOpen} onClick={onMenuClick} />
             <Styled.DownloadLink href={link} target="_blank">
               Résumé
             </Styled.DownloadLink>
+            <SlideIn isOpen={isMenuOpen} onClickOverlay={() => onMenuClick(true)} />
           </Styled.ButtonContainer>
         </Styled.Navigation>
         <Styled.ThemeButtonContainer>
           <ThemeSwitchButton />
         </Styled.ThemeButtonContainer>
       </Styled.WidthContainer>
-      <SlideIn isOpen={isOpen} />
     </Styled.Header>
   );
 };

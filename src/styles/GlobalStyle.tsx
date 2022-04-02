@@ -165,6 +165,10 @@ const GlobalStyle = () => (
       body {
         width: 100%;
         overflow-x: hidden;
+
+        &.no-scroll {
+          overflow-y: hidden;
+        }
       }
 
       body,

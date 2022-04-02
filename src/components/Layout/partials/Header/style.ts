@@ -38,8 +38,10 @@ const Navigation = styled.nav`
   justify-content: space-between;
   align-items: center;
 
-  > * {
-    flex: 1 1 100%;
+  @media ${breakpoints.tablet} {
+    > * {
+      flex: 1 1 100%;
+    }
   }
 `;
 

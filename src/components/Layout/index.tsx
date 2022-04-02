@@ -12,6 +12,7 @@ interface LayoutProps {
 const Layout: React.FunctionComponent<LayoutProps> = ({ additionalTitle, children }) => {
   const { title, lang, siteUrl, description } = useSiteMetadata();
   const [isClient, setIsClient] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     document.documentElement.style.setProperty(THEME_TRANSITION_VAR, THEME_TRANSITION_TIME);
@@ -30,9 +31,10 @@ const Layout: React.FunctionComponent<LayoutProps> = ({ additionalTitle, childre
         <meta charSet="utf-8" />
         <link rel="canonical" href={siteUrl} />
         <meta name="description" content={description} />
+        <body className={isMenuOpen ? 'no-scroll' : ''} />
       </Helmet>
       <Styled.FlexContainer key={String(isClient)}>
-        <Header />
+        <Header isMenuOpen={isMenuOpen} onMenuClick={(isOpen) => setIsMenuOpen(!isOpen)} />
         <Styled.Main>{children}</Styled.Main>
         <Footer />
       </Styled.FlexContainer>
