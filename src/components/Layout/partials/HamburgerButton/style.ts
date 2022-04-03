@@ -2,6 +2,8 @@ import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 import { breakpoints, mixinTransition } from '@styles';
 
+export const TRANSITION_NAME = 'menu-button-transition';
+
 interface IconProps {
   rotationDirection: 'cw' | 'ccw';
 }
@@ -34,32 +36,32 @@ const IconContainer = styled.div<IconProps>`
   }
 
   ${(props) => css`
-    &:not(.menu-button-transition-enter-done),
-    &:not(.menu-button-transition-exit-done) {
+    &:not(.${TRANSITION_NAME}-enter-done),
+    &:not(.${TRANSITION_NAME}-exit-done) {
       ${visibleIcon(props)}
     }
 
-    &.menu-button-transition-enter-done {
+    &.${TRANSITION_NAME}-enter-done {
       ${visibleIcon(props)}
     }
 
-    &.menu-button-transition-exit-done {
+    &.${TRANSITION_NAME}-exit-done {
       ${invisibleIcon}
     }
 
-    &.menu-button-transition-enter {
+    &.${TRANSITION_NAME}-enter {
       ${invisibleIcon}
     }
 
-    &.menu-button-transition-enter-active {
+    &.${TRANSITION_NAME}-enter-active {
       ${visibleIcon(props)}
     }
 
-    &.menu-button-transition-exit {
+    &.${TRANSITION_NAME}-exit {
       ${visibleIcon(props)}
     }
 
-    &.menu-button-transition-exit-active {
+    &.${TRANSITION_NAME}-exit-active {
       ${invisibleIcon}
     }
   `}

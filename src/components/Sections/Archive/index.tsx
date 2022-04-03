@@ -5,7 +5,7 @@ import { Project } from 'types';
 import { CSSTransition } from 'react-transition-group';
 import { THEME_TRANSITION_TIME_MS } from '@styles/mixin-transition';
 import { ProjectTable } from './partials';
-import Styled from './style';
+import Styled, { TABLE_TRANSITION } from './style';
 
 const PROJECT_QUERY = graphql`
   {
@@ -68,7 +68,7 @@ const Archive: React.FunctionComponent = () => {
         in={isTableShown}
         unmountOnExit
         timeout={THEME_TRANSITION_TIME_MS}
-        classNames="table-transition"
+        classNames={TABLE_TRANSITION}
       >
         <Styled.ExpandableContainer>
           <SectionHeader title="All Projects" />

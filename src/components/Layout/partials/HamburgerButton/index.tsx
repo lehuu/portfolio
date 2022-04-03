@@ -3,7 +3,7 @@ import CloseIcon from '@icons/close.svg';
 import HamburgerIcon from '@icons/hamburger.svg';
 import { CSSTransition } from 'react-transition-group';
 import { THEME_TRANSITION_TIME_MS } from '@styles/mixin-transition';
-import Styled from './style';
+import Styled, { TRANSITION_NAME } from './style';
 
 interface HamburgerButtonProps {
   isOpen: boolean;
@@ -25,7 +25,7 @@ const HamburgerButton: React.FunctionComponent<HamburgerButtonProps> = ({ isOpen
         in={!isOpen}
         unmountOnExit
         timeout={THEME_TRANSITION_TIME_MS}
-        classNames="menu-button-transition"
+        classNames={TRANSITION_NAME}
       >
         <Styled.IconContainer rotationDirection="ccw">
           <HamburgerIcon />
@@ -35,7 +35,7 @@ const HamburgerButton: React.FunctionComponent<HamburgerButtonProps> = ({ isOpen
         in={isOpen}
         unmountOnExit
         timeout={THEME_TRANSITION_TIME_MS}
-        classNames="menu-button-transition"
+        classNames={TRANSITION_NAME}
       >
         <Styled.IconContainer rotationDirection="cw">
           <CloseIcon />

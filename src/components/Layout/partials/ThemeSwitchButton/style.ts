@@ -2,6 +2,8 @@ import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 import { breakpoints, mixinTransition } from '@styles';
 
+export const TRANSITION_NAME = 'theme-button-transition';
+
 const visibleIcon = (props: IconContainerProps) => css`
   visibility: visible;
   opacity: 1;
@@ -36,32 +38,32 @@ const IconContainer = styled.div<IconContainerProps>`
   }
 
   ${(props) => css`
-    &:not(.theme-button-transition-enter-done),
-    &:not(.theme-button-transition-exit-done) {
+    &:not(.${TRANSITION_NAME}-enter-done),
+    &:not(.${TRANSITION_NAME}-exit-done) {
       ${visibleIcon(props)}
     }
 
-    &.theme-button-transition-enter-done {
+    &.${TRANSITION_NAME}-enter-done {
       ${visibleIcon(props)}
     }
 
-    &.theme-button-transition-exit-done {
+    &.${TRANSITION_NAME}-exit-done {
       ${invisibleIcon}
     }
 
-    &.theme-button-transition-enter {
+    &.${TRANSITION_NAME}-enter {
       ${invisibleIcon}
     }
 
-    &.theme-button-transition-enter-active {
+    &.${TRANSITION_NAME}-enter-active {
       ${visibleIcon(props)}
     }
 
-    &.theme-button-transition-exit {
+    &.${TRANSITION_NAME}-exit {
       ${visibleIcon(props)}
     }
 
-    &.theme-button-transition-exit-active {
+    &.${TRANSITION_NAME}-exit-active {
       ${invisibleIcon}
     }
   `}

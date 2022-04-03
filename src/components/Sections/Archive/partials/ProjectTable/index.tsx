@@ -4,6 +4,7 @@ import { FluidObject } from 'gatsby-image';
 import { CSSTransition } from 'react-transition-group';
 import { THEME_TRANSITION_TIME_MS } from '@styles/mixin-transition';
 import Styled from './style';
+import { TRANSITION_NAME } from '../ProjectDetail/style';
 import ProjectDetail from '../ProjectDetail';
 
 interface ProjectTableProps {
@@ -80,7 +81,7 @@ const ProjectTable: React.FunctionComponent<ProjectTableProps> = ({ projects }) 
               in={selectedProject != null && selectedProject === index}
               timeout={THEME_TRANSITION_TIME_MS}
               unmountOnExit
-              classNames="table-detail-transition"
+              classNames={TRANSITION_NAME}
             >
               <Styled.ProjectCardRow>
                 <td colSpan={5}>

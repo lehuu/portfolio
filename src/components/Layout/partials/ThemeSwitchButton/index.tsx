@@ -4,7 +4,7 @@ import MoonIcon from '@icons/moon.svg';
 import SunIcon from '@icons/sun.svg';
 import { CSSTransition } from 'react-transition-group';
 import { THEME_TRANSITION_TIME_MS } from '@styles/mixin-transition';
-import Styled from './style';
+import Styled, { TRANSITION_NAME } from './style';
 
 const ThemeSwitchButton: React.FunctionComponent = () => {
   const [colorMode, setColorMode] = useColorMode();
@@ -23,7 +23,7 @@ const ThemeSwitchButton: React.FunctionComponent = () => {
             in={!isDarkMode}
             unmountOnExit
             timeout={THEME_TRANSITION_TIME_MS}
-            classNames="theme-button-transition"
+            classNames={TRANSITION_NAME}
           >
             <Styled.IconContainer rotationDirection="ccw">
               <SunIcon />
@@ -33,7 +33,7 @@ const ThemeSwitchButton: React.FunctionComponent = () => {
             in={isDarkMode}
             unmountOnExit
             timeout={THEME_TRANSITION_TIME_MS}
-            classNames="theme-button-transition"
+            classNames={TRANSITION_NAME}
           >
             <Styled.IconContainer rotationDirection="cw">
               <MoonIcon />

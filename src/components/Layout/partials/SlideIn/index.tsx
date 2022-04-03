@@ -3,7 +3,7 @@ import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
 import { CSSTransition } from 'react-transition-group';
 import ThemeSwitchButton from '../ThemeSwitchButton';
-import Styled from './style';
+import Styled, { OVERLAY_TRANSITION_NAME, SLIDEIN_TRANSITION_NAME } from './style';
 
 export const RESUME_QUERY = graphql`
   {
@@ -37,7 +37,7 @@ const SlideIn: React.FunctionComponent<SlideInProps> = ({ isOpen, onRequestClose
         in={isOpen}
         unmountOnExit
         timeout={THEME_TRANSITION_TIME_MS}
-        classNames="overlay-transition"
+        classNames={OVERLAY_TRANSITION_NAME}
       >
         <Styled.Overlay onClick={onRequestClose} />
       </CSSTransition>
@@ -45,7 +45,7 @@ const SlideIn: React.FunctionComponent<SlideInProps> = ({ isOpen, onRequestClose
         in={isOpen}
         unmountOnExit
         timeout={THEME_TRANSITION_TIME_MS}
-        classNames="slidein-menu-transition"
+        classNames={SLIDEIN_TRANSITION_NAME}
       >
         <Styled.SlideInContainer>
           <Styled.LinkList>
