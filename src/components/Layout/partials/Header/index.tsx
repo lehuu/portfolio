@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useSiteMetadata } from '@hooks';
 import { graphql, useStaticQuery } from 'gatsby';
 import ThemeSwitchButton from '../ThemeSwitchButton';
@@ -6,7 +6,7 @@ import Styled from './style';
 import HamburgerButton from '../HamburgerButton';
 import SlideIn from '../SlideIn';
 
-const HEADER_QUERY = graphql`
+export const HEADER_QUERY = graphql`
   {
     markdownRemark(fileAbsolutePath: { regex: "/content/resume/index.md/" }) {
       frontmatter {
@@ -60,7 +60,11 @@ const Header: React.FunctionComponent<HeaderProps> = ({ isMenuOpen, onMenuClick 
             <Styled.DownloadLink href={link} target="_blank">
               Résumé
             </Styled.DownloadLink>
-            <SlideIn isOpen={isMenuOpen} onClickOverlay={() => onMenuClick(true)} />
+            <SlideIn
+              isOpen={isMenuOpen}
+              onRequestClose={() => onMenuClick(true)}
+              links={navItems}
+            />
           </Styled.ButtonContainer>
         </Styled.Navigation>
         <Styled.ThemeButtonContainer>
