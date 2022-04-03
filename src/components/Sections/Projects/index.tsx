@@ -42,7 +42,7 @@ const PROJECT_QUERY = graphql`
   }
 `;
 
-const Contact: React.FunctionComponent<Pick<SectionContainerProps, 'onInView'>> = ({
+const Projects: React.FunctionComponent<Pick<SectionContainerProps, 'onInView'>> = ({
   onInView,
 }) => {
   const { projects } = useStaticQuery<{ projects: { edges: { node: Project }[] } }>(PROJECT_QUERY);
@@ -72,4 +72,4 @@ const Contact: React.FunctionComponent<Pick<SectionContainerProps, 'onInView'>> 
   );
 };
 
-export default Contact;
+export default Projects;

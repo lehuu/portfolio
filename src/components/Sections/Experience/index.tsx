@@ -28,7 +28,7 @@ const EXPERIENCE_QUERY = graphql`
   }
 `;
 
-const Contact: React.FunctionComponent<Pick<SectionContainerProps, 'onInView'>> = ({
+const Experience: React.FunctionComponent<Pick<SectionContainerProps, 'onInView'>> = ({
   onInView,
 }) => {
   const { jobs } = useStaticQuery(EXPERIENCE_QUERY);
@@ -59,4 +59,4 @@ const Contact: React.FunctionComponent<Pick<SectionContainerProps, 'onInView'>> 
   );
 };
 
-export default Contact;
+export default Experience;
