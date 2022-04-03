@@ -52,6 +52,10 @@ const Overlay = styled.div<SlideInContainerProps>`
       : css`
           display: none;
         `}
+
+  @media ${breakpoints.tablet} {
+    display: none;
+  }
 `;
 
 export default { SlideInContainer, Overlay };

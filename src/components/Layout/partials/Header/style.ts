@@ -3,7 +3,7 @@ import { breakpoints, mixinTransition, contentWidth } from '@styles';
 import { StyledExternalLink, StyledInternalLink } from '@components/Link';
 
 const Header = styled.header`
-  position: sticky;
+  position: fixed;
   z-index: 500;
   top: 0;
   width: 100%;
@@ -71,6 +71,7 @@ const NavLink = styled(StyledInternalLink, {
   shouldForwardProp: (prop) => prop !== 'isActive',
 })<NavLinkProps>`
   color: ${(props) => (props.isActive ? props.theme.colors.accent : props.theme.colors.textStrong)};
+  ${mixinTransition('color')}
 `;
 
 const MenuButton = styled.button`

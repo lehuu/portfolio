@@ -167,7 +167,8 @@ const GlobalStyle = () => (
         overflow-x: hidden;
 
         &.no-scroll {
-          overflow-y: hidden;
+          overflow-y: scroll;
+          position: fixed;
         }
       }
 
