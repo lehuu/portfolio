@@ -24,7 +24,7 @@ interface SlideInProps {
 }
 
 const SlideIn: React.FunctionComponent<SlideInProps> = ({ isOpen, onRequestClose, links }) => {
-  const { hash } = React.useContext(HashContext);
+  const { hash, disableScrollTracking } = React.useContext(HashContext);
 
   const {
     markdownRemark: {
@@ -57,6 +57,7 @@ const SlideIn: React.FunctionComponent<SlideInProps> = ({ isOpen, onRequestClose
                   to={item.to}
                   onClick={() => {
                     onRequestClose();
+                    disableScrollTracking();
                   }}
                 >
                   {item.label}

@@ -1,9 +1,10 @@
+import SectionContainer from '@components/SectionContainer';
 import styled from '@emotion/styled';
 import slideTransition from '@styles/slide-transition';
 
 export const TABLE_TRANSITION = 'table-transition';
 
-const Container = styled.section`
+const Container = styled(SectionContainer)`
   display: flex;
   flex-direction: column;
   align-items: center;

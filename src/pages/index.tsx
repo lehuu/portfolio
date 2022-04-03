@@ -1,24 +1,12 @@
 import React from 'react';
-import {
-  IntroSection,
-  Layout,
-  AboutSection,
-  ContactSection,
-  ExperienceSection,
-  ProjectSection,
-  ArchiveSection,
-} from '@components';
+import { Layout } from '@components';
 import HashProvider from '@components/HashProvider';
+import SectionsPage from './sections';
 
 const IndexPage = () => (
   <HashProvider>
     <Layout>
-      <IntroSection />
-      <AboutSection />
-      <ExperienceSection />
-      <ProjectSection />
-      <ArchiveSection />
-      <ContactSection />
+      <SectionsPage />
     </Layout>
   </HashProvider>
 );
