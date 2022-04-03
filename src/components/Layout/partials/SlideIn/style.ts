@@ -3,6 +3,9 @@ import styled from '@emotion/styled';
 import breakpoints from '@styles/breakpoints';
 import mixinTransition, { THEME_TRANSITION_TIME } from '@styles/mixin-transition';
 
+export const SLIDEIN_TRANSITION_NAME = 'slidein-menu-transition';
+export const OVERLAY_TRANSITION_NAME = 'overlay-transition';
+
 const SlideInContainer = styled.aside`
   display: flex;
   flex-direction: column;
@@ -21,19 +24,19 @@ const SlideInContainer = styled.aside`
   background-color: ${(props) => props.theme.colors.background};
   height: 100vh;
 
-  &.slidein-menu-transition-enter {
+  &.${SLIDEIN_TRANSITION_NAME}-enter {
     transform: translateX(100%);
   }
 
-  &.slidein-menu-transition-enter-active {
+  &.${SLIDEIN_TRANSITION_NAME}-enter-active {
     transform: translateX(0);
   }
 
-  &.slidein-menu-transition-exit {
+  &.${SLIDEIN_TRANSITION_NAME}-exit {
     transform: translateX(0);
   }
 
-  &.slidein-menu-transition-exit-active {
+  &.${SLIDEIN_TRANSITION_NAME}-exit-active {
     transform: translateX(100%);
   }
 
@@ -53,19 +56,19 @@ const Overlay = styled.div`
   right: 0;
   position: fixed;
 
-  &.overlay-transition-enter {
+  &.${OVERLAY_TRANSITION_NAME}-enter {
     opacity: 0;
   }
 
-  &.overlay-transition-enter-active {
+  &.${OVERLAY_TRANSITION_NAME}-enter-active {
     opacity: 1;
   }
 
-  &.overlay-transition-exit {
+  &.${OVERLAY_TRANSITION_NAME}-exit {
     opacity: 1;
   }
 
-  &.overlay-transition-exit-active {
+  &.${OVERLAY_TRANSITION_NAME}-exit-active {
     opacity: 0;
   }
 
