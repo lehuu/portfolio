@@ -1,4 +1,3 @@
-import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 import { contentWidth } from '@styles';
 
@@ -8,6 +7,7 @@ const Main = styled.main`
   width: 100%;
   box-sizing: border-box;
   align-items: center;
+  margin-top: ${({ theme }) => theme.space.xxxl};
 `;
 
 const FlexContainer = styled.div`
