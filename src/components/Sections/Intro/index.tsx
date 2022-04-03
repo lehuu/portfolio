@@ -3,6 +3,7 @@ import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import { useColorMode } from 'theme-ui';
+import { SectionContainerProps } from '@components/SectionContainer';
 import IconLink from '../../IconLink';
 import Styled from './style';
 
@@ -33,7 +34,7 @@ const INTRO_QUERY = graphql`
   }
 `;
 
-const Intro: React.FunctionComponent = () => {
+const Intro: React.FunctionComponent<Pick<SectionContainerProps, 'onInView'>> = ({ onInView }) => {
   const { markdownRemark } = useStaticQuery(INTRO_QUERY);
   const [colorMode] = useColorMode();
   const isDarkMode = colorMode === 'dark';
@@ -44,7 +45,7 @@ const Intro: React.FunctionComponent = () => {
   const darkImage = getImage(frontmatter.pictures.dark);
 
   return (
-    <Styled.Container>
+    <Styled.Container onInView={onInView}>
       <Styled.ImageContainer>
         <Styled.ImageColorBlur />
         <Styled.ImageColorWrapper />

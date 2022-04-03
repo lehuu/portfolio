@@ -1,11 +1,11 @@
 import React from 'react';
 import { useSiteMetadata } from '@hooks';
 import { graphql, useStaticQuery } from 'gatsby';
+import { HashContext } from '@components/HashProvider';
 import ThemeSwitchButton from '../ThemeSwitchButton';
 import Styled from './style';
 import HamburgerButton from '../HamburgerButton';
 import SlideIn from '../SlideIn';
-import { HashContext } from '@components/HashProvider';
 
 export const HEADER_QUERY = graphql`
   {
@@ -31,7 +31,7 @@ interface HeaderProps {
 }
 
 const Header: React.FunctionComponent<HeaderProps> = ({ isMenuOpen, onMenuClick }) => {
-  const { hash } = React.useContext(HashContext);
+  const { hash, disableScrollTracking } = React.useContext(HashContext);
   const { title } = useSiteMetadata();
 
   const {
@@ -45,12 +45,18 @@ const Header: React.FunctionComponent<HeaderProps> = ({ isMenuOpen, onMenuClick 
       <Styled.WidthContainer>
         <Styled.Navigation>
           <div>
-            <Styled.Title to="/">{title}</Styled.Title>
+            <Styled.Title to="/" onClick={disableScrollTracking}>
+              {title}
+            </Styled.Title>
           </div>
           <Styled.LinkList>
             {navItems.map((item) => (
               <li key={item.label}>
-                <Styled.NavLink isActive={hash === item.to} to={item.to}>
+                <Styled.NavLink
+                  isActive={hash === item.to}
+                  to={item.to}
+                  onClick={disableScrollTracking}
+                >
                   {item.label}
                 </Styled.NavLink>
               </li>
