@@ -1,14 +1,9 @@
 import { StyledExternalLink, StyledInternalLink } from '@components/Link';
-import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 import breakpoints from '@styles/breakpoints';
 import mixinTransition, { THEME_TRANSITION_TIME } from '@styles/mixin-transition';
 
-interface SlideInContainerProps {
-  isOpen: boolean;
-}
-
-const SlideInContainer = styled.aside<SlideInContainerProps>`
+const SlideInContainer = styled.aside`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -23,29 +18,34 @@ const SlideInContainer = styled.aside<SlideInContainerProps>`
     background-color ${THEME_TRANSITION_TIME} linear;
   padding: ${({ theme }) => `${theme.space.xxxl} ${theme.space.xs}`};
   box-shadow: ${({ theme }) => theme.shadows.slideIn};
-
-  ${(props) =>
-    props.isOpen
-      ? css`
-          transform: translateX(0);
-          height: 100vh;
-        `
-      : css`
-          transform: translateX(100%);
-          bottom: 0;
-        `}
-
   background-color: ${(props) => props.theme.colors.background};
+  height: 100vh;
+
+  &.slidein-menu-transition-enter {
+    transform: translateX(100%);
+  }
+
+  &.slidein-menu-transition-enter-active {
+    transform: translateX(0);
+  }
+
+  &.slidein-menu-transition-exit {
+    transform: translateX(0);
+  }
+
+  &.slidein-menu-transition-exit-active {
+    transform: translateX(100%);
+  }
 
   @media ${breakpoints.tablet} {
     display: none;
   }
 `;
 
-const Overlay = styled.div<SlideInContainerProps>`
+const Overlay = styled.div`
   position: absolute;
   background-color: ${(props) => props.theme.colors.overlay};
-  ${mixinTransition('background-color')}
+  ${mixinTransition('background-color', 'opacity')}
 
   top: 0;
   bottom: 0;
@@ -53,14 +53,21 @@ const Overlay = styled.div<SlideInContainerProps>`
   right: 0;
   position: fixed;
 
-  ${(props) =>
-    props.isOpen
-      ? css`
-          display: block;
-        `
-      : css`
-          display: none;
-        `}
+  &.overlay-transition-enter {
+    opacity: 0;
+  }
+
+  &.overlay-transition-enter-active {
+    opacity: 1;
+  }
+
+  &.overlay-transition-exit {
+    opacity: 1;
+  }
+
+  &.overlay-transition-exit-active {
+    opacity: 0;
+  }
 
   @media ${breakpoints.tablet} {
     display: none;
