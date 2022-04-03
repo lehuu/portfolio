@@ -8,16 +8,19 @@ import {
   ProjectSection,
   ArchiveSection,
 } from '@components';
+import HashProvider from '@components/HashProvider';
 
 const IndexPage = () => (
-  <Layout>
-    <IntroSection />
-    <AboutSection />
-    <ExperienceSection />
-    <ProjectSection />
-    <ArchiveSection />
-    <ContactSection />
-  </Layout>
+  <HashProvider>
+    <Layout>
+      <IntroSection />
+      <AboutSection />
+      <ExperienceSection />
+      <ProjectSection />
+      <ArchiveSection />
+      <ContactSection />
+    </Layout>
+  </HashProvider>
 );
 
 export default IndexPage;
