@@ -5,6 +5,7 @@ import ThemeSwitchButton from '../ThemeSwitchButton';
 import Styled from './style';
 import HamburgerButton from '../HamburgerButton';
 import SlideIn from '../SlideIn';
+import { HashContext } from '@components/HashProvider';
 
 export const HEADER_QUERY = graphql`
   {
@@ -18,10 +19,10 @@ export const HEADER_QUERY = graphql`
 `;
 
 const navItems = [
-  { label: 'About', to: '/#about' },
-  { label: 'Experience', to: '/#experience' },
-  { label: 'Projects', to: '/#projects' },
-  { label: 'Contact', to: '/#contact' },
+  { label: 'About', to: '#about' },
+  { label: 'Experience', to: '#experience' },
+  { label: 'Projects', to: '#projects' },
+  { label: 'Contact', to: '#contact' },
 ];
 
 interface HeaderProps {
@@ -30,7 +31,7 @@ interface HeaderProps {
 }
 
 const Header: React.FunctionComponent<HeaderProps> = ({ isMenuOpen, onMenuClick }) => {
-  const hash = typeof window !== 'undefined' ? `/${window.location.hash}` : '';
+  const { hash } = React.useContext(HashContext);
   const { title } = useSiteMetadata();
 
   const {

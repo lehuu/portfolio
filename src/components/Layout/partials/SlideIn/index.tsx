@@ -1,3 +1,4 @@
+import { HashContext } from '@components/HashProvider';
 import { THEME_TRANSITION_TIME_MS } from '@styles/mixin-transition';
 import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
@@ -23,7 +24,7 @@ interface SlideInProps {
 }
 
 const SlideIn: React.FunctionComponent<SlideInProps> = ({ isOpen, onRequestClose, links }) => {
-  const hash = typeof window !== 'undefined' ? `/${window.location.hash}` : '';
+  const { hash } = React.useContext(HashContext);
 
   const {
     markdownRemark: {
