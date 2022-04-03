@@ -14,6 +14,8 @@ const SlideInContainer = styled.aside<SlideInContainerProps>`
   justify-content: center;
   align-items: center;
   position: fixed;
+  border-bottom-left-radius: ${({ theme }) => theme.radii.large};
+  border-top-left-radius: ${({ theme }) => theme.radii.large};
   top: 0;
   right: 0;
   width: min(75vw, 400px);
@@ -82,7 +84,7 @@ const NavLink = styled(StyledInternalLink, {
 
 const ButtonContainer = styled.div`
   position: absolute;
-  top: ${({ theme }) => theme.space.s};
+  top: ${({ theme }) => theme.space.m};
   left: ${({ theme }) => theme.space.xl};
 `;
 
