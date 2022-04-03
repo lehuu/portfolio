@@ -1,48 +1,70 @@
-import { css, keyframes } from '@emotion/react';
+import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 import { breakpoints, mixinTransition } from '@styles';
 
-interface IconProps {
-  readonly isVisible: boolean;
-}
-
-const rotateIn = keyframes`
-  0% {
-    visibility: hidden;
-    opacity: 0;
-    transform: rotateZ(0deg);
-    scale: 0.2;
-  }
-  100% {
-    visibility: visible;
-    opacity: 1;
-    transform: rotateZ(-360deg);
-    scale: 1;
-  }
+const visibleIcon = (props: IconContainerProps) => css`
+  visibility: visible;
+  opacity: 1;
+  transform: ${props.rotationDirection === 'cw' ? 'rotateZ(-360deg)' : 'rotateZ(360deg)'};
+  scale: 1;
 `;
 
-const IconContainer = styled.div<IconProps>`
-  visibility: ${(props) => (props.isVisible ? 'visible' : 'hidden')};
-  opacity: ${(props) => (props.isVisible ? 1 : 0)};
-  transform: ${(props) => (props.isVisible ? 'rotateZ(0deg)' : 'rotateZ(-360deg)')};
-  scale: ${(props) => (props.isVisible ? 1 : 0.2)};
+const invisibleIcon = css`
+  visibility: hidden;
+  opacity: 0;
+  transform: rotateZ(0deg);
+  scale: 0.5;
+`;
+
+interface IconContainerProps {
+  rotationDirection: 'cw' | 'ccw';
+}
+
+const IconContainer = styled.div<IconContainerProps>`
   position: absolute;
   top: ${({ theme }) => theme.space.xs};
   line-height: 0;
-  ${(props) =>
-    props.isVisible &&
-    css`
-      animation: 0.25s linear 0s 1 ${rotateIn};
-    `};
   ${mixinTransition('all')}
   svg {
     height: ${({ theme }) => theme.fontSizes.xl};
     color: ${({ theme }) => theme.colors.themeSwitcher.iconColor};
+    ${mixinTransition('color')}
 
     @media ${breakpoints.tablet} {
       height: ${({ theme }) => theme.fontSizes.l};
     }
   }
+
+  ${(props) => css`
+    &:not(.theme-button-transition-enter-done),
+    &:not(.theme-button-transition-exit-done) {
+      ${visibleIcon(props)}
+    }
+
+    &.theme-button-transition-enter-done {
+      ${visibleIcon(props)}
+    }
+
+    &.theme-button-transition-exit-done {
+      ${invisibleIcon}
+    }
+
+    &.theme-button-transition-enter {
+      ${invisibleIcon}
+    }
+
+    &.theme-button-transition-enter-active {
+      ${visibleIcon(props)}
+    }
+
+    &.theme-button-transition-exit {
+      ${visibleIcon(props)}
+    }
+
+    &.theme-button-transition-exit-active {
+      ${invisibleIcon}
+    }
+  `}
 `;
 
 const Button = styled.button`

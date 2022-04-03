@@ -1,24 +1,24 @@
-import { css, keyframes } from '@emotion/react';
+import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 import { breakpoints, mixinTransition } from '@styles';
 
 interface IconProps {
-  readonly isVisible: boolean;
+  rotationDirection: 'cw' | 'ccw';
 }
 
-const rotateIn = keyframes`
-  0% {
-    visibility: hidden;
-    opacity: 0;
-    transform: translateX(-50%) rotateZ(0deg);
-    scale: 0.8;
-  }
-  100% {
-    visibility: visible;
-    opacity: 1;
-    transform: translateX(-50%) rotateZ(-360deg);
-    scale: 1;
-  }
+const visibleIcon = (props: IconProps) => css`
+  visibility: visible;
+  opacity: 1;
+  transform: translateX(-50%)
+    ${props.rotationDirection === 'cw' ? 'rotateZ(-180deg)' : 'rotateZ(180deg)'};
+  scale: 1;
+`;
+
+const invisibleIcon = css`
+  visibility: hidden;
+  opacity: 0;
+  transform: translateX(-50%) rotateZ(0deg);
+  scale: 0.8;
 `;
 
 const IconContainer = styled.div<IconProps>`
@@ -26,22 +26,43 @@ const IconContainer = styled.div<IconProps>`
   top: 0;
   left: 50%;
   height: inherit;
-  visibility: ${(props) => (props.isVisible ? 'visible' : 'hidden')};
-  opacity: ${(props) => (props.isVisible ? 1 : 0)};
-  transform: ${(props) =>
-    props.isVisible ? 'translateX(-50%) rotateZ(0deg)' : 'translateX(-50%) rotateZ(-360deg)'};
-  scale: ${(props) => (props.isVisible ? 1 : 0.8)};
   line-height: 0;
-  ${(props) =>
-    props.isVisible &&
-    css`
-      animation: 0.25s linear 0s 1 ${rotateIn};
-    `};
   ${mixinTransition('all')}
   svg {
     color: ${({ theme }) => theme.colors.accent};
     height: inherit;
   }
+
+  ${(props) => css`
+    &:not(.menu-button-transition-enter-done),
+    &:not(.menu-button-transition-exit-done) {
+      ${visibleIcon(props)}
+    }
+
+    &.menu-button-transition-enter-done {
+      ${visibleIcon(props)}
+    }
+
+    &.menu-button-transition-exit-done {
+      ${invisibleIcon}
+    }
+
+    &.menu-button-transition-enter {
+      ${invisibleIcon}
+    }
+
+    &.menu-button-transition-enter-active {
+      ${visibleIcon(props)}
+    }
+
+    &.menu-button-transition-exit {
+      ${visibleIcon(props)}
+    }
+
+    &.menu-button-transition-exit-active {
+      ${invisibleIcon}
+    }
+  `}
 `;
 
 const Button = styled.button`

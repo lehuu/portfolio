@@ -1,5 +1,7 @@
+import { THEME_TRANSITION_TIME_MS } from '@styles/mixin-transition';
 import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
+import { CSSTransition } from 'react-transition-group';
 import ThemeSwitchButton from '../ThemeSwitchButton';
 import Styled from './style';
 
@@ -31,30 +33,44 @@ const SlideIn: React.FunctionComponent<SlideInProps> = ({ isOpen, onRequestClose
 
   return (
     <>
-      <Styled.Overlay isOpen={isOpen} onClick={onRequestClose} />
-      <Styled.SlideInContainer isOpen={isOpen}>
-        <Styled.LinkList>
-          {links.map((item) => (
-            <li key={item.label}>
-              <Styled.NavLink
-                isActive={hash === item.to}
-                to={item.to}
-                onClick={() => {
-                  onRequestClose();
-                }}
-              >
-                {item.label}
-              </Styled.NavLink>
-            </li>
-          ))}
-        </Styled.LinkList>
-        <Styled.DownloadLink href={link} target="_blank">
-          Résumé
-        </Styled.DownloadLink>
-        <Styled.ButtonContainer>
-          <ThemeSwitchButton />
-        </Styled.ButtonContainer>
-      </Styled.SlideInContainer>
+      <CSSTransition
+        in={isOpen}
+        unmountOnExit
+        timeout={THEME_TRANSITION_TIME_MS}
+        classNames="overlay-transition"
+      >
+        <Styled.Overlay onClick={onRequestClose} />
+      </CSSTransition>
+      <CSSTransition
+        in={isOpen}
+        unmountOnExit
+        timeout={THEME_TRANSITION_TIME_MS}
+        classNames="slidein-menu-transition"
+      >
+        <Styled.SlideInContainer>
+          <Styled.LinkList>
+            {links.map((item) => (
+              <li key={item.label}>
+                <Styled.NavLink
+                  isActive={hash === item.to}
+                  to={item.to}
+                  onClick={() => {
+                    onRequestClose();
+                  }}
+                >
+                  {item.label}
+                </Styled.NavLink>
+              </li>
+            ))}
+          </Styled.LinkList>
+          <Styled.DownloadLink href={link} target="_blank">
+            Résumé
+          </Styled.DownloadLink>
+          <Styled.ButtonContainer>
+            <ThemeSwitchButton />
+          </Styled.ButtonContainer>
+        </Styled.SlideInContainer>
+      </CSSTransition>
     </>
   );
 };

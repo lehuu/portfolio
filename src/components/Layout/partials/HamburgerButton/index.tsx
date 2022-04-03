@@ -1,6 +1,8 @@
 import React from 'react';
 import CloseIcon from '@icons/close.svg';
 import HamburgerIcon from '@icons/hamburger.svg';
+import { CSSTransition } from 'react-transition-group';
+import { THEME_TRANSITION_TIME_MS } from '@styles/mixin-transition';
 import Styled from './style';
 
 interface HamburgerButtonProps {
@@ -19,12 +21,26 @@ const HamburgerButton: React.FunctionComponent<HamburgerButtonProps> = ({ isOpen
       onClick={handleButtonClick}
       aria-label={isOpen ? 'Close Navigation Menu' : 'Open Navigation Menu'}
     >
-      <Styled.IconContainer isVisible={!isOpen}>
-        <HamburgerIcon />
-      </Styled.IconContainer>
-      <Styled.IconContainer isVisible={isOpen}>
-        <CloseIcon />
-      </Styled.IconContainer>
+      <CSSTransition
+        in={!isOpen}
+        unmountOnExit
+        timeout={THEME_TRANSITION_TIME_MS}
+        classNames="menu-button-transition"
+      >
+        <Styled.IconContainer rotationDirection="ccw">
+          <HamburgerIcon />
+        </Styled.IconContainer>
+      </CSSTransition>
+      <CSSTransition
+        in={isOpen}
+        unmountOnExit
+        timeout={THEME_TRANSITION_TIME_MS}
+        classNames="menu-button-transition"
+      >
+        <Styled.IconContainer rotationDirection="cw">
+          <CloseIcon />
+        </Styled.IconContainer>
+      </CSSTransition>
     </Styled.Button>
   );
 };
