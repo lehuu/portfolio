@@ -5,6 +5,20 @@ import slideTransition from '@styles/slide-transition';
 
 export const TRANSITION_NAME = 'table-detail-transition';
 
+const CompanyContainer = styled.div`
+  margin-bottom: ${({ theme }) => theme.space.s};
+
+  @media ${breakpoints.mobileXL} {
+    display: none;
+  }
+`;
+
+const NoDetailsContainer = styled.div`
+  grid-area: 1 / 1 / -1 / -1;
+  text-align: center;
+  font-size: ${({ theme }) => theme.fontSizes.s};
+`;
+
 const RoundedContainer = styled.div`
   border-radius: ${(props) => props.theme.radii.large};
   overflow: hidden;
@@ -46,10 +60,12 @@ const TextContainer = styled(RoundedContainer)`
   opacity: 0.93;
   height: 100%;
   max-width: 700px;
+  justify-content: center;
   ${mixinTransition('background-color')}
 
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  align-items: stretch;
 
   @media ${breakpoints.tablet} {
     height: unset;
@@ -59,4 +75,30 @@ const TextContainer = styled(RoundedContainer)`
   }
 `;
 
-export default { TextContainer, ImageContainer, DetailsContainer };
+const TechList = styled.ul`
+  margin: ${({ theme }) => theme.space.m} 0 ${({ theme }) => theme.space.l};
+  display: flex;
+  flex-wrap: wrap;
+  font-size: ${({ theme }) => theme.fontSizes.s};
+
+  & > *:not(:last-of-type) {
+    &::after {
+      opacity: 0.75;
+      content: '\\2022';
+      margin: 0 ${({ theme }) => theme.space.s};
+    }
+  }
+
+  @media ${breakpoints.tablet} {
+    display: none;
+  }
+`;
+
+export default {
+  TextContainer,
+  ImageContainer,
+  DetailsContainer,
+  NoDetailsContainer,
+  CompanyContainer,
+  TechList,
+};

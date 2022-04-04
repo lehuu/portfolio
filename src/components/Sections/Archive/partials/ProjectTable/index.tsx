@@ -10,7 +10,7 @@ import ProjectDetail from '../ProjectDetail';
 interface ProjectTableProps {
   projects: {
     name: string;
-    description: string;
+    description?: string;
     company?: string;
     techstack: string[];
     image: FluidObject | FluidObject[];
@@ -85,7 +85,12 @@ const ProjectTable: React.FunctionComponent<ProjectTableProps> = ({ projects }) 
             >
               <Styled.ProjectCardRow>
                 <td colSpan={5}>
-                  <ProjectDetail image={project.image} description={project.description} />
+                  <ProjectDetail
+                    company={project.company}
+                    image={project.image}
+                    techstack={project.techstack}
+                    description={project.description}
+                  />
                 </td>
               </Styled.ProjectCardRow>
             </CSSTransition>
