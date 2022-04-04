@@ -4,6 +4,7 @@ import { FluidObject } from 'gatsby-image';
 import { CSSTransition } from 'react-transition-group';
 import { THEME_TRANSITION_TIME_MS } from '@styles/mixin-transition';
 import Styled from './style';
+import { TRANSITION_NAME } from '../ProjectDetail/style';
 import ProjectDetail from '../ProjectDetail';
 
 interface ProjectTableProps {
@@ -42,11 +43,8 @@ const ProjectTable: React.FunctionComponent<ProjectTableProps> = ({ projects }) 
       </thead>
       <tbody>
         {projects.map((project, index) => (
-          <>
-            <tr
-              key={`${project.name}${project.endDate}`}
-              onClick={() => handleSelectProject(index)}
-            >
+          <React.Fragment key={`${project.name}${project.endDate}`}>
+            <tr onClick={() => handleSelectProject(index)}>
               <Styled.DateCell>{project.endDate.getFullYear()}</Styled.DateCell>
               <Styled.TitleCell>{project.name}</Styled.TitleCell>
               <Styled.CompanyCell visibleFrom="mobileXL">
@@ -83,7 +81,7 @@ const ProjectTable: React.FunctionComponent<ProjectTableProps> = ({ projects }) 
               in={selectedProject != null && selectedProject === index}
               timeout={THEME_TRANSITION_TIME_MS}
               unmountOnExit
-              classNames="table-detail-transition"
+              classNames={TRANSITION_NAME}
             >
               <Styled.ProjectCardRow>
                 <td colSpan={5}>
@@ -91,7 +89,7 @@ const ProjectTable: React.FunctionComponent<ProjectTableProps> = ({ projects }) 
                 </td>
               </Styled.ProjectCardRow>
             </CSSTransition>
-          </>
+          </React.Fragment>
         ))}
       </tbody>
     </Styled.Table>

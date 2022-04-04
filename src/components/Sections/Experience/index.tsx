@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import SectionHeader from '@components/SectionHeader';
 import { graphql, useStaticQuery } from 'gatsby';
+import SectionContainer, { SectionContainerProps } from '@components/SectionContainer';
 import { Tabbar, TabContent } from './partials';
 import Styled from './style';
 
@@ -27,7 +28,9 @@ const EXPERIENCE_QUERY = graphql`
   }
 `;
 
-const Contact: React.FunctionComponent = () => {
+const Experience: React.FunctionComponent<Pick<SectionContainerProps, 'onInView'>> = ({
+  onInView,
+}) => {
   const { jobs } = useStaticQuery(EXPERIENCE_QUERY);
   const [selectedTab, setSelectedTab] = useState(0);
 
@@ -42,7 +45,7 @@ const Contact: React.FunctionComponent = () => {
   const endDate = selectedContent.endDate === 'now' ? 'now' : new Date(selectedContent.endDate);
 
   return (
-    <section>
+    <SectionContainer id="experience" onInView={onInView}>
       <SectionHeader title="Experience" />
       <Styled.TabView>
         <Tabbar
@@ -52,8 +55,8 @@ const Contact: React.FunctionComponent = () => {
         />
         <TabContent {...selectedContent} startDate={startDate} endDate={endDate} />
       </Styled.TabView>
-    </section>
+    </SectionContainer>
   );
 };
 
-export default Contact;
+export default Experience;

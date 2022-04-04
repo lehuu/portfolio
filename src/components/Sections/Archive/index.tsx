@@ -4,8 +4,9 @@ import React, { useState } from 'react';
 import { Project } from 'types';
 import { CSSTransition } from 'react-transition-group';
 import { THEME_TRANSITION_TIME_MS } from '@styles/mixin-transition';
+import { SectionContainerProps } from '@components/SectionContainer';
 import { ProjectTable } from './partials';
-import Styled from './style';
+import Styled, { TABLE_TRANSITION } from './style';
 
 const PROJECT_QUERY = graphql`
   {
@@ -40,7 +41,9 @@ const PROJECT_QUERY = graphql`
   }
 `;
 
-const Archive: React.FunctionComponent = () => {
+const Archive: React.FunctionComponent<Pick<SectionContainerProps, 'onInView'>> = ({
+  onInView,
+}) => {
   const { projects } = useStaticQuery<{ projects: { edges: { node: Project }[] } }>(PROJECT_QUERY);
 
   const [isTableShown, setIsTableShown] = useState(false);
@@ -60,7 +63,7 @@ const Archive: React.FunctionComponent = () => {
   }));
 
   return (
-    <Styled.Container>
+    <Styled.Container onInView={onInView}>
       <Styled.OpenArchiveButton onClick={handleShowButton}>
         {isTableShown ? 'Hide' : 'Show'} All Projects
       </Styled.OpenArchiveButton>
@@ -68,7 +71,7 @@ const Archive: React.FunctionComponent = () => {
         in={isTableShown}
         unmountOnExit
         timeout={THEME_TRANSITION_TIME_MS}
-        classNames="table-transition"
+        classNames={TABLE_TRANSITION}
       >
         <Styled.ExpandableContainer>
           <SectionHeader title="All Projects" />

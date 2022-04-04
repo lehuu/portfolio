@@ -3,6 +3,8 @@ import breakpoints from '@styles/breakpoints';
 import mixinTransition from '@styles/mixin-transition';
 import slideTransition from '@styles/slide-transition';
 
+export const TRANSITION_NAME = 'table-detail-transition';
+
 const RoundedContainer = styled.div`
   border-radius: ${(props) => props.theme.radii.large};
   overflow: hidden;
@@ -16,7 +18,7 @@ const DetailsContainer = styled.div`
 
   padding: ${({ theme }) => theme.space.s} ${({ theme }) => theme.space.m};
 
-  ${slideTransition('table-detail-transition', true)}
+  ${slideTransition(TRANSITION_NAME, true)}
 `;
 
 const ImageContainer = styled(RoundedContainer)`

@@ -2,6 +2,7 @@ import React from 'react';
 import SectionHeader from '@components/SectionHeader';
 import { graphql, useStaticQuery } from 'gatsby';
 import { Project } from 'types';
+import { SectionContainerProps } from '@components/SectionContainer';
 import { ProjectCard } from './partials';
 import Styled from './style';
 
@@ -41,7 +42,9 @@ const PROJECT_QUERY = graphql`
   }
 `;
 
-const Contact: React.FunctionComponent = () => {
+const Projects: React.FunctionComponent<Pick<SectionContainerProps, 'onInView'>> = ({
+  onInView,
+}) => {
   const { projects } = useStaticQuery<{ projects: { edges: { node: Project }[] } }>(PROJECT_QUERY);
 
   const content = projects.edges.map((edge) => ({
@@ -50,7 +53,7 @@ const Contact: React.FunctionComponent = () => {
   }));
 
   return (
-    <Styled.Section>
+    <Styled.Section id="projects" onInView={onInView}>
       <SectionHeader title="Featured Projects" />
       <Styled.CardContainer>
         {content.map((project, index) => (
@@ -69,4 +72,4 @@ const Contact: React.FunctionComponent = () => {
   );
 };
 
-export default Contact;
+export default Projects;

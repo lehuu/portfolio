@@ -3,6 +3,7 @@ import React from 'react';
 
 const Container = styled.div`
   display: flex;
+  position: relative;
   align-items: center;
   gap: ${({ theme }) => theme.space.m};
   margin-bottom: ${({ theme }) => theme.space.l};
