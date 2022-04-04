@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { breakpoints } from '@styles';
+import { breakpoints, mixinTransition } from '@styles';
 
 const Container = styled.div`
   @media ${breakpoints.tablet} {
@@ -15,6 +15,7 @@ const Title = styled.h4`
   display: inline;
   font-size: inherit;
   color: ${(props) => props.theme.colors.textStrong};
+  ${mixinTransition('color')}
 `;
 
 const Link = styled.a`

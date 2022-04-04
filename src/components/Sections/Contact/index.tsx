@@ -1,6 +1,7 @@
 import React from 'react';
 import SectionHeader from '@components/SectionHeader';
 import { graphql, useStaticQuery } from 'gatsby';
+import SectionContainer, { SectionContainerProps } from '@components/SectionContainer';
 import Styled from './style';
 
 const CONTACT_QUERY = graphql`
@@ -11,17 +12,19 @@ const CONTACT_QUERY = graphql`
   }
 `;
 
-const Contact: React.FunctionComponent = () => {
+const Contact: React.FunctionComponent<Pick<SectionContainerProps, 'onInView'>> = ({
+  onInView,
+}) => {
   const {
     markdownRemark: { html },
   } = useStaticQuery(CONTACT_QUERY);
 
   return (
-    <section>
+    <SectionContainer id="contact" onInView={onInView}>
       <SectionHeader title="Contact" />
       {/* eslint-disable-next-line react/no-danger */}
       <Styled.TextContainer dangerouslySetInnerHTML={{ __html: html }} />
-    </section>
+    </SectionContainer>
   );
 };
 

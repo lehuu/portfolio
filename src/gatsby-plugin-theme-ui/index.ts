@@ -24,6 +24,7 @@ const theme = makeTheme({
     background: '#FAFAFA',
     accent: '#3997F7',
     hoverBg: 'hsla(0, 0%, 0%, 0.1)',
+    overlay: 'hsla(0, 0%, 0%, 0.4)',
     themeSwitcher: {
       backgroundColor: 'hsla(0, 0%, 87%, 0.75)',
       iconColor: '#FFAA00',
@@ -35,6 +36,7 @@ const theme = makeTheme({
         textStrong: 'hsla(0, 0%, 100%, 1)',
         background: '#1D1D1F',
         hoverBg: 'hsla(0, 0%, 100%, 0.1)',
+        overlay: 'hsla(0, 0%, 0%, 0.6)',
         themeSwitcher: {
           backgroundColor: 'hsla(0, 0%, 100%, 0.75)',
           iconColor: '#3A5D74',
@@ -49,6 +51,7 @@ const theme = makeTheme({
   },
   shadows: {
     box: '0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)',
+    slideIn: '-10px 0px 30px -15px rgba(2,12,27,0.7)',
   },
   fonts: {
     regular: 'Inter, sans-serif',

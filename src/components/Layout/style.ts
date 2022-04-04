@@ -7,9 +7,7 @@ const Main = styled.main`
   width: 100%;
   box-sizing: border-box;
   align-items: center;
-  > section:not(:first-of-type) {
-    margin: ${({ theme }) => `${theme.space.section} 0`};
-  }
+  margin-top: ${({ theme }) => theme.space.xxxl};
 `;
 
 const FlexContainer = styled.div`
