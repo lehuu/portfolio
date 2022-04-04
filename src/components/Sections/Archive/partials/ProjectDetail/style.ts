@@ -5,6 +5,12 @@ import slideTransition from '@styles/slide-transition';
 
 export const TRANSITION_NAME = 'table-detail-transition';
 
+const NoDetailsContainer = styled.div`
+  grid-area: 1 / 1 / -1 / -1;
+  text-align: center;
+  font-size: ${({ theme }) => theme.fontSizes.s};
+`;
+
 const RoundedContainer = styled.div`
   border-radius: ${(props) => props.theme.radii.large};
   overflow: hidden;
@@ -59,4 +65,4 @@ const TextContainer = styled(RoundedContainer)`
   }
 `;
 
-export default { TextContainer, ImageContainer, DetailsContainer };
+export default { TextContainer, ImageContainer, DetailsContainer, NoDetailsContainer };

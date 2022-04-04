@@ -10,7 +10,7 @@ import ProjectDetail from '../ProjectDetail';
 interface ProjectTableProps {
   projects: {
     name: string;
-    description: string;
+    description?: string;
     company?: string;
     techstack: string[];
     image: FluidObject | FluidObject[];
