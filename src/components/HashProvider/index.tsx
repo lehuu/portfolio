@@ -16,15 +16,13 @@ export const HashContext = createContext<{
 });
 
 const HashProvider: React.FunctionComponent = ({ children }) => {
-  const [hash, setHash] = useState(() =>
+  const [hashState, setHash] = useState(() =>
     typeof window !== 'undefined' ? `${window.location.hash}` : ''
   );
 
   const isScrollTrackingDisabled = useRef(false);
 
-  useEffect(() => {
-    setHash(window.location.hash);
-  }, [window.location.hash]);
+  const hash = typeof window !== 'undefined' ? window.location.hash : hashState;
 
   useEffect(() => {
     /*
@@ -51,7 +49,7 @@ const HashProvider: React.FunctionComponent = ({ children }) => {
     }
 
     const hashInUrl = newHash ? `#${newHash}` : '/';
-    if (hashInUrl !== hash) {
+    if (hashInUrl !== hashState) {
       window.history.replaceState({}, '', hashInUrl);
       setHash(hashInUrl);
     }
