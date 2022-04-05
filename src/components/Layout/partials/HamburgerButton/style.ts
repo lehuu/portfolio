@@ -67,11 +67,21 @@ const IconContainer = styled.div<IconProps>`
   `}
 `;
 
+const ClickArea = styled.div`
+  height: calc(${({ theme }) => theme.fontSizes.l} * 2.5);
+  width: calc(${({ theme }) => theme.fontSizes.l} * 2.5);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+`;
+
 const Button = styled.button`
   position: relative;
   z-index: 999;
   height: ${({ theme }) => theme.fontSizes.l};
   width: ${({ theme }) => theme.fontSizes.l};
+  box-sizing: content-box;
 
   @media ${breakpoints.tablet} {
     display: none;
@@ -83,4 +93,4 @@ const Button = styled.button`
   }
 `;
 
-export default { Button, IconContainer };
+export default { Button, IconContainer, ClickArea };
