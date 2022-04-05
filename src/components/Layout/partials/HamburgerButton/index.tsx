@@ -21,6 +21,7 @@ const HamburgerButton: React.FunctionComponent<HamburgerButtonProps> = ({ isOpen
       onClick={handleButtonClick}
       aria-label={isOpen ? 'Close Navigation Menu' : 'Open Navigation Menu'}
     >
+      <Styled.ClickArea />
       <CSSTransition
         in={!isOpen}
         unmountOnExit
