@@ -15,7 +15,7 @@ const Title = styled.h4`
   display: inline;
   font-size: inherit;
   color: ${(props) => props.theme.colors.textStrong};
-  ${mixinTransition('color')}
+  ${mixinTransition(['color'])}
 `;
 
 const Link = styled.a`

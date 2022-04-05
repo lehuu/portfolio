@@ -61,7 +61,7 @@ const TextContainer = styled(RoundedContainer)`
   height: 100%;
   max-width: 700px;
   justify-content: center;
-  ${mixinTransition('background-color')}
+  ${mixinTransition(['background-color'])}
 
   display: flex;
   flex-direction: column;
