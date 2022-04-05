@@ -106,7 +106,7 @@ const TechList = styled.ul`
 const TitleCell = styled(CellWithBreakpoint)`
   color: ${({ theme }) => theme.colors.textStrong};
   font-weight: ${({ theme }) => theme.fontWeights.bold};
-  ${mixinTransition('color')}
+  ${mixinTransition(['color'])}
   overflow: hidden;
   text-overflow: ellipsis;
 `;

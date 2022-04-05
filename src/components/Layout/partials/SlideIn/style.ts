@@ -48,7 +48,7 @@ const SlideInContainer = styled.aside`
 const Overlay = styled.div`
   position: absolute;
   background-color: ${(props) => props.theme.colors.overlay};
-  ${mixinTransition('background-color', 'opacity')}
+  ${mixinTransition(['background-color', 'opacity'])}
 
   top: 0;
   bottom: 0;
@@ -89,7 +89,7 @@ const NavLink = styled(StyledInternalLink, {
   shouldForwardProp: (prop) => prop !== 'isActive',
 })<NavLinkProps>`
   color: ${(props) => (props.isActive ? props.theme.colors.accent : props.theme.colors.textStrong)};
-  ${mixinTransition('color')}
+  ${mixinTransition(['color'])}
 `;
 
 const ButtonContainer = styled.div`

@@ -60,7 +60,7 @@ const ScrollButton = styled.button<ScrollButtonProps>`
           background-color: ${props.theme.colors.background};
         `}
 
-  ${mixinTransition('background', 'color')}
+  ${mixinTransition(['background', 'color'])}
 
   > * {
     height: ${({ theme }) => theme.fontSizes.s};
@@ -96,6 +96,8 @@ const Tab = styled.button<TabProps>`
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
   border-bottom: 2px solid;
+
+  ${mixinTransition(['color', 'background'], 'ease')}
 
   ${(props) =>
     props.isSelected

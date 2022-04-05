@@ -29,7 +29,7 @@ const IconContainer = styled.div<IconProps>`
   left: 50%;
   height: inherit;
   line-height: 0;
-  ${mixinTransition('all')}
+  ${mixinTransition(['all'])}
   svg {
     color: ${({ theme }) => theme.colors.accent};
     height: inherit;

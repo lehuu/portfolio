@@ -13,7 +13,7 @@ const Header = styled.header`
 
   &:before {
     background-color: ${({ theme }) => theme.colors.background};
-    ${mixinTransition('background-color')}
+    ${mixinTransition(['background-color'])}
     content: '';
     opacity: 0.95;
     position: absolute;
@@ -50,7 +50,7 @@ const Title = styled(StyledInternalLink)`
   font-size: ${({ theme }) => theme.fontSizes.l};
   text-decoration: none;
   font-weight: ${({ theme }) => theme.fontWeights.bold};
-  ${mixinTransition('color')}
+  ${mixinTransition(['color'])}
 `;
 
 const LinkList = styled.ul`
@@ -71,7 +71,7 @@ const NavLink = styled(StyledInternalLink, {
   shouldForwardProp: (prop) => prop !== 'isActive',
 })<NavLinkProps>`
   color: ${(props) => (props.isActive ? props.theme.colors.accent : props.theme.colors.textStrong)};
-  ${mixinTransition('color')}
+  ${mixinTransition(['color'])}
 `;
 
 const MenuButton = styled.button`
