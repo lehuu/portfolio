@@ -154,7 +154,7 @@ const GlobalStyle = () => (
       html {
         height: 100%;
         scroll-behavior: smooth;
-        ${mixinTransition('color', 'background-color')};
+        ${mixinTransition(['color', 'background-color'])};
       }
 
       :root {

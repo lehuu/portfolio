@@ -22,6 +22,7 @@ const Container = styled.div<OverflowProps>`
 
 const TabContainer = styled.div<OverflowProps>`
   display: flex;
+  position: relative;
   align-items: start;
   -ms-overflow-style: none; /* for Internet Explorer, Edge */
   scrollbar-width: none; /* for Firefox */
@@ -48,6 +49,7 @@ const ScrollButton = styled.button<ScrollButtonProps>`
   height: 44px;
   width: 40px;
   top: 0;
+  z-index: 1;
 
   ${(props) =>
     props.alignment === 'start'
@@ -60,7 +62,7 @@ const ScrollButton = styled.button<ScrollButtonProps>`
           background-color: ${props.theme.colors.background};
         `}
 
-  ${mixinTransition('background', 'color')}
+  ${mixinTransition(['background', 'color'])}
 
   > * {
     height: ${({ theme }) => theme.fontSizes.s};
@@ -86,9 +88,54 @@ const ScrollButton = styled.button<ScrollButtonProps>`
   }
 `;
 
+interface TabletActiveTabIndicatorProps {
+  height: number;
+  heightOffset: number;
+}
+
+const TabletActiveTabIndicator = styled.div<TabletActiveTabIndicatorProps>`
+  display: none;
+  position: absolute;
+  width: 2px;
+  left: 0;
+  top: 0;
+  height: ${(props) => `${props.height}px`};
+  transform: translateY(${(props) => `${props.heightOffset}px`});
+  ${mixinTransition(['height', 'transform'], 'ease')}
+  transition-delay: 0.2s;
+  background: ${({ theme }) => theme.colors.accent};
+
+  @media ${breakpoints.tablet} {
+    display: block;
+  }
+`;
+
+interface MobileActiveTabIndicatorProps {
+  width: number;
+  widthOffset: number;
+}
+
+const MobileActiveTabIndicator = styled.div<OverflowProps & MobileActiveTabIndicatorProps>`
+  position: absolute;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  ${mixinTransition(['width', 'transform'], 'ease')}
+  transition-delay: 0.2s;
+  margin: 0 ${(props) => (props.hasOverflow ? '40px' : 0)};
+  background: ${({ theme }) => theme.colors.accent};
+  width: ${(props) => `${props.width}px`};
+  transform: translateX(${(props) => `${props.widthOffset}px`});
+
+  @media ${breakpoints.tablet} {
+    display: none;
+  }
+`;
+
 interface TabProps {
   isSelected?: boolean;
 }
+
 const Tab = styled.button<TabProps>`
   font-size: inherit;
   border-radius: ${(props) => props.theme.radii.regular};
@@ -96,17 +143,18 @@ const Tab = styled.button<TabProps>`
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
   border-bottom: 2px solid;
+  border-color: ${(props) => props.theme.borders.regular};
+
+  ${mixinTransition(['color', 'background'], 'ease')}
 
   ${(props) =>
     props.isSelected
       ? css`
           color: ${props.theme.colors.accent};
           background: ${props.theme.colors.hoverBg};
-          border-color: ${props.theme.colors.accent};
         `
       : css`
           color: inherit;
-          border-color: ${props.theme.borders.regular};
         `}
 
   &:hover,
@@ -126,9 +174,15 @@ const Tab = styled.button<TabProps>`
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
     border-bottom: unset;
-    border-left: 2px solid
-      ${(props) => (props.isSelected ? props.theme.colors.accent : props.theme.borders.regular)};
+    border-left: 2px solid ${(props) => props.theme.borders.regular};
   }
 `;
 
-export default { Container, TabContainer, Tab, ScrollButton };
+export default {
+  Container,
+  TabContainer,
+  Tab,
+  ScrollButton,
+  TabletActiveTabIndicator,
+  MobileActiveTabIndicator,
+};

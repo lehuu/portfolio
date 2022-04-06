@@ -46,14 +46,14 @@ const TextContainer = styled.div`
   padding: ${({ theme }) => theme.space.m};
   background-color: ${({ theme }) => theme.colors.background};
   opacity: 0.93;
-  ${mixinTransition('background-color')}
+  ${mixinTransition(['background-color'])}
 `;
 
 const ProjectTitle = styled.h4`
   font-size: ${({ theme }) => theme.fontSizes.l};
   color: ${({ theme }) => theme.colors.textStrong};
   margin-bottom: ${({ theme }) => theme.space.m};
-  ${mixinTransition('color')}
+  ${mixinTransition(['color'])}
 `;
 
 const TechList = styled.ul`

@@ -97,7 +97,7 @@ const ProfilePicture = styled.div<ProfilePictureProps>`
   // Workaround for Safari overflow
   mask-image: radial-gradient(white, black);
 
-  ${mixinTransition('visibility', 'opacity')}
+  ${mixinTransition(['visibility', 'opacity'])}
 
   ${(props) =>
     props.isAbsolute
@@ -116,7 +116,7 @@ const TextContainer = styled.div`
     font-size: clamp(25px, 6vw, 40px);
     text-align: center;
     color: ${({ theme }) => theme.colors.textStrong};
-    ${mixinTransition('color')}
+    ${mixinTransition(['color'])}
   }
 
   h2 {

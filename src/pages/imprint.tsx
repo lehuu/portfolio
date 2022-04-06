@@ -28,7 +28,7 @@ const Container = styled.section`
   h1,
   h2 {
     color: ${({ theme }) => theme.colors.textStrong};
-    ${mixinTransition('color')}
+    ${mixinTransition(['color'])}
   }
 
   h1 {
