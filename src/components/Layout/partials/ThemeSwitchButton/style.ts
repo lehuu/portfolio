@@ -26,11 +26,11 @@ const IconContainer = styled.div<IconContainerProps>`
   position: absolute;
   top: ${({ theme }) => theme.space.xs};
   line-height: 0;
-  ${mixinTransition('all')}
+  ${mixinTransition(['all'])}
   svg {
     height: ${({ theme }) => theme.fontSizes.xl};
     color: ${({ theme }) => theme.colors.themeSwitcher.iconColor};
-    ${mixinTransition('color')}
+    ${mixinTransition(['color'])}
 
     @media ${breakpoints.tablet} {
       height: ${({ theme }) => theme.fontSizes.l};

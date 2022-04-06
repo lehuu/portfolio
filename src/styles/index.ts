@@ -1,5 +1,5 @@
 export { default as GlobalStyle } from './GlobalStyle';
-export { default as breakpoints } from './breakpoints';
+export { default as breakpoints, size as breakpointSizes } from './breakpoints';
 export {
   default as mixinTransition,
   THEME_TRANSITION_VAR,

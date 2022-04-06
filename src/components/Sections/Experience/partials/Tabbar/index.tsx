@@ -1,7 +1,8 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef, useEffect, useState, useMemo } from 'react';
 import LeftArrow from '@icons/arrow-left.svg';
 import RightArrow from '@icons/arrow-right.svg';
 import { useWindowResize } from '@hooks';
+import { breakpointSizes } from '@styles';
 import Styled from './style';
 
 interface TabbarProps {
@@ -15,6 +16,31 @@ const Tabbar: React.FunctionComponent<TabbarProps> = ({ tabs, selectedTab = 0, o
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(false);
   const [hasOverflow, setHasOverflow] = useState(false);
+  const [isTabletBreakpoint, setIsTabletBreakpoint] = useState(
+    typeof window !== 'undefined' ? window.innerWidth >= breakpointSizes.tablet : 0
+  );
+
+  const { indicatorWidth, indicatorWidthOffset, indicatorHeightOffset, indicatorHeight } =
+    useMemo(() => {
+      const width = tabContainerRef.current?.children[selectedTab].clientWidth || 0;
+
+      const widthOffset = Object.values(tabContainerRef.current?.children || {})
+        .slice(0, selectedTab)
+        .reduce((prev, current) => prev + current.clientWidth, 0);
+
+      const height = tabContainerRef.current?.children[selectedTab].clientHeight || 0;
+
+      const heightOffset = Object.values(tabContainerRef.current?.children || {})
+        .slice(0, selectedTab)
+        .reduce((prev, current) => prev + current.clientHeight, 0);
+
+      return {
+        indicatorWidth: width,
+        indicatorWidthOffset: widthOffset,
+        indicatorHeightOffset: heightOffset,
+        indicatorHeight: height,
+      };
+    }, [selectedTab, isTabletBreakpoint]);
 
   const handleScroll = () => {
     if (!tabContainerRef.current) return;
@@ -25,16 +51,8 @@ const Tabbar: React.FunctionComponent<TabbarProps> = ({ tabs, selectedTab = 0, o
 
   const checkOverflowWidths = () => {
     if (!tabContainerRef.current) return;
-    if (tabContainerRef.current.offsetWidth < tabContainerRef.current.scrollWidth) {
-      setHasOverflow(true);
-    } else {
-      setHasOverflow(false);
-    }
+    setHasOverflow(tabContainerRef.current.offsetWidth < tabContainerRef.current.scrollWidth);
   };
-
-  useEffect(() => {
-    checkOverflowWidths();
-  }, []);
 
   useEffect(() => {
     if (hasOverflow) handleScroll();
@@ -42,6 +60,7 @@ const Tabbar: React.FunctionComponent<TabbarProps> = ({ tabs, selectedTab = 0, o
 
   useWindowResize(() => {
     checkOverflowWidths();
+    setIsTabletBreakpoint(window.innerWidth >= breakpointSizes.tablet);
   });
 
   const handleTabClick = (clickedButton: number) => {
@@ -96,6 +115,18 @@ const Tabbar: React.FunctionComponent<TabbarProps> = ({ tabs, selectedTab = 0, o
             {tab}
           </Styled.Tab>
         ))}
+        {isTabletBreakpoint ? (
+          <Styled.TabletActiveTabIndicator
+            height={indicatorHeight}
+            heightOffset={indicatorHeightOffset}
+          />
+        ) : (
+          <Styled.MobileActiveTabIndicator
+            width={indicatorWidth}
+            widthOffset={indicatorWidthOffset}
+            hasOverflow={hasOverflow}
+          />
+        )}
       </Styled.TabContainer>
       {hasOverflow && (
         <Styled.ScrollButton

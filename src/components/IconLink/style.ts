@@ -49,7 +49,7 @@ const ExternalLinkIcon = styled(ExternalLink)`
 const Anchor = styled.a<CommonIconProps>`
   display: inline-block;
   height: ${({ theme, size }) => theme.fontSizes[size]};
-  ${mixinTransition('color')}
+  ${mixinTransition(['color'])}
   color: ${({ theme }) => theme.colors.textStrong};
 
   &:hover {

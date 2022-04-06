@@ -10,7 +10,7 @@ const slideTransition = (name: string, postAmpersand?: boolean) => css`
   ${!postAmpersand && '&'}.${name}-enter-active ${postAmpersand && '&'} {
     opacity: 1;
     max-height: 1000px;
-    ${mixinTransition('opacity', 'max-height')}
+    ${mixinTransition(['opacity', 'max-height'])}
   }
 
   ${!postAmpersand && '&'}.${name}-exit ${postAmpersand && '&'} {
@@ -21,7 +21,7 @@ const slideTransition = (name: string, postAmpersand?: boolean) => css`
   ${!postAmpersand && '&'}.${name}-exit-active ${postAmpersand && '&'} {
     opacity: 0;
     max-height: 0;
-    ${mixinTransition('opacity', 'max-height')}
+    ${mixinTransition(['opacity', 'max-height'])}
   }
 `;
 
