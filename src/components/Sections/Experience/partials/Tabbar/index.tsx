@@ -2,6 +2,7 @@ import React, { useRef, useEffect, useState, useMemo } from 'react';
 import LeftArrow from '@icons/arrow-left.svg';
 import RightArrow from '@icons/arrow-right.svg';
 import { useWindowResize } from '@hooks';
+import { breakpointSizes } from '@styles';
 import Styled from './style';
 
 interface TabbarProps {
@@ -15,6 +16,9 @@ const Tabbar: React.FunctionComponent<TabbarProps> = ({ tabs, selectedTab = 0, o
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(false);
   const [hasOverflow, setHasOverflow] = useState(false);
+  const [isTabletBreakpoint, setIsTabletBreakpoint] = useState(
+    window.innerWidth >= breakpointSizes.tablet
+  );
 
   const { indicatorWidth, indicatorWidthOffset, indicatorHeightOffset, indicatorHeight } =
     useMemo(() => {
@@ -36,7 +40,7 @@ const Tabbar: React.FunctionComponent<TabbarProps> = ({ tabs, selectedTab = 0, o
         indicatorHeightOffset: heightOffset,
         indicatorHeight: height,
       };
-    }, [selectedTab]);
+    }, [selectedTab, isTabletBreakpoint]);
 
   const handleScroll = () => {
     if (!tabContainerRef.current) return;
@@ -47,11 +51,7 @@ const Tabbar: React.FunctionComponent<TabbarProps> = ({ tabs, selectedTab = 0, o
 
   const checkOverflowWidths = () => {
     if (!tabContainerRef.current) return;
-    if (tabContainerRef.current.offsetWidth < tabContainerRef.current.scrollWidth) {
-      setHasOverflow(true);
-    } else {
-      setHasOverflow(false);
-    }
+    setHasOverflow(tabContainerRef.current.offsetWidth < tabContainerRef.current.scrollWidth);
   };
 
   useEffect(() => {
@@ -60,6 +60,7 @@ const Tabbar: React.FunctionComponent<TabbarProps> = ({ tabs, selectedTab = 0, o
 
   useWindowResize(() => {
     checkOverflowWidths();
+    setIsTabletBreakpoint(window.innerWidth >= breakpointSizes.tablet);
   });
 
   const handleTabClick = (clickedButton: number) => {
@@ -114,13 +115,18 @@ const Tabbar: React.FunctionComponent<TabbarProps> = ({ tabs, selectedTab = 0, o
             {tab}
           </Styled.Tab>
         ))}
-        <Styled.ActiveTabIndicator
-          hasOverflow={hasOverflow}
-          width={indicatorWidth}
-          widthOffset={indicatorWidthOffset}
-          heightOffset={indicatorHeightOffset}
-          height={indicatorHeight}
-        />
+        {isTabletBreakpoint ? (
+          <Styled.TabletActiveTabIndicator
+            height={indicatorHeight}
+            heightOffset={indicatorHeightOffset}
+          />
+        ) : (
+          <Styled.MobileActiveTabIndicator
+            width={indicatorWidth}
+            widthOffset={indicatorWidthOffset}
+            hasOverflow={hasOverflow}
+          />
+        )}
       </Styled.TabContainer>
       {hasOverflow && (
         <Styled.ScrollButton
