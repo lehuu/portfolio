@@ -17,7 +17,7 @@ const Tabbar: React.FunctionComponent<TabbarProps> = ({ tabs, selectedTab = 0, o
   const [canScrollRight, setCanScrollRight] = useState(false);
   const [hasOverflow, setHasOverflow] = useState(false);
   const [isTabletBreakpoint, setIsTabletBreakpoint] = useState(
-    window.innerWidth >= breakpointSizes.tablet
+    typeof window !== 'undefined' ? window.innerWidth >= breakpointSizes.tablet : 0
   );
 
   const { indicatorWidth, indicatorWidthOffset, indicatorHeightOffset, indicatorHeight } =
