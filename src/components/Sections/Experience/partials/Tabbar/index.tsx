@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef, useEffect, useState, useMemo } from 'react';
 import LeftArrow from '@icons/arrow-left.svg';
 import RightArrow from '@icons/arrow-right.svg';
 import { useWindowResize } from '@hooks';
@@ -15,6 +15,28 @@ const Tabbar: React.FunctionComponent<TabbarProps> = ({ tabs, selectedTab = 0, o
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(false);
   const [hasOverflow, setHasOverflow] = useState(false);
+
+  const { indicatorWidth, indicatorWidthOffset, indicatorHeightOffset, indicatorHeight } =
+    useMemo(() => {
+      const width = tabContainerRef.current?.children[selectedTab].clientWidth || 0;
+
+      const widthOffset = Object.values(tabContainerRef.current?.children || {})
+        .slice(0, selectedTab)
+        .reduce((prev, current) => prev + current.clientWidth, 0);
+
+      const height = tabContainerRef.current?.children[selectedTab].clientHeight || 0;
+
+      const heightOffset = Object.values(tabContainerRef.current?.children || {})
+        .slice(0, selectedTab)
+        .reduce((prev, current) => prev + current.clientHeight, 0);
+
+      return {
+        indicatorWidth: width,
+        indicatorWidthOffset: widthOffset,
+        indicatorHeightOffset: heightOffset,
+        indicatorHeight: height,
+      };
+    }, [selectedTab]);
 
   const handleScroll = () => {
     if (!tabContainerRef.current) return;
@@ -96,6 +118,13 @@ const Tabbar: React.FunctionComponent<TabbarProps> = ({ tabs, selectedTab = 0, o
             {tab}
           </Styled.Tab>
         ))}
+        <Styled.ActiveTabIndicator
+          hasOverflow={hasOverflow}
+          width={indicatorWidth}
+          widthOffset={indicatorWidthOffset}
+          heightOffset={indicatorHeightOffset}
+          height={indicatorHeight}
+        />
       </Styled.TabContainer>
       {hasOverflow && (
         <Styled.ScrollButton

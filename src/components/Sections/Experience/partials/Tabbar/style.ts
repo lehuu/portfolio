@@ -22,6 +22,7 @@ const Container = styled.div<OverflowProps>`
 
 const TabContainer = styled.div<OverflowProps>`
   display: flex;
+  position: relative;
   align-items: start;
   -ms-overflow-style: none; /* for Internet Explorer, Edge */
   scrollbar-width: none; /* for Firefox */
@@ -48,6 +49,7 @@ const ScrollButton = styled.button<ScrollButtonProps>`
   height: 44px;
   width: 40px;
   top: 0;
+  z-index: 1;
 
   ${(props) =>
     props.alignment === 'start'
@@ -86,9 +88,38 @@ const ScrollButton = styled.button<ScrollButtonProps>`
   }
 `;
 
+interface ActiveTabIndicatorProps {
+  width: number;
+  widthOffset: number;
+  height: number;
+  heightOffset: number;
+}
+
+const ActiveTabIndicator = styled.div<OverflowProps & ActiveTabIndicatorProps>`
+  position: absolute;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background: ${({ theme }) => theme.colors.accent};
+  ${mixinTransition(['width', 'transform'], 'ease')}
+  transition-delay: 0.2s;
+  margin: 0 ${(props) => (props.hasOverflow ? '40px' : 0)};
+  width: ${(props) => `${props.width}px`};
+  transform: translateX(${(props) => `${props.widthOffset}px`});
+
+  @media ${breakpoints.tablet} {
+    width: 2px;
+    height: ${(props) => `${props.height}px`};
+    transform: translateY(${(props) => `${props.heightOffset}px`});
+    top: 0;
+    bottom: unset;
+  }
+`;
+
 interface TabProps {
   isSelected?: boolean;
 }
+
 const Tab = styled.button<TabProps>`
   font-size: inherit;
   border-radius: ${(props) => props.theme.radii.regular};
@@ -96,6 +127,7 @@ const Tab = styled.button<TabProps>`
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
   border-bottom: 2px solid;
+  border-color: ${(props) => props.theme.borders.regular};
 
   ${mixinTransition(['color', 'background'], 'ease')}
 
@@ -104,11 +136,9 @@ const Tab = styled.button<TabProps>`
       ? css`
           color: ${props.theme.colors.accent};
           background: ${props.theme.colors.hoverBg};
-          border-color: ${props.theme.colors.accent};
         `
       : css`
           color: inherit;
-          border-color: ${props.theme.borders.regular};
         `}
 
   &:hover,
@@ -128,9 +158,8 @@ const Tab = styled.button<TabProps>`
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
     border-bottom: unset;
-    border-left: 2px solid
-      ${(props) => (props.isSelected ? props.theme.colors.accent : props.theme.borders.regular)};
+    border-left: 2px solid ${(props) => props.theme.borders.regular};
   }
 `;
 
-export default { Container, TabContainer, Tab, ScrollButton };
+export default { Container, TabContainer, Tab, ScrollButton, ActiveTabIndicator };
