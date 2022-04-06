@@ -7,6 +7,7 @@ const useWindowResize = (callback: FunctionType, debounceTime: number = 100) => 
   const debounceCallback = useDebouncedCallback(callback, debounceTime);
 
   useEffect(() => {
+    debounceCallback();
     window.addEventListener('resize', debounceCallback);
     return () => {
       window.removeEventListener('resize', debounceCallback);
