@@ -113,6 +113,7 @@ const ActiveTabIndicator = styled.div<OverflowProps & ActiveTabIndicatorProps>`
     transform: translateY(${(props) => `${props.heightOffset}px`});
     top: 0;
     bottom: unset;
+    margin: 0;
   }
 `;
 
