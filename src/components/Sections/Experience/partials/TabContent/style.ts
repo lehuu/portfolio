@@ -1,7 +1,19 @@
+import { keyframes } from '@emotion/react';
 import styled from '@emotion/styled';
 import { breakpoints, mixinTransition } from '@styles';
 
+const opacityAnimation = keyframes`
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+`;
+
 const Container = styled.div`
+  animation: ${opacityAnimation} 0.5s;
   @media ${breakpoints.tablet} {
     flex: 1 1 auto;
   }

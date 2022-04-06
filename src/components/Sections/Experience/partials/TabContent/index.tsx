@@ -28,7 +28,7 @@ const TabContent: React.FunctionComponent<TabContentProps> = ({
       : `${translateMonth(endDate.getMonth())} ${endDate.getUTCFullYear()}`;
 
   return (
-    <Styled.Container>
+    <Styled.Container key={title + company + startDate.toDateString()}>
       <Styled.TitleContainer>
         <b>
           <Styled.Title>{title} </Styled.Title>
