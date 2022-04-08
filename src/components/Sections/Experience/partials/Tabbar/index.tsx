@@ -49,6 +49,20 @@ const Tabbar: React.FunctionComponent<TabbarProps> = ({ tabs, selectedTab = 0, o
     }
   }, [selectedTab, isTabletBreakpoint]);
 
+  useLayoutEffect(() => {
+    if (!tabContainerRef.current || isTabletBreakpoint) return;
+    const tabElements = Object.values(tabContainerRef.current.children);
+    const widthOffset = tabElements
+      .slice(0, selectedTab)
+      .reduce((prev, current) => prev + current.clientWidth, 0);
+
+    tabContainerRef.current.scroll({
+      top: 0,
+      left: widthOffset,
+      behavior: 'auto',
+    });
+  }, [isTabletBreakpoint]);
+
   const handleScroll = () => {
     if (!tabContainerRef.current) return;
     setCanScrollLeft(tabContainerRef.current?.scrollLeft > 0);
