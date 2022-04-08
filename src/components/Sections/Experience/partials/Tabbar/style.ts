@@ -88,19 +88,12 @@ const ScrollButton = styled.button<ScrollButtonProps>`
   }
 `;
 
-interface TabletActiveTabIndicatorProps {
-  height: number;
-  heightOffset: number;
-}
-
-const TabletActiveTabIndicator = styled.div<TabletActiveTabIndicatorProps>`
+const TabletActiveTabIndicator = styled.div`
   display: none;
   position: absolute;
   width: 2px;
   left: 0;
   top: 0;
-  height: ${(props) => `${props.height}px`};
-  transform: translateY(${(props) => `${props.heightOffset}px`});
   ${mixinTransition(['height', 'transform'], 'ease')}
   transition-delay: 0.2s;
   background: ${({ theme }) => theme.colors.accent};
@@ -110,12 +103,7 @@ const TabletActiveTabIndicator = styled.div<TabletActiveTabIndicatorProps>`
   }
 `;
 
-interface MobileActiveTabIndicatorProps {
-  width: number;
-  widthOffset: number;
-}
-
-const MobileActiveTabIndicator = styled.div<OverflowProps & MobileActiveTabIndicatorProps>`
+const MobileActiveTabIndicator = styled.div<OverflowProps>`
   position: absolute;
   height: 2px;
   bottom: 0;
@@ -124,8 +112,6 @@ const MobileActiveTabIndicator = styled.div<OverflowProps & MobileActiveTabIndic
   transition-delay: 0.2s;
   margin: 0 ${(props) => (props.hasOverflow ? '40px' : 0)};
   background: ${({ theme }) => theme.colors.accent};
-  width: ${(props) => `${props.width}px`};
-  transform: translateX(${(props) => `${props.widthOffset}px`});
 
   @media ${breakpoints.tablet} {
     display: none;
