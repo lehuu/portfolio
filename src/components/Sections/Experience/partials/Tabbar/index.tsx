@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState, useMemo } from 'react';
+import React, { useRef, useEffect, useState, useLayoutEffect } from 'react';
 import LeftArrow from '@icons/arrow-left.svg';
 import RightArrow from '@icons/arrow-right.svg';
 import { useWindowResize } from '@hooks';
@@ -13,6 +13,9 @@ interface TabbarProps {
 
 const Tabbar: React.FunctionComponent<TabbarProps> = ({ tabs, selectedTab = 0, onChange }) => {
   const tabContainerRef = useRef<HTMLDivElement>(null);
+  const horizontalTabIndicator = useRef<HTMLDivElement>(null);
+  const verticalTabIndicator = useRef<HTMLDivElement>(null);
+
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(false);
   const [hasOverflow, setHasOverflow] = useState(false);
@@ -20,27 +23,31 @@ const Tabbar: React.FunctionComponent<TabbarProps> = ({ tabs, selectedTab = 0, o
     typeof window !== 'undefined' ? window.innerWidth >= breakpointSizes.tablet : 0
   );
 
-  const { indicatorWidth, indicatorWidthOffset, indicatorHeightOffset, indicatorHeight } =
-    useMemo(() => {
-      const width = tabContainerRef.current?.children[selectedTab].clientWidth || 0;
+  useLayoutEffect(() => {
+    if (!tabContainerRef.current) return;
 
-      const widthOffset = Object.values(tabContainerRef.current?.children || {})
-        .slice(0, selectedTab)
-        .reduce((prev, current) => prev + current.clientWidth, 0);
+    const tabElements = Object.values(tabContainerRef.current?.children);
 
-      const height = tabContainerRef.current?.children[selectedTab].clientHeight || 0;
+    const width = tabElements[selectedTab].clientWidth;
+    const height = tabElements[selectedTab].clientHeight;
 
-      const heightOffset = Object.values(tabContainerRef.current?.children || {})
-        .slice(0, selectedTab)
-        .reduce((prev, current) => prev + current.clientHeight, 0);
+    const widthOffset = tabElements
+      .slice(0, selectedTab)
+      .reduce((prev, current) => prev + current.clientWidth, 0);
 
-      return {
-        indicatorWidth: width,
-        indicatorWidthOffset: widthOffset,
-        indicatorHeightOffset: heightOffset,
-        indicatorHeight: height,
-      };
-    }, [selectedTab, isTabletBreakpoint]);
+    const heightOffset = tabElements
+      .slice(0, selectedTab)
+      .reduce((prev, current) => prev + current.clientHeight, 0);
+
+    if (horizontalTabIndicator.current) {
+      horizontalTabIndicator.current.style.width = `${width}px`;
+      horizontalTabIndicator.current.style.transform = `translateX(${widthOffset}px)`;
+    }
+    if (verticalTabIndicator.current) {
+      verticalTabIndicator.current.style.height = `${height}px`;
+      verticalTabIndicator.current.style.transform = `translateY(${heightOffset}px)`;
+    }
+  }, [selectedTab, isTabletBreakpoint]);
 
   const handleScroll = () => {
     if (!tabContainerRef.current) return;
@@ -116,16 +123,9 @@ const Tabbar: React.FunctionComponent<TabbarProps> = ({ tabs, selectedTab = 0, o
           </Styled.Tab>
         ))}
         {isTabletBreakpoint ? (
-          <Styled.TabletActiveTabIndicator
-            height={indicatorHeight}
-            heightOffset={indicatorHeightOffset}
-          />
+          <Styled.TabletActiveTabIndicator ref={verticalTabIndicator} />
         ) : (
-          <Styled.MobileActiveTabIndicator
-            width={indicatorWidth}
-            widthOffset={indicatorWidthOffset}
-            hasOverflow={hasOverflow}
-          />
+          <Styled.MobileActiveTabIndicator ref={horizontalTabIndicator} hasOverflow={hasOverflow} />
         )}
       </Styled.TabContainer>
       {hasOverflow && (
