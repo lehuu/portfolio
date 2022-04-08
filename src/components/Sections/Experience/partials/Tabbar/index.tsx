@@ -59,6 +59,7 @@ const Tabbar: React.FunctionComponent<TabbarProps> = ({ tabs, selectedTab = 0, o
   const checkOverflowWidths = () => {
     if (!tabContainerRef.current) return;
     setHasOverflow(tabContainerRef.current.offsetWidth < tabContainerRef.current.scrollWidth);
+    handleScroll();
   };
 
   useEffect(() => {
