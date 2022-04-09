@@ -49,6 +49,20 @@ const Tabbar: React.FunctionComponent<TabbarProps> = ({ tabs, selectedTab = 0, o
     }
   }, [selectedTab, isTabletBreakpoint]);
 
+  useLayoutEffect(() => {
+    if (!tabContainerRef.current || isTabletBreakpoint) return;
+    const tabElements = Object.values(tabContainerRef.current.children);
+    const widthOffset = tabElements
+      .slice(0, selectedTab)
+      .reduce((prev, current) => prev + current.clientWidth, 0);
+
+    tabContainerRef.current.scroll({
+      top: 0,
+      left: widthOffset,
+      behavior: 'auto',
+    });
+  }, [isTabletBreakpoint]);
+
   const handleScroll = () => {
     if (!tabContainerRef.current) return;
     setCanScrollLeft(tabContainerRef.current?.scrollLeft > 0);
@@ -59,6 +73,7 @@ const Tabbar: React.FunctionComponent<TabbarProps> = ({ tabs, selectedTab = 0, o
   const checkOverflowWidths = () => {
     if (!tabContainerRef.current) return;
     setHasOverflow(tabContainerRef.current.offsetWidth < tabContainerRef.current.scrollWidth);
+    handleScroll();
   };
 
   useEffect(() => {
@@ -74,19 +89,11 @@ const Tabbar: React.FunctionComponent<TabbarProps> = ({ tabs, selectedTab = 0, o
     onChange(clickedButton);
   };
 
-  const handlePreviousClick = () => {
+  const handleScrollClick = (factor: -1 | 1) => {
     if (!tabContainerRef.current) return;
     tabContainerRef.current.scrollTo({
       top: 0,
-      left: tabContainerRef.current.scrollLeft - 200,
-      behavior: 'smooth',
-    });
-  };
-  const handleNextClick = () => {
-    if (!tabContainerRef.current) return;
-    tabContainerRef.current.scrollTo({
-      top: 0,
-      left: tabContainerRef.current.scrollLeft + 200,
+      left: tabContainerRef.current.scrollLeft + factor * tabContainerRef.current.clientWidth * 0.6,
       behavior: 'smooth',
     });
   };
@@ -97,7 +104,7 @@ const Tabbar: React.FunctionComponent<TabbarProps> = ({ tabs, selectedTab = 0, o
         <Styled.ScrollButton
           alignment="start"
           type="button"
-          onClick={handlePreviousClick}
+          onClick={() => handleScrollClick(-1)}
           disabled={!canScrollLeft}
         >
           <LeftArrow />
@@ -132,7 +139,7 @@ const Tabbar: React.FunctionComponent<TabbarProps> = ({ tabs, selectedTab = 0, o
         <Styled.ScrollButton
           alignment="end"
           type="button"
-          onClick={handleNextClick}
+          onClick={() => handleScrollClick(1)}
           disabled={!canScrollRight}
         >
           <RightArrow />
