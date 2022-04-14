@@ -56,6 +56,16 @@ const ProjectTitle = styled.h4`
   ${mixinTransition(['color'])}
 `;
 
+const ProjectTitleLink = styled.a`
+  &[href] {
+    color: inherit;
+    text-decoration: none;
+    &:hover {
+      color: ${(props) => props.theme.colors.accent};
+    }
+  }
+`;
+
 const TechList = styled.ul`
   margin: ${({ theme }) => theme.space.m} 0 ${({ theme }) => theme.space.l};
   display: flex;
@@ -140,5 +150,6 @@ export default {
   ProjectTitle,
   TechList,
   ImageContainer,
+  ProjectTitleLink,
   CardContainer,
 };
