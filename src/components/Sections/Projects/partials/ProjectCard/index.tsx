@@ -2,6 +2,7 @@ import React from 'react';
 import Img, { FluidObject } from 'gatsby-image';
 import IconLink from '@components/IconLink';
 import Styled from './style';
+import extractProjectLink from '@utils/extractProjectLink';
 
 interface ProjectCardProps {
   title?: string;
@@ -26,7 +27,13 @@ const ProjectCard: React.FunctionComponent<ProjectCardProps> = ({
     </Styled.ImageContainer>
     <Styled.RoundedContainer>
       <Styled.TextContainer>
-        {title && <Styled.ProjectTitle>{title}</Styled.ProjectTitle>}
+        {title && (
+          <Styled.ProjectTitle>
+            <Styled.ProjectTitleLink href={extractProjectLink(links || []) || undefined}>
+              {title}
+            </Styled.ProjectTitleLink>
+          </Styled.ProjectTitle>
+        )}
         {/* eslint-disable-next-line react/no-danger */}
         {description && <span dangerouslySetInnerHTML={{ __html: description }} />}
         {techstack && (
