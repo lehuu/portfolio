@@ -1,5 +1,6 @@
 import React from 'react';
 import Img, { FluidObject } from 'gatsby-image';
+import extractProjectLink from '@utils/extractProjectLink';
 import Styled from './style';
 
 interface ProjectDetailProps {
@@ -7,6 +8,7 @@ interface ProjectDetailProps {
   description?: string;
   techstack?: string[];
   image: FluidObject | FluidObject[];
+  links?: { type: string; link: string }[];
 }
 
 const ProjectDetail: React.FunctionComponent<ProjectDetailProps> = ({
@@ -14,12 +16,15 @@ const ProjectDetail: React.FunctionComponent<ProjectDetailProps> = ({
   image,
   description,
   techstack,
+  links,
 }) => (
   <Styled.DetailsContainer>
     {description ? (
       <>
         <Styled.ImageContainer>
-          <Img fluid={image} alt="Project Image" />
+          <a href={extractProjectLink(links || []) || undefined}>
+            <Img fluid={image} alt="Project Image" />
+          </a>
         </Styled.ImageContainer>
         <Styled.TextContainer>
           {company && <Styled.CompanyContainer>Made at: {company}</Styled.CompanyContainer>}

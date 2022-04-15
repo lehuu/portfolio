@@ -86,6 +86,7 @@ const ProjectTable: React.FunctionComponent<ProjectTableProps> = ({ projects }) 
               <Styled.ProjectCardRow>
                 <td colSpan={5}>
                   <ProjectDetail
+                    links={project.links}
                     company={project.company}
                     image={project.image}
                     techstack={project.techstack}

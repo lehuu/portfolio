@@ -1,8 +1,8 @@
 import React from 'react';
 import Img, { FluidObject } from 'gatsby-image';
 import IconLink from '@components/IconLink';
-import Styled from './style';
 import extractProjectLink from '@utils/extractProjectLink';
+import Styled from './style';
 
 interface ProjectCardProps {
   title?: string;
@@ -23,7 +23,9 @@ const ProjectCard: React.FunctionComponent<ProjectCardProps> = ({
 }) => (
   <Styled.CardContainer imagePosition={imagePosition}>
     <Styled.ImageContainer hasShadow>
-      <Img fluid={image} alt="Project Image" />
+      <a href={extractProjectLink(links || []) || undefined}>
+        <Img fluid={image} alt="Project Image" />
+      </a>
     </Styled.ImageContainer>
     <Styled.RoundedContainer>
       <Styled.TextContainer>
