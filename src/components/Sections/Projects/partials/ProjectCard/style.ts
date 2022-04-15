@@ -28,8 +28,22 @@ const ImageContainer = styled(RoundedContainer)`
   width: 100%;
   height: 100%;
 
+  &:hover,
+  &:focus {
+    .gatsby-image-wrapper {
+      filter: none;
+    }
+  }
+
   .gatsby-image-wrapper {
     height: 100%;
+  }
+
+  @media ${breakpoints.tablet} {
+    .gatsby-image-wrapper {
+      ${mixinTransition(['filter'])};
+      filter: grayscale(70%) contrast(1) brightness(90%);
+    }
   }
 `;
 
@@ -54,6 +68,17 @@ const ProjectTitle = styled.h4`
   color: ${({ theme }) => theme.colors.textStrong};
   margin-bottom: ${({ theme }) => theme.space.m};
   ${mixinTransition(['color'])}
+`;
+
+const ProjectTitleLink = styled.a`
+  &[href] {
+    ${mixinTransition(['color'])}
+    color: inherit;
+    text-decoration: none;
+    &:hover {
+      color: ${(props) => props.theme.colors.accent};
+    }
+  }
 `;
 
 const TechList = styled.ul`
@@ -140,5 +165,6 @@ export default {
   ProjectTitle,
   TechList,
   ImageContainer,
+  ProjectTitleLink,
   CardContainer,
 };
