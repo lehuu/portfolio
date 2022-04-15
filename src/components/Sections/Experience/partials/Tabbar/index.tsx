@@ -28,16 +28,15 @@ const Tabbar: React.FunctionComponent<TabbarProps> = ({ tabs, selectedTab = 0, o
 
     const tabElements = Object.values(tabContainerRef.current?.children);
 
-    const width = tabElements[selectedTab].clientWidth;
-    const height = tabElements[selectedTab].clientHeight;
+    const { width, height } = tabElements[selectedTab].getBoundingClientRect();
 
     const widthOffset = tabElements
       .slice(0, selectedTab)
-      .reduce((prev, current) => prev + current.clientWidth, 0);
+      .reduce((prev, current) => prev + current.getBoundingClientRect().width, 0);
 
     const heightOffset = tabElements
       .slice(0, selectedTab)
-      .reduce((prev, current) => prev + current.clientHeight, 0);
+      .reduce((prev, current) => prev + current.getBoundingClientRect().height, 0);
 
     if (horizontalTabIndicator.current) {
       horizontalTabIndicator.current.style.width = `${width}px`;

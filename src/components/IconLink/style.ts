@@ -12,39 +12,34 @@ interface CommonIconProps {
   size: keyof Theme['fontSizes'];
 }
 
-const commonIconStyle = (theme: Theme) => css`
+const commonIconStyle = css`
   height: inherit;
+  color: inherit;
   cursor: pointer;
-  ${mixinTransition(['color'])}
-
-  &:hover,
-  &:active {
-    color: ${theme.colors.accent};
-  }
 `;
 
 const GithubOutlineIcon = styled(GithubOutline)`
-  ${(props) => commonIconStyle(props.theme)}
+  ${commonIconStyle}
 `;
 
 const MailIcon = styled(Mail)`
-  ${(props) => commonIconStyle(props.theme)}
+  ${commonIconStyle}
 `;
 
 const LinkedInIcon = styled(LinkedIn)`
-  ${(props) => commonIconStyle(props.theme)}
+  ${commonIconStyle}
 `;
 
 const GithubIcon = styled(Github)`
-  ${(props) => commonIconStyle(props.theme)}
+  ${commonIconStyle}
 `;
 
 const InstagramIcon = styled(Instagram)`
-  ${(props) => commonIconStyle(props.theme)}
+  ${commonIconStyle}
 `;
 
 const ExternalLinkIcon = styled(ExternalLink)`
-  ${(props) => commonIconStyle(props.theme)}
+  ${commonIconStyle}
 `;
 
 const Anchor = styled.a<CommonIconProps>`
@@ -53,7 +48,10 @@ const Anchor = styled.a<CommonIconProps>`
   ${mixinTransition(['color'])}
   color: ${({ theme }) => theme.colors.textStrong};
 
-  &:hover {
+  &:hover,
+  &:active,
+  &:focus-visible {
+    color: ${({ theme }) => theme.colors.accent};
     transition: none !important;
   }
 `;

@@ -8,7 +8,9 @@ const commonStyle = (theme: Theme) => css`
   position: relative;
 
   &:hover,
-  &:active {
+  &:active,
+  &:focus-visible {
+    outline: none;
     &::before {
       z-index: -1;
       width: 100%;

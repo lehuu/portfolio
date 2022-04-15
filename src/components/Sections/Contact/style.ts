@@ -13,6 +13,13 @@ const TextContainer = styled.div`
     &:hover {
       text-decoration: underline;
     }
+
+    &:focus-visible {
+      text-decoration: underline;
+      outline: 2px solid ${({ theme }) => theme.colors.accent};
+      outline-offset: ${({ theme }) => theme.space.xs};
+      border-radius: ${({ theme }) => theme.radii.regular};
+    }
   }
 `;
 
