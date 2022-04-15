@@ -15,6 +15,7 @@ interface CommonIconProps {
 const commonIconStyle = (theme: Theme) => css`
   height: inherit;
   cursor: pointer;
+  ${mixinTransition(['color'])}
 
   &:hover,
   &:active {
