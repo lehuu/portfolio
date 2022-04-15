@@ -128,8 +128,7 @@ const Tab = styled.button<TabProps>`
   padding: ${(props) => props.theme.space.xs} ${(props) => props.theme.space.m};
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
-  border-bottom: 2px solid;
-  border-color: ${(props) => props.theme.borders.regular};
+  border-bottom: 2px solid ${(props) => props.theme.borders.regular};
 
   ${mixinTransition(['color', 'background'], 'ease')}
 
@@ -149,6 +148,14 @@ const Tab = styled.button<TabProps>`
     color: ${({ theme }) => theme.colors.accent};
   }
 
+  &:focus-visible {
+    color: ${({ theme }) => theme.colors.accent};
+    outline: none;
+    box-shadow: inset 0 2px 0 ${({ theme }) => theme.colors.accent},
+      inset -2px 0 0 ${({ theme }) => theme.colors.accent},
+      inset 2px 0 0 ${({ theme }) => theme.colors.accent};
+  }
+
   @media ${breakpoints.tablet} {
     padding: ${(props) => props.theme.space.m};
     text-overflow: ellipsis;
@@ -161,6 +168,12 @@ const Tab = styled.button<TabProps>`
     border-bottom-left-radius: 0;
     border-bottom: unset;
     border-left: 2px solid ${(props) => props.theme.borders.regular};
+
+    &:focus-visible {
+      box-shadow: inset 0 2px 0 ${({ theme }) => theme.colors.accent},
+        inset 0 -2px 0 ${({ theme }) => theme.colors.accent},
+        inset -2px 0 0 ${({ theme }) => theme.colors.accent};
+    }
   }
 `;
 

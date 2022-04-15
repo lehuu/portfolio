@@ -40,10 +40,12 @@ const ImageContainer = styled(RoundedContainer)`
   grid-area: 1 / 1 / -1 / -1;
   height: 100%;
 
-  &:hover,
-  &:focus {
-    .gatsby-image-wrapper {
-      filter: none;
+  a {
+    &:hover,
+    &:focus-visible {
+      .gatsby-image-wrapper {
+        filter: none;
+      }
     }
   }
 

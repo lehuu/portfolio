@@ -23,7 +23,7 @@ const ProjectCard: React.FunctionComponent<ProjectCardProps> = ({
 }) => (
   <Styled.CardContainer imagePosition={imagePosition}>
     <Styled.ImageContainer hasShadow>
-      <a href={extractProjectLink(links || []) || undefined}>
+      <a href={extractProjectLink(links || []) || undefined} target="_blank" rel="noreferrer">
         <Img fluid={image} alt="Project Image" />
       </a>
     </Styled.ImageContainer>
@@ -31,7 +31,11 @@ const ProjectCard: React.FunctionComponent<ProjectCardProps> = ({
       <Styled.TextContainer>
         {title && (
           <Styled.ProjectTitle>
-            <Styled.ProjectTitleLink href={extractProjectLink(links || []) || undefined}>
+            <Styled.ProjectTitleLink
+              href={extractProjectLink(links || []) || undefined}
+              target="_blank"
+              rel="noreferrer"
+            >
               {title}
             </Styled.ProjectTitleLink>
           </Styled.ProjectTitle>

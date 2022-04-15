@@ -45,7 +45,8 @@ const Table = styled.table`
       border-radius: ${({ theme }) => theme.radii.regular};
       overflow: hidden;
 
-      &:hover {
+      &:hover,
+      &:focus-within {
         td {
           background-color: ${({ theme }) => theme.colors.hoverBg};
         }

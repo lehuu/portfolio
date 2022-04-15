@@ -28,10 +28,13 @@ const ImageContainer = styled(RoundedContainer)`
   width: 100%;
   height: 100%;
 
-  &:hover,
-  &:focus {
-    .gatsby-image-wrapper {
-      filter: none;
+  a {
+    &:hover,
+    &:focus,
+    &:focus-visible {
+      .gatsby-image-wrapper {
+        filter: none;
+      }
     }
   }
 
@@ -75,7 +78,8 @@ const ProjectTitleLink = styled.a`
     ${mixinTransition(['color'])}
     color: inherit;
     text-decoration: none;
-    &:hover {
+    &:hover,
+    &:focus-visible {
       color: ${(props) => props.theme.colors.accent};
     }
   }
