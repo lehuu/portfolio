@@ -28,8 +28,22 @@ const ImageContainer = styled(RoundedContainer)`
   width: 100%;
   height: 100%;
 
+  &:hover,
+  &:focus {
+    .gatsby-image-wrapper {
+      filter: none;
+    }
+  }
+
   .gatsby-image-wrapper {
     height: 100%;
+  }
+
+  @media ${breakpoints.tablet} {
+    .gatsby-image-wrapper {
+      ${mixinTransition(['filter'])};
+      filter: grayscale(70%) contrast(1) brightness(90%);
+    }
   }
 `;
 
@@ -58,6 +72,7 @@ const ProjectTitle = styled.h4`
 
 const ProjectTitleLink = styled.a`
   &[href] {
+    ${mixinTransition(['color'])}
     color: inherit;
     text-decoration: none;
     &:hover {
