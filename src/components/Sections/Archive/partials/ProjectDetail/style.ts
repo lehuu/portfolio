@@ -40,14 +40,24 @@ const ImageContainer = styled(RoundedContainer)`
   grid-area: 1 / 1 / -1 / -1;
   height: 100%;
 
+  &:hover,
+  &:focus {
+    .gatsby-image-wrapper {
+      filter: none;
+    }
+  }
+
   .gatsby-image-wrapper {
     height: 100%;
   }
+
   @media ${breakpoints.tablet} {
     grid-area: 1 / 1 / -1 / 7;
 
     height: unset;
     .gatsby-image-wrapper {
+      ${mixinTransition(['filter'])};
+      filter: grayscale(70%) contrast(1) brightness(90%);
       height: unset;
     }
   }
