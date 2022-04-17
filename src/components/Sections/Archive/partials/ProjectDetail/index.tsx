@@ -22,7 +22,7 @@ const ProjectDetail: React.FunctionComponent<ProjectDetailProps> = ({
     {description ? (
       <>
         <Styled.ImageContainer>
-          <a href={extractProjectLink(links || []) || undefined}>
+          <a href={extractProjectLink(links || []) || undefined} target="_blank" rel="noreferrer">
             <Img fluid={image} alt="Project Image" />
           </a>
         </Styled.ImageContainer>

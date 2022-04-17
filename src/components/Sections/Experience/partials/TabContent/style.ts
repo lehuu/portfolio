@@ -35,7 +35,8 @@ const Link = styled.a`
   text-decoration: none;
 
   &:hover,
-  &:active {
+  &:active,
+  &:focus-visible {
     text-decoration: underline;
   }
 `;

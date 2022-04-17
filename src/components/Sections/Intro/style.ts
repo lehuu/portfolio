@@ -134,7 +134,8 @@ const TextContainer = styled.div`
       text-decoration: none;
 
       &:hover,
-      &:active {
+      &:active,
+      &:focus-visible {
         text-decoration: underline;
       }
     }
