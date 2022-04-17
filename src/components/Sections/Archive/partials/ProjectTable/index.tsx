@@ -26,6 +26,14 @@ const ProjectTable: React.FunctionComponent<ProjectTableProps> = ({ projects }) 
     setSelectedProject((curr) => (curr === selected ? null : selected));
   };
 
+  const handleTitleKeyboardEvent = (e: React.KeyboardEvent<HTMLDivElement>) => {
+    const { key } = e;
+    if (key === 'Enter' || key === '13' || ['Spacebar', ' '].indexOf(key) >= 0 || key === '32') {
+      e.preventDefault();
+      e.currentTarget.click();
+    }
+  };
+
   return (
     <Styled.Table>
       <thead>
@@ -46,7 +54,16 @@ const ProjectTable: React.FunctionComponent<ProjectTableProps> = ({ projects }) 
           <React.Fragment key={`${project.name}${project.endDate}`}>
             <tr onClick={() => handleSelectProject(index)}>
               <Styled.DateCell>{project.endDate.getFullYear()}</Styled.DateCell>
-              <Styled.TitleCell>{project.name}</Styled.TitleCell>
+              <Styled.TitleCell>
+                <div
+                  role="button"
+                  tabIndex={0}
+                  onKeyDown={handleTitleKeyboardEvent}
+                  onMouseDown={(e) => e.preventDefault()}
+                >
+                  {project.name}
+                </div>
+              </Styled.TitleCell>
               <Styled.CompanyCell visibleFrom="mobileXL">
                 {project.company ?? '\u23AF'}
               </Styled.CompanyCell>

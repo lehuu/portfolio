@@ -88,6 +88,10 @@ const Button = styled.button`
     cursor: pointer;
     background: ${({ theme }) => theme.colors.themeSwitcher.hoverBgColor};
   }
+
+  :focus-visible {
+    outline: 2px solid ${({ theme }) => theme.colors.accent};
+  }
 `;
 
 export default { Button, IconContainer };
