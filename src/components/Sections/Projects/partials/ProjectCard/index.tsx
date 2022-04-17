@@ -20,13 +20,16 @@ const ProjectCard: React.FunctionComponent<ProjectCardProps> = ({
   techstack,
   imagePosition = 'left',
   links,
-}) => (
-  <Styled.CardContainer imagePosition={imagePosition}>
+}) => {
+  const imageElement = (
     <Styled.ImageContainer hasShadow>
       <a href={extractProjectLink(links || []) || undefined} target="_blank" rel="noreferrer">
         <Img fluid={image} alt="Project Image" />
       </a>
     </Styled.ImageContainer>
+  );
+
+  const textElement = (
     <Styled.RoundedContainer>
       <Styled.TextContainer>
         {title && (
@@ -68,7 +71,22 @@ const ProjectCard: React.FunctionComponent<ProjectCardProps> = ({
         )}
       </Styled.TextContainer>
     </Styled.RoundedContainer>
-  </Styled.CardContainer>
-);
+  );
+  return (
+    <Styled.CardContainer imagePosition={imagePosition}>
+      {imagePosition === 'left' ? (
+        <>
+          {imageElement}
+          {textElement}
+        </>
+      ) : (
+        <>
+          {textElement}
+          {imageElement}
+        </>
+      )}
+    </Styled.CardContainer>
+  );
+};
 
 export default ProjectCard;
