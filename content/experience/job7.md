@@ -1,6 +1,5 @@
 ---
 startDate: '2017-12-21'
-endDate: 'now'
 title: 'UI Engineer Co-op'
 company: 'Apple7'
 location: 'Cupertino, CA'
