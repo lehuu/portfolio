@@ -59,10 +59,11 @@ const LinkContainer = styled.ul`
   }
 `;
 
-const TextContainer = styled.div`
+const TextContainer = styled(RoundedContainer)`
   padding: ${({ theme }) => theme.space.m};
   background-color: ${({ theme }) => theme.colors.background};
   opacity: 0.93;
+  z-index: 1;
   ${mixinTransition(['background-color'])}
 `;
 

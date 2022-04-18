@@ -30,47 +30,43 @@ const ProjectCard: React.FunctionComponent<ProjectCardProps> = ({
   );
 
   const textElement = (
-    <Styled.RoundedContainer>
-      <Styled.TextContainer>
-        {title && (
-          <Styled.ProjectTitle>
-            <Styled.ProjectTitleLink
-              href={extractProjectLink(links || []) || undefined}
-              target="_blank"
-              rel="noreferrer"
-            >
-              {title}
-            </Styled.ProjectTitleLink>
-          </Styled.ProjectTitle>
-        )}
-        {/* eslint-disable-next-line react/no-danger */}
-        {description && <span dangerouslySetInnerHTML={{ __html: description }} />}
-        {techstack && (
-          <Styled.TechList>
-            {techstack.map((tech) => (
-              <li key={tech}>{tech}</li>
-            ))}
-          </Styled.TechList>
-        )}
-        {links && (
-          <Styled.LinkContainer>
-            {links.map((link) => (
-              <li key={link.link}>
-                <IconLink
-                  size="l"
-                  type={
-                    link.type.toLocaleLowerCase() === 'github'
-                      ? 'githubOutline'
-                      : (link.type as any)
-                  }
-                  link={link.link}
-                />
-              </li>
-            ))}
-          </Styled.LinkContainer>
-        )}
-      </Styled.TextContainer>
-    </Styled.RoundedContainer>
+    <Styled.TextContainer>
+      {title && (
+        <Styled.ProjectTitle>
+          <Styled.ProjectTitleLink
+            href={extractProjectLink(links || []) || undefined}
+            target="_blank"
+            rel="noreferrer"
+          >
+            {title}
+          </Styled.ProjectTitleLink>
+        </Styled.ProjectTitle>
+      )}
+      {/* eslint-disable-next-line react/no-danger */}
+      {description && <span dangerouslySetInnerHTML={{ __html: description }} />}
+      {techstack && (
+        <Styled.TechList>
+          {techstack.map((tech) => (
+            <li key={tech}>{tech}</li>
+          ))}
+        </Styled.TechList>
+      )}
+      {links && (
+        <Styled.LinkContainer>
+          {links.map((link) => (
+            <li key={link.link}>
+              <IconLink
+                size="l"
+                type={
+                  link.type.toLocaleLowerCase() === 'github' ? 'githubOutline' : (link.type as any)
+                }
+                link={link.link}
+              />
+            </li>
+          ))}
+        </Styled.LinkContainer>
+      )}
+    </Styled.TextContainer>
   );
   return (
     <Styled.CardContainer imagePosition={imagePosition}>
