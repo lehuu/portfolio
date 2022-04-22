@@ -129,6 +129,7 @@ const Tab = styled.button<TabProps>`
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
   border-bottom: 2px solid ${(props) => props.theme.borders.regular};
+  white-space: nowrap;
 
   ${mixinTransition(['color', 'background'], 'ease')}
 
