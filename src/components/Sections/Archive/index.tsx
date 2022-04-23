@@ -12,7 +12,7 @@ const PROJECT_QUERY = graphql`
   {
     projects: allMarkdownRemark(
       filter: { fileAbsolutePath: { regex: "/content/projects/" } }
-      sort: { fields: [frontmatter___featured], order: ASC }
+      sort: { fields: [frontmatter___endDate, frontmatter___startDate], order: DESC }
     ) {
       edges {
         node {
