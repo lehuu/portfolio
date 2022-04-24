@@ -39,13 +39,23 @@ const ImageContainer = styled(RoundedContainer)`
   box-shadow: ${(props) => props.theme.shadows.box};
   grid-area: 1 / 1 / -1 / -1;
   height: 100%;
+  overflow: unset;
 
   a {
+    overflow: hidden;
+    border-radius: inherit;
+    display: block;
+    height: 100%;
+
     &:hover,
     &:focus-visible {
       .gatsby-image-wrapper {
         filter: none;
       }
+    }
+
+    &:focus-visible {
+      outline: ${({ theme }) => theme.colors.accent} 2px solid;
     }
   }
 

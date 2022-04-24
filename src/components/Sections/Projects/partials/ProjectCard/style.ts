@@ -27,14 +27,23 @@ const ImageContainer = styled(RoundedContainer)`
   top: 0;
   width: 100%;
   height: 100%;
+  overflow: unset;
 
   a {
+    overflow: hidden;
+    border-radius: inherit;
+    display: block;
+    height: 100%;
+
     &:hover,
-    &:focus,
     &:focus-visible {
       .gatsby-image-wrapper {
         filter: none;
       }
+    }
+
+    &:focus-visible {
+      outline: ${({ theme }) => theme.colors.accent} 2px solid;
     }
   }
 
