@@ -29,7 +29,7 @@ const TextContainer = styled.div`
     align-items: center;
 
     > p {
-      max-width: 500px;
+      max-width: 550px;
     }
   }
 `;
