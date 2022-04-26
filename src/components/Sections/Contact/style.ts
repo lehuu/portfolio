@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import breakpoints from '@styles/breakpoints';
 
 const TextContainer = styled.div`
   text-align: center;
@@ -19,6 +20,16 @@ const TextContainer = styled.div`
       outline: 2px solid ${({ theme }) => theme.colors.accent};
       outline-offset: ${({ theme }) => theme.space.xs};
       border-radius: ${({ theme }) => theme.radii.regular};
+    }
+  }
+
+  @media ${breakpoints.mobileL} {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    > p {
+      max-width: 500px;
     }
   }
 `;

@@ -43,7 +43,7 @@ const Link = styled.a`
 
 const DateContainer = styled.div`
   margin-bottom: ${(props) => props.theme.space.l};
-  font-size: ${(props) => props.theme.fontSizes.m};
+  font-size: ${(props) => props.theme.fontSizes.s};
 `;
 
 const TaskContainer = styled.div`
