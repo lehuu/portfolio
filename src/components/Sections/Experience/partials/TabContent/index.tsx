@@ -7,7 +7,7 @@ interface TabContentProps {
   company: string;
   url: string;
   startDate: Date;
-  endDate: Date | 'now';
+  endDate?: Date;
   tasksHTML: string;
 }
 
@@ -22,10 +22,9 @@ const TabContent: React.FunctionComponent<TabContentProps> = ({
   const startDateFormatted = `${translateMonth(
     startDate.getMonth()
   )} ${startDate.getUTCFullYear()}`;
-  const endDateFormatted =
-    endDate === 'now'
-      ? 'Present'
-      : `${translateMonth(endDate.getMonth())} ${endDate.getUTCFullYear()}`;
+  const endDateFormatted = !endDate
+    ? 'Present'
+    : `${translateMonth(endDate.getMonth())} ${endDate.getUTCFullYear()}`;
 
   return (
     <Styled.Container key={title + company + startDate.toDateString()}>
@@ -39,9 +38,7 @@ const TabContent: React.FunctionComponent<TabContentProps> = ({
       </Styled.TitleContainer>
       <Styled.DateContainer>
         <time dateTime={startDate.toISOString()}>{startDateFormatted}</time> -{' '}
-        <time dateTime={(endDate === 'now' ? new Date() : endDate).toISOString()}>
-          {endDateFormatted}
-        </time>
+        <time dateTime={(!endDate ? new Date() : endDate).toISOString()}>{endDateFormatted}</time>
       </Styled.DateContainer>
       {/* eslint-disable-next-line react/no-danger */}
       <Styled.TaskContainer dangerouslySetInnerHTML={{ __html: tasksHTML }} />

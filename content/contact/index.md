@@ -1,3 +1,3 @@
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Feugiat in ante metus dictum at tempor. Nec feugiat nisl pretium fusce. Faucibus purus in massa tempor nec. Fringilla ut morbi tincidunt augue interdum. Dolor purus non enim praesent elementum facilisis. Penatibus et magnis dis parturient. Senectus et netus et malesuada fames. Fringilla est ullamcorper eget nulla facilisi etiam. Euismod in pellentesque massa placerat duis ultricies lacus. Proin gravida hendrerit lectus a. Adipiscing at in tellus integer feugiat scelerisque varius morbi enim. Venenatis lectus magna fringilla urna porttitor rhoncus dolor purus non.
+I am currently not looking for projects, but my inbox is always open. If you have a question or just want to say hi, I'll try my best to get back to you.
 
 [Get In Touch](mailto:dev@bytecruncher.com)

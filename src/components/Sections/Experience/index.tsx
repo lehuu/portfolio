@@ -42,7 +42,7 @@ const Experience: React.FunctionComponent<Pick<SectionContainerProps, 'onInView'
   const selectedContent = content[selectedTab];
 
   const startDate = new Date(selectedContent.startDate);
-  const endDate = selectedContent.endDate === 'now' ? 'now' : new Date(selectedContent.endDate);
+  const endDate = !selectedContent.endDate ? undefined : new Date(selectedContent.endDate);
 
   return (
     <SectionContainer id="experience" onInView={onInView}>
