@@ -2,7 +2,7 @@
 startDate: '2018-09-01'
 endDate: '2019-01-31'
 name: 'Studysmarter Mobile'
-picture: ./job1.jpg
+picture: ./Studysmarter Mobile.jpg
 company: 'Studysmarter'
 links: [
  {type: "external", link: https://app.studysmarter.de/register}

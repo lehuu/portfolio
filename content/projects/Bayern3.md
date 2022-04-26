@@ -2,7 +2,6 @@
 startDate: '2016-11-15'
 endDate: '2017-02-28'
 name: 'Bayern3 App'
-picture: ./job1.jpg
 company: 'Bayerischer Rundfunk'
 techstack: ['Android', 'Java', 'Camera API', 'Android Studio']
 ---

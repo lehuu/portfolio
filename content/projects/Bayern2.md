@@ -2,7 +2,7 @@
 startDate: '2017-03-01'
 endDate: '2018-04-01'
 name: 'Bayern2 CMS'
-picture: ./job1.jpg
+picture: ./Bayern2.jpg
 company: 'Bayerischer Rundfunk'
 links: [
     { type: "external", link: https://www.br.de/radio/bayern2/service/bayern-2-app-das-ganze-programm-auf-ihrem-smartphone-100.html }

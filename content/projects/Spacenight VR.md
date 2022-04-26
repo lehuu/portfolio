@@ -2,7 +2,6 @@
 startDate: '2016-07-15'
 endDate: '2016-11-15'
 name: 'Spacenight VR'
-picture: ./job1.jpg
 company: 'Bayerischer Rundfunk'
 techstack: ['Unity3D', 'Oculus Rift SDK', 'C#']
 ---
