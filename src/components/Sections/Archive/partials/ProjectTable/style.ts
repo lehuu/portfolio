@@ -1,6 +1,7 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 import { mixinTransition, breakpoints } from '@styles';
+import DetailsStyled from '../ProjectDetail/style';
 
 const LinkContainer = styled.ul`
   display: flex;
@@ -8,14 +9,6 @@ const LinkContainer = styled.ul`
 
   li {
     line-height: 0;
-  }
-`;
-
-const ProjectCardRow = styled.tr`
-  td {
-    padding: 0;
-    padding-left: 0 !important;
-    padding-right: 0 !important;
   }
 `;
 
@@ -40,7 +33,7 @@ const Table = styled.table`
   }
 
   tbody {
-    tr:not(${ProjectCardRow}) {
+    tr:not(${DetailsStyled.ProjectCardRow}) {
       cursor: pointer;
       border-radius: ${({ theme }) => theme.radii.regular};
       overflow: hidden;
@@ -129,6 +122,5 @@ export default {
   DateCell,
   CellWithBreakpoint,
   TechList,
-  ProjectCardRow,
   TechCell,
 };

@@ -1,9 +1,16 @@
+import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 import breakpoints from '@styles/breakpoints';
 import mixinTransition from '@styles/mixin-transition';
 import slideTransition from '@styles/slide-transition';
 
 export const TRANSITION_NAME = 'table-detail-transition';
+
+const ProjectCardRow = styled.tr`
+  td {
+    padding: 0 !important;
+  }
+`;
 
 const CompanyContainer = styled.div`
   margin-bottom: ${({ theme }) => theme.space.s};
@@ -24,6 +31,22 @@ const RoundedContainer = styled.div`
   overflow: hidden;
 `;
 
+interface TransitionContainerProps {
+  visible?: boolean;
+}
+
+const TransitionContainer = styled.div<TransitionContainerProps>`
+  ${slideTransition(TRANSITION_NAME)}
+
+  ${(props) =>
+    !props.visible &&
+    css`
+      opacity: 0;
+      max-height: 0;
+      overflow: hidden;
+    `}
+`;
+
 const DetailsContainer = styled.div`
   position: relative;
   display: grid;
@@ -31,8 +54,6 @@ const DetailsContainer = styled.div`
   align-items: center;
 
   padding: ${({ theme }) => theme.space.s} ${({ theme }) => theme.space.m};
-
-  ${slideTransition(TRANSITION_NAME, true)}
 `;
 
 const ImageContainer = styled(RoundedContainer)`
@@ -99,6 +120,7 @@ const TextContainer = styled(RoundedContainer)`
       grid-area: 1 / 1 / -1 / -1;
       text-align: left;
       padding: ${({ theme }) => `${theme.space.m} ${theme.space.m}`};
+      width: 100%;
       max-width: unset;
     }
   }
@@ -130,4 +152,6 @@ export default {
   NoDetailsContainer,
   CompanyContainer,
   TechList,
+  TransitionContainer,
+  ProjectCardRow,
 };
