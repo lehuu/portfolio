@@ -1,7 +1,7 @@
 import { HashContext } from '@components/HashProvider';
 import { THEME_TRANSITION_TIME_MS } from '@styles/mixin-transition';
 import { graphql, useStaticQuery } from 'gatsby';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { CSSTransition } from 'react-transition-group';
 import ThemeSwitchButton from '../ThemeSwitchButton';
 import Styled, { OVERLAY_TRANSITION_NAME, SLIDEIN_TRANSITION_NAME } from './style';
@@ -26,6 +26,22 @@ interface SlideInProps {
 const SlideIn: React.FunctionComponent<SlideInProps> = ({ isOpen, onRequestClose, links }) => {
   const { hash, disableScrollTracking } = React.useContext(HashContext);
 
+  useEffect(() => {
+    const handleEscapeClick = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        onRequestClose();
+      }
+    };
+
+    if (isOpen) {
+      document.addEventListener('keydown', handleEscapeClick);
+    }
+
+    return () => {
+      document.removeEventListener('keydown', handleEscapeClick);
+    };
+  }, [isOpen]);
+
   const {
     markdownRemark: {
       frontmatter: { link },
@@ -48,7 +64,7 @@ const SlideIn: React.FunctionComponent<SlideInProps> = ({ isOpen, onRequestClose
         timeout={THEME_TRANSITION_TIME_MS}
         classNames={SLIDEIN_TRANSITION_NAME}
       >
-        <Styled.SlideInContainer>
+        <Styled.SlideInContainer tabIndex={-1}>
           <Styled.LinkList>
             {links.map((item) => (
               <li key={item.label}>
