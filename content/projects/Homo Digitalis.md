@@ -2,7 +2,7 @@
 startDate: '2017-03-01'
 endDate: '2018-02-01'
 name: 'Homo Digitalis'
-picture: ./job1.jpg
+picture: ./Homo Digitalis.jpg
 company: 'Bayerischer Rundfunk'
 links: [
  {type: "external", link: https://www.arte.tv/sites/presse/pressemitteilungen/launch-des-zukunftsprojekts-homo-digitalis/}

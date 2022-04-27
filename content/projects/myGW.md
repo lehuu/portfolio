@@ -1,7 +1,7 @@
 ---
 startDate: '2021-08-01'
 name: 'myGW'
-picture: ./job1.jpg
+picture: ./myGW.jpg
 company: 'Gebrüder Weiss'
 links: [
  {type: "external", link: https://www.gw-world.com/mygw/}

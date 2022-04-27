@@ -2,7 +2,7 @@
 startDate: '2016-10-15'
 endDate: '2017-02-28'
 name: 'Noustique'
-picture: ./job1.jpg
+picture: ./Noustique.jpg
 company: 'TUM & BSH'
 techstack: ['Swift', 'iOS', 'Spring']
 ---

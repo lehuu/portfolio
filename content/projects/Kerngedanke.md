@@ -2,7 +2,7 @@
 startDate: '2019-09-01'
 name: 'Kerngedanke'
 company: 'Kerngedanke'
-picture: ./job1.jpg
+picture: ./kerngedanke.jpg
 links: [
  {type: "external", link: https://kerngedanke.com/en/},
  ]
