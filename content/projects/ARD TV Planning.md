@@ -2,7 +2,7 @@
 startDate: '2014-07-01'
 endDate: '2016-09-30'
 name: 'ARD TV Center'
-company: 'm.a.x. IT'
+company: 'm.a.x. it'
 links: [
     { type: "external", link: https://www.max-it.de/sendebetrieb-fuer-das-erste/ }
 ]
