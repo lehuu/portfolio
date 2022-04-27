@@ -48,7 +48,7 @@ const SlideIn: React.FunctionComponent<SlideInProps> = ({ isOpen, onRequestClose
         timeout={THEME_TRANSITION_TIME_MS}
         classNames={SLIDEIN_TRANSITION_NAME}
       >
-        <Styled.SlideInContainer>
+        <Styled.SlideInContainer tabIndex={-1}>
           <Styled.LinkList>
             {links.map((item) => (
               <li key={item.label}>

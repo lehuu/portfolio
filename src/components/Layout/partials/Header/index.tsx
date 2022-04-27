@@ -41,7 +41,7 @@ const Header: React.FunctionComponent<HeaderProps> = ({ isMenuOpen, onMenuClick 
   } = useStaticQuery(HEADER_QUERY);
 
   return (
-    <Styled.Header>
+    <Styled.Header tabIndex={-1}>
       <Styled.WidthContainer>
         <Styled.Navigation>
           <div>
