@@ -2,7 +2,7 @@
 startDate: '2014-07-01'
 endDate: '2016-09-30'
 title: 'Junior Developer'
-company: 'm.a.x. IT'
+company: 'm.a.x. it'
 location: 'Munich, DE'
 url: 'https://www.max-it.de/'
 ---
