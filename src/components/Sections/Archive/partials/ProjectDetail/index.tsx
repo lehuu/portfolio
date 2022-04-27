@@ -7,7 +7,7 @@ interface ProjectDetailProps {
   company?: string;
   description?: string;
   techstack?: string[];
-  image: FluidObject | FluidObject[];
+  image?: FluidObject | FluidObject[];
   links?: { type: string; link: string }[];
 }
 
@@ -21,11 +21,13 @@ const ProjectDetail: React.FunctionComponent<ProjectDetailProps> = ({
   <Styled.DetailsContainer>
     {description ? (
       <>
-        <Styled.ImageContainer>
-          <a href={extractProjectLink(links || []) || undefined} target="_blank" rel="noreferrer">
-            <Img fluid={image} alt="Project Image" />
-          </a>
-        </Styled.ImageContainer>
+        {image && (
+          <Styled.ImageContainer>
+            <a href={extractProjectLink(links || []) || undefined} target="_blank" rel="noreferrer">
+              <Img fluid={image} alt="Project Image" />
+            </a>
+          </Styled.ImageContainer>
+        )}
         <Styled.TextContainer>
           {company && <Styled.CompanyContainer>Made at: {company}</Styled.CompanyContainer>}
           {/* eslint-disable-next-line react/no-danger */}

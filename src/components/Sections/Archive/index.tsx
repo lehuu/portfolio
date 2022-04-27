@@ -58,7 +58,7 @@ const Archive: React.FunctionComponent<Pick<SectionContainerProps, 'onInView'>> 
     company: edge.node.frontmatter.company,
     techstack: edge.node.frontmatter.techstack,
     endDate: edge.node.frontmatter.endDate ? new Date(edge.node.frontmatter.endDate) : new Date(),
-    image: edge.node.frontmatter.picture.childImageSharp.fluid,
+    image: edge.node.frontmatter.picture?.childImageSharp.fluid,
     links: edge.node.frontmatter.links,
   }));
 

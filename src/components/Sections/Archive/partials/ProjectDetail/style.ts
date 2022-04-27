@@ -94,6 +94,13 @@ const TextContainer = styled(RoundedContainer)`
     grid-area: 1 / 6 / -1 / -1;
     text-align: right;
     padding: ${({ theme }) => `${theme.space.m} 0 ${theme.space.m} ${theme.space.l}`};
+
+    &:only-child {
+      grid-area: 1 / 1 / -1 / -1;
+      text-align: left;
+      padding: ${({ theme }) => `${theme.space.m} ${theme.space.m}`};
+      max-width: unset;
+    }
   }
 `;
 
