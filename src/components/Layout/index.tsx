@@ -34,6 +34,13 @@ const Layout: React.FunctionComponent<LayoutProps> = ({ additionalTitle, childre
     setIsClient(true);
   }, []);
 
+  useEffect(() => {
+    const gatsbyFocusWrapper = document.getElementById('gatsby-focus-wrapper');
+    if (gatsbyFocusWrapper) {
+      gatsbyFocusWrapper.removeAttribute('tabIndex');
+    }
+  }, []);
+
   return (
     <>
       <GlobalStyle />
