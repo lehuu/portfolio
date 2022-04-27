@@ -13,7 +13,7 @@ interface ProjectTableProps {
     description?: string;
     company?: string;
     techstack: string[];
-    image: FluidObject | FluidObject[];
+    image?: FluidObject | FluidObject[];
     endDate: Date;
     links?: { type: string; link: string }[];
   }[];

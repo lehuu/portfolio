@@ -2,7 +2,6 @@
 startDate: '2018-12-01'
 endDate: '2021-02-15'
 name: 'Health Management'
-picture: ./job1.jpg
 company: 'Münchener Verein'
 links: [
  { type: "external", link: https://www.mv-maklernetz.de/rechner/mv-mobilrechner-kvlvuv/ }
