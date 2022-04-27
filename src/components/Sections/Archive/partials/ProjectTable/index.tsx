@@ -1,10 +1,7 @@
 import React, { useState } from 'react';
 import IconLink from '@components/IconLink';
 import { FluidObject } from 'gatsby-image';
-import { CSSTransition } from 'react-transition-group';
-import { THEME_TRANSITION_TIME_MS } from '@styles/mixin-transition';
 import Styled from './style';
-import { TRANSITION_NAME } from '../ProjectDetail/style';
 import ProjectDetail from '../ProjectDetail';
 
 interface ProjectTableProps {
@@ -94,24 +91,14 @@ const ProjectTable: React.FunctionComponent<ProjectTableProps> = ({ projects }) 
                 </Styled.LinkContainer>
               </Styled.CellWithBreakpoint>
             </tr>
-            <CSSTransition
-              in={selectedProject != null && selectedProject === index}
-              timeout={THEME_TRANSITION_TIME_MS}
-              unmountOnExit
-              classNames={TRANSITION_NAME}
-            >
-              <Styled.ProjectCardRow>
-                <td colSpan={5}>
-                  <ProjectDetail
-                    links={project.links}
-                    company={project.company}
-                    image={project.image}
-                    techstack={project.techstack}
-                    description={project.description}
-                  />
-                </td>
-              </Styled.ProjectCardRow>
-            </CSSTransition>
+            <ProjectDetail
+              visible={selectedProject != null && selectedProject === index}
+              links={project.links}
+              company={project.company}
+              image={project.image}
+              techstack={project.techstack}
+              description={project.description}
+            />
           </React.Fragment>
         ))}
       </tbody>
