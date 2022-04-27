@@ -91,6 +91,12 @@ const Button = styled.button`
   :active {
     cursor: pointer;
   }
+
+  :focus-visible {
+    outline: 2px solid ${({ theme }) => theme.colors.accent};
+    outline-offset: ${({ theme }) => theme.space.xs};
+    border-radius: ${({ theme }) => theme.radii.regular};
+  }
 `;
 
 export default { Button, IconContainer, ClickArea };
