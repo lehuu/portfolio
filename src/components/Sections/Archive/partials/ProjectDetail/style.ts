@@ -110,6 +110,10 @@ const TextContainer = styled(RoundedContainer)`
   flex-direction: column;
   align-items: stretch;
 
+  &:only-child {
+    padding: ${({ theme }) => `0 ${theme.space.m}`};
+  }
+
   @media ${breakpoints.tablet} {
     height: unset;
     grid-area: 1 / 6 / -1 / -1;
@@ -119,7 +123,7 @@ const TextContainer = styled(RoundedContainer)`
     &:only-child {
       grid-area: 1 / 1 / -1 / -1;
       text-align: left;
-      padding: ${({ theme }) => `${theme.space.m} ${theme.space.m}`};
+      padding: ${({ theme }) => `0 ${theme.space.m}`};
       width: 100%;
       max-width: unset;
     }
