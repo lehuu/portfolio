@@ -1,3 +1,3 @@
 Hello. My name is Phuoc and I enjoy building products for the digital world. My interest in programming started back in my childhood when I decided to mod games on my PC. This then led me to study Games Engineering at the Technical University of Munich. During that time I also discovered my passion for web and app development and finished with a Master's degree in Informatics.
 
-Fast-forward to today, and I've had the privilege of working at a set of diverse companies ranging from both private and publicly funded companies to startups. My main focus these days is building accessible, human-centered digital products at Iglu for a variety of clients.
+Fast-forward to today, and I've had the privilege of working at a set of diverse places ranging from both private and publicly funded companies to startups. My main focus these days is building accessible, human-centered digital products at Iglu for a variety of clients.

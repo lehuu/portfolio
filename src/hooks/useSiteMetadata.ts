@@ -7,6 +7,7 @@ interface Site {
       lang: string;
       siteUrl: string;
       description: string;
+      image: string;
     };
   };
 }
@@ -21,6 +22,7 @@ const useSiteMetadata = () => {
             lang
             siteUrl
             description
+            image
           }
         }
       }
