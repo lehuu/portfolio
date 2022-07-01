@@ -3,7 +3,7 @@ const productionPlugins =
 
 const metadata = {
   title: 'Phuoc Le',
-  siteUrl: 'https://home-5006730139.app-ionos.space/',
+  siteUrl: 'https://bytecruncher.com',
   description: "Phuoc Le's personal portfolio website. Software Engineer.",
   lang: 'en',
   image: '/og.jpg'

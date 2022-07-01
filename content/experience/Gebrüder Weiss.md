@@ -4,6 +4,8 @@ title: 'Sofware Engineer'
 company: 'Gebrüder Weiss'
 location: 'Lauterach, AT'
 url: 'https://www.gw-world.com'
+consultancy: 'Iglu'
+consultancyUrl: 'https://iglu.net'
 ---
 
 - Consulted, trained and supported different project teams in React and Typescript

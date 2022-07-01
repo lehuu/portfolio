@@ -20,6 +20,8 @@ const EXPERIENCE_QUERY = graphql`
             url
             startDate
             endDate
+            consultancy
+            consultancyUrl
           }
           html
         }
