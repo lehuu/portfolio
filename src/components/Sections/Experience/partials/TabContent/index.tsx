@@ -8,6 +8,8 @@ interface TabContentProps {
   url: string;
   startDate: Date;
   endDate?: Date;
+  consultancy?: string;
+  consultancyUrl?: string;
   tasksHTML: string;
 }
 
@@ -18,6 +20,8 @@ const TabContent: React.FunctionComponent<TabContentProps> = ({
   startDate,
   endDate,
   tasksHTML,
+  consultancy,
+  consultancyUrl,
 }) => {
   const startDateFormatted = `${translateMonth(
     startDate.getMonth()
@@ -30,11 +34,24 @@ const TabContent: React.FunctionComponent<TabContentProps> = ({
     <Styled.Container key={title + company + startDate.toDateString()}>
       <Styled.TitleContainer>
         <b>
-          <Styled.Title>{title} </Styled.Title>
+          <Styled.Title>{title}</Styled.Title>
           <Styled.Link href={url} target="_blank">
-            @&nbsp;{company}
+            {' '}
+            @{company}
           </Styled.Link>
         </b>
+        {!!consultancy && (
+          <>
+            {' '}
+            via
+            <b>
+              <Styled.Link href={consultancyUrl} target="_blank">
+                {' '}
+                @{consultancy}
+              </Styled.Link>
+            </b>
+          </>
+        )}
       </Styled.TitleContainer>
       <Styled.DateContainer>
         <time dateTime={startDate.toISOString()}>{startDateFormatted}</time> -{' '}
