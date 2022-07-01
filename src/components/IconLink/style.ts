@@ -1,50 +1,67 @@
 import Mail from '@icons/mail.svg';
 import LinkedIn from '@icons/linkedin.svg';
 import Github from '@icons/github.svg';
+import GithubOutline from '@icons/github-outline.svg';
 import Instagram from '@icons/instagram.svg';
 import ExternalLink from '@icons/external-link.svg';
 import { mixinTransition } from '@styles';
 import styled from '@emotion/styled';
 import { css, Theme } from '@emotion/react';
 
-const commonIconStyle = (theme: Theme) => css`
-  height: ${theme.fontSizes.xl};
-  cursor: pointer;
+interface CommonIconProps {
+  size: keyof Theme['fontSizes'];
+}
 
-  &:hover {
-    color: ${theme.colors.accent};
-  }
+const commonIconStyle = css`
+  height: inherit;
+  color: inherit;
+  cursor: pointer;
+`;
+
+const GithubOutlineIcon = styled(GithubOutline)`
+  ${commonIconStyle}
 `;
 
 const MailIcon = styled(Mail)`
-  ${(props) => commonIconStyle(props.theme)}
+  ${commonIconStyle}
 `;
 
 const LinkedInIcon = styled(LinkedIn)`
-  ${(props) => commonIconStyle(props.theme)}
+  ${commonIconStyle}
 `;
 
 const GithubIcon = styled(Github)`
-  ${(props) => commonIconStyle(props.theme)}
+  ${commonIconStyle}
 `;
 
 const InstagramIcon = styled(Instagram)`
-  ${(props) => commonIconStyle(props.theme)}
+  ${commonIconStyle}
 `;
 
 const ExternalLinkIcon = styled(ExternalLink)`
-  ${(props) => commonIconStyle(props.theme)}
+  ${commonIconStyle}
 `;
 
-const Anchor = styled.a`
+const Anchor = styled.a<CommonIconProps>`
   display: inline-block;
-  height: ${({ theme }) => theme.fontSizes.xl};
-  ${mixinTransition('color')}
+  height: ${({ theme, size }) => theme.fontSizes[size]};
+  ${mixinTransition(['color'])}
   color: ${({ theme }) => theme.colors.textStrong};
 
-  &:hover {
+  &:hover,
+  &:active,
+  &:focus-visible {
+    color: ${({ theme }) => theme.colors.accent};
     transition: none !important;
   }
 `;
 
-export default { Anchor, MailIcon, LinkedInIcon, GithubIcon, InstagramIcon, ExternalLinkIcon };
+export default {
+  Anchor,
+  MailIcon,
+  LinkedInIcon,
+  GithubIcon,
+  InstagramIcon,
+  ExternalLinkIcon,
+  GithubOutlineIcon,
+};

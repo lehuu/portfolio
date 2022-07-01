@@ -3,18 +3,19 @@ import { breakpoints, mixinTransition, contentWidth } from '@styles';
 import { StyledExternalLink, StyledInternalLink } from '@components/Link';
 
 const Header = styled.header`
-  position: sticky;
+  position: fixed;
+  z-index: 500;
   top: 0;
   width: 100%;
-  border-bottom: 1px solid ${({ theme }) => theme.borders.bold};
+  border-bottom: 1px solid ${({ theme }) => theme.borders.regular};
   display: flex;
   justify-content: center;
 
   &:before {
     background-color: ${({ theme }) => theme.colors.background};
-    ${mixinTransition('background-color')}
+    ${mixinTransition(['background-color'])}
     content: '';
-    opacity: 0.75;
+    opacity: 0.95;
     position: absolute;
     left: 0;
     right: 0;
@@ -37,8 +38,10 @@ const Navigation = styled.nav`
   justify-content: space-between;
   align-items: center;
 
-  > * {
-    flex: 1 1 100%;
+  @media ${breakpoints.tablet} {
+    > * {
+      flex: 1 1 100%;
+    }
   }
 `;
 
@@ -47,12 +50,12 @@ const Title = styled(StyledInternalLink)`
   font-size: ${({ theme }) => theme.fontSizes.l};
   text-decoration: none;
   font-weight: ${({ theme }) => theme.fontWeights.bold};
-  ${mixinTransition('color')}
+  ${mixinTransition(['color'])}
 `;
 
 const LinkList = styled.ul`
   display: none;
-  font-size: ${({ theme }) => theme.fontSizes.xs};
+  font-size: ${({ theme }) => theme.fontSizes.s};
   gap: ${({ theme }) => theme.space.xl};
   @media ${breakpoints.tablet} {
     display: flex;
@@ -64,8 +67,11 @@ interface NavLinkProps {
   readonly isActive?: boolean;
 }
 
-const NavLink = styled(StyledInternalLink)<NavLinkProps>`
+const NavLink = styled(StyledInternalLink, {
+  shouldForwardProp: (prop) => prop !== 'isActive',
+})<NavLinkProps>`
   color: ${(props) => (props.isActive ? props.theme.colors.accent : props.theme.colors.textStrong)};
+  ${mixinTransition(['color'])}
 `;
 
 const MenuButton = styled.button`
@@ -89,6 +95,20 @@ const ButtonContainer = styled.div`
 
 const DownloadLink = styled(StyledExternalLink)`
   color: ${({ theme }) => theme.colors.accent};
+  display: none;
+  @media ${breakpoints.tablet} {
+    display: block;
+  }
+`;
+
+const ThemeButtonContainer = styled.div`
+  position: absolute;
+  right: ${({ theme }) => theme.space.l};
+  top: calc(100% + ${({ theme }) => theme.space.m});
+  display: none;
+  @media ${breakpoints.tablet} {
+    display: block;
+  }
 `;
 
 export default {
@@ -101,4 +121,5 @@ export default {
   NavLink,
   WidthContainer,
   ButtonContainer,
+  ThemeButtonContainer,
 };

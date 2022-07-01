@@ -10,8 +10,11 @@
       "@styles/*": ["./styles/*"],
       "@styles": ["./styles"],
       "@hooks/*": ["./hooks/*"],
-      "@hooks": ["./hooks"]
+      "@hooks": ["./hooks"],
+      "@utils/*": ["./utils/*"],
+      "@utils": ["./utils"]
     },
+    "skipLibCheck": true,
     "allowJs": true,
     "allowSyntheticDefaultImports": true,
     "baseUrl": "./src",
@@ -21,6 +24,8 @@
     "noImplicitAny": false,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
+    "strictFunctionTypes": true,
+    "strictNullChecks": true,
     "plugins": [{ "name": "typescript-styled-plugin" }],
     "target": "es2015"
   },

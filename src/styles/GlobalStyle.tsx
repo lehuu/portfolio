@@ -153,12 +153,23 @@ const GlobalStyle = () => (
       ${reset}
       html {
         height: 100%;
-        ${mixinTransition('color', 'background-color')};
+        scroll-behavior: smooth;
+        ${mixinTransition(['color', 'background-color'])};
       }
 
       :root {
         // initially set to zero so to first render does not flash from white to black for dark mode
         ${THEME_TRANSITION_VAR}: 0s;
+      }
+
+      body {
+        width: 100%;
+        overflow-x: hidden;
+
+        &.no-scroll {
+          overflow-y: scroll;
+          position: fixed;
+        }
       }
 
       body,

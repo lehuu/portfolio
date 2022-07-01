@@ -11,4 +11,4 @@ links: [
 # Phuoc Le
 ## Software Engineer
 I’m from the south of Germany with a passion for building digital products and experiences.
-Currently, I’m focused on building the online presence of [Gebrüder Weiß](https://www.gw-world.com/).
+Currently, I’m focused on building accessible web and mobile applications at [Iglu](https://iglu.net).

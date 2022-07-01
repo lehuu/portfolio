@@ -19,7 +19,8 @@ const Container = styled.section`
     color: ${({ theme }) => theme.colors.accent};
     text-decoration: none;
 
-    &:hover {
+    &:hover,
+    &:active {
       text-decoration: underline;
     }
   }
@@ -27,7 +28,7 @@ const Container = styled.section`
   h1,
   h2 {
     color: ${({ theme }) => theme.colors.textStrong};
-    ${mixinTransition('color')}
+    ${mixinTransition(['color'])}
   }
 
   h1 {
@@ -37,7 +38,7 @@ const Container = styled.section`
 
   h2 {
     font-size: ${({ theme }) => theme.fontSizes.l};
-    margin-bottom: ${({ theme }) => theme.space.s};
+    margin-bottom: ${({ theme }) => theme.space.xs};
   }
 `;
 

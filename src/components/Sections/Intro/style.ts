@@ -1,15 +1,17 @@
 import styled from '@emotion/styled';
 import { css, keyframes } from '@emotion/react';
 import { mixinTransition, breakpoints } from '@styles';
+import SectionContainer from '@components/SectionContainer';
 
-const Container = styled.section`
-  margin-top: ${({ theme }) => theme.space.l};
+const Container = styled(SectionContainer)`
+  margin-top: ${({ theme }) => theme.space.s};
+  margin-bottom: 0;
   display: flex;
   gap: ${({ theme }) => theme.space.m};
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  /* min-height: calc(100vh - ${({ theme }) => theme.space.m} * 10); */
+  min-height: calc(100vh - ${({ theme }) => theme.space.xl} * 4);
 `;
 
 const ImageContainer = styled.div`
@@ -95,7 +97,7 @@ const ProfilePicture = styled.div<ProfilePictureProps>`
   // Workaround for Safari overflow
   mask-image: radial-gradient(white, black);
 
-  ${mixinTransition('visibility', 'opacity')}
+  ${mixinTransition(['visibility', 'opacity'])}
 
   ${(props) =>
     props.isAbsolute
@@ -114,7 +116,7 @@ const TextContainer = styled.div`
     font-size: clamp(25px, 6vw, 40px);
     text-align: center;
     color: ${({ theme }) => theme.colors.textStrong};
-    ${mixinTransition('color')}
+    ${mixinTransition(['color'])}
   }
 
   h2 {
@@ -131,7 +133,9 @@ const TextContainer = styled.div`
       color: ${({ theme }) => theme.colors.accent};
       text-decoration: none;
 
-      &:hover {
+      &:hover,
+      &:active,
+      &:focus-visible {
         text-decoration: underline;
       }
     }

@@ -7,15 +7,18 @@ const commonStyle = (theme: Theme) => css`
   color: inherit;
   position: relative;
 
-  &:hover {
+  &:hover,
+  &:active,
+  &:focus-visible {
+    outline: none;
     &::before {
       z-index: -1;
       width: 100%;
       background: ${theme.colors.hoverBg};
       position: absolute;
       border-radius: ${theme.radii.regular};
-      padding: ${`${theme.space.s} ${theme.space.m}`};
-      top: -${theme.space.s};
+      padding: ${`${theme.space.xs} ${theme.space.m}`};
+      top: -${theme.space.xs};
       left: -${theme.space.m};
       width: 100%;
       height: 100%;

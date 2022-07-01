@@ -3,6 +3,7 @@ import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import { useColorMode } from 'theme-ui';
+import { SectionContainerProps } from '@components/SectionContainer';
 import IconLink from '../../IconLink';
 import Styled from './style';
 
@@ -33,7 +34,7 @@ const INTRO_QUERY = graphql`
   }
 `;
 
-const Intro: React.FunctionComponent = () => {
+const Intro: React.FunctionComponent<Pick<SectionContainerProps, 'onInView'>> = ({ onInView }) => {
   const { markdownRemark } = useStaticQuery(INTRO_QUERY);
   const [colorMode] = useColorMode();
   const isDarkMode = colorMode === 'dark';
@@ -44,15 +45,15 @@ const Intro: React.FunctionComponent = () => {
   const darkImage = getImage(frontmatter.pictures.dark);
 
   return (
-    <Styled.Container>
+    <Styled.Container onInView={onInView}>
       <Styled.ImageContainer>
         <Styled.ImageColorBlur />
         <Styled.ImageColorWrapper />
         <Styled.ProfilePicture isVisible={!isDarkMode}>
-          {colorMode && <GatsbyImage image={lightImage} alt="porrait" />}
+          {colorMode && lightImage && <GatsbyImage image={lightImage} alt="porrait" />}
         </Styled.ProfilePicture>
         <Styled.ProfilePicture isAbsolute isVisible={isDarkMode}>
-          {colorMode && <GatsbyImage image={darkImage} alt="porrait" />}
+          {colorMode && darkImage && <GatsbyImage image={darkImage} alt="porrait" />}
         </Styled.ProfilePicture>
       </Styled.ImageContainer>
 
@@ -60,7 +61,7 @@ const Intro: React.FunctionComponent = () => {
       <Styled.LinkContainer>
         {frontmatter.links.map((link) => (
           <React.Fragment key={link.type}>
-            <IconLink type={link.type} link={link.link} />
+            <IconLink type={link.type} link={link.link} size="xl" />
           </React.Fragment>
         ))}
       </Styled.LinkContainer>

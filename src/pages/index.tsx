@@ -1,10 +1,14 @@
 import React from 'react';
-import { IntroSection, Layout } from '@components';
+import { Layout } from '@components';
+import HashProvider from '@components/HashProvider';
+import SectionsPage from './sections';
 
 const IndexPage = () => (
-  <Layout>
-    <IntroSection />
-  </Layout>
+  <HashProvider>
+    <Layout>
+      <SectionsPage />
+    </Layout>
+  </HashProvider>
 );
 
 export default IndexPage;

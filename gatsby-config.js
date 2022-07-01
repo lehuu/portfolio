@@ -3,9 +3,10 @@ const productionPlugins =
 
 const metadata = {
   title: 'Phuoc Le',
-  siteUrl: 'https://www.bytecruncher.com',
+  siteUrl: 'https://bytecruncher.com',
   description: "Phuoc Le's personal portfolio website. Software Engineer.",
   lang: 'en',
+  image: '/og.jpg'
 };
 
 module.exports = {
@@ -48,6 +49,7 @@ module.exports = {
           '@pages': './src/pages',
           '@styles': './src/styles',
           '@hooks': './src/hooks',
+          '@utils': './src/utils',
         },
         extensions: ['js', 'jsx', 'ts', 'tsx', 'md', 'mdx'],
       },

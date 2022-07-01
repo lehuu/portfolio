@@ -28,7 +28,8 @@ const StyledLink = styled(Link)`
   text-align: center;
   text-decoration: none;
   display: block;
-  &:hover {
+  &:hover,
+  &:active {
     text-decoration: underline;
   }
 `;
