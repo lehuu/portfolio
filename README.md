@@ -13,7 +13,7 @@
 
 ## 📌 Forking this repo
 
-You may fork this repo. But please give me proper credit by linking back to my site[bytecruncher.com](https://bytecruncher.com). Thanks!
+You may fork this repo. But please give me proper credit by linking back to my site [bytecruncher.com](https://bytecruncher.com). Thanks!
 
 
 ## 🚀 Quick start
