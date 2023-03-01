@@ -72,6 +72,9 @@ const Layout: React.FunctionComponent<LayoutProps> = ({ additionalTitle, childre
         <meta name="twitter:description" content={description} />
         <meta name="twitter:image" content={imageUrl} />
       </Helmet>
+      <Styled.SmallStars />
+      <Styled.MediumStars />
+      <Styled.BigStars />
       <Styled.FlexContainer key={String(isClient)}>
         <Header isMenuOpen={isMenuOpen} onMenuClick={(isOpen) => setIsMenuOpen(!isOpen)} />
         <Styled.Main>{children}</Styled.Main>
