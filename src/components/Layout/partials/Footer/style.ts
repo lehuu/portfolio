@@ -4,6 +4,7 @@ import { breakpoints, contentWidth } from '@styles';
 import { Link } from 'gatsby';
 
 const Footer = styled.footer`
+  margin-bottom: ${({ theme }) => theme.space.s};
   width: 100%;
   padding-top: 0;
   display: flex;

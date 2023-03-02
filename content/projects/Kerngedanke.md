@@ -1,5 +1,6 @@
 ---
 startDate: '2019-09-01'
+endDate: '2022-04-1'
 name: 'Kerngedanke'
 company: 'Kerngedanke'
 picture: ./kerngedanke.jpg

@@ -1,5 +1,6 @@
 ---
 startDate: '2019-09-01'
+endDate: '2022-04-1'
 title: 'Frontend Engineer'
 company: 'Kerngedanke UG'
 location: 'Munich, DE'
