@@ -152,7 +152,8 @@ const Tab = styled.button<TabProps>`
   &:focus-visible {
     color: ${({ theme }) => theme.colors.accent};
     outline: none;
-    box-shadow: inset 0 2px 0 ${({ theme }) => theme.colors.accent},
+    box-shadow:
+      inset 0 2px 0 ${({ theme }) => theme.colors.accent},
       inset -2px 0 0 ${({ theme }) => theme.colors.accent},
       inset 2px 0 0 ${({ theme }) => theme.colors.accent};
   }
@@ -171,7 +172,8 @@ const Tab = styled.button<TabProps>`
     border-left: 2px solid ${(props) => props.theme.borders.regular};
 
     &:focus-visible {
-      box-shadow: inset 0 2px 0 ${({ theme }) => theme.colors.accent},
+      box-shadow:
+        inset 0 2px 0 ${({ theme }) => theme.colors.accent},
         inset 0 -2px 0 ${({ theme }) => theme.colors.accent},
         inset -2px 0 0 ${({ theme }) => theme.colors.accent};
     }

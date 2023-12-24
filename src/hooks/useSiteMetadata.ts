@@ -13,21 +13,19 @@ interface Site {
 }
 
 const useSiteMetadata = () => {
-  const { site } = useStaticQuery<Site>(
-    graphql`
-      query {
-        site {
-          siteMetadata {
-            name
-            lang
-            siteUrl
-            description
-            image
-          }
+  const { site } = useStaticQuery<Site>(graphql`
+    query {
+      site {
+        siteMetadata {
+          name
+          lang
+          siteUrl
+          description
+          image
         }
       }
-    `
-  );
+    }
+  `);
   return site.siteMetadata;
 };
 

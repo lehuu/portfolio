@@ -10,8 +10,8 @@ import Styled, { TABLE_TRANSITION } from './style';
 const PROJECT_QUERY = graphql`
   {
     projects: allMarkdownRemark(
-      filter: {fileAbsolutePath: {regex: "/content/projects/"}}
-      sort: [{frontmatter: {endDate: DESC}}, {frontmatter: {startDate: ASC}}]
+      filter: { fileAbsolutePath: { regex: "/content/projects/" } }
+      sort: [{ frontmatter: { endDate: DESC } }, { frontmatter: { startDate: ASC } }]
     ) {
       edges {
         node {

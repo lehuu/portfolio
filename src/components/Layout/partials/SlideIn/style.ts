@@ -17,7 +17,8 @@ const SlideInContainer = styled.aside`
   top: 0;
   right: 0;
   width: min(75vw, 400px);
-  transition: transform ${THEME_TRANSITION_TIME} ease,
+  transition:
+    transform ${THEME_TRANSITION_TIME} ease,
     background-color ${THEME_TRANSITION_TIME} linear;
   padding: ${({ theme }) => `${theme.space.xxxl} ${theme.space.xs}`};
   box-shadow: ${({ theme }) => theme.shadows.slideIn};

@@ -8,8 +8,8 @@ import Styled from './style';
 const EXPERIENCE_QUERY = graphql`
   {
     jobs: allMarkdownRemark(
-      filter: {fileAbsolutePath: {regex: "/content/experience/"}}
-      sort: {frontmatter: {endDate: DESC}}
+      filter: { fileAbsolutePath: { regex: "/content/experience/" } }
+      sort: { frontmatter: { endDate: DESC } }
     ) {
       edges {
         node {
