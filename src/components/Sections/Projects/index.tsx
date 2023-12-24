@@ -9,11 +9,8 @@ import Styled from './style';
 const PROJECT_QUERY = graphql`
   {
     projects: allMarkdownRemark(
-      filter: {
-        fileAbsolutePath: { regex: "/content/projects/" }
-        frontmatter: { featured: { ne: null } }
-      }
-      sort: { fields: [frontmatter___featured], order: ASC }
+      filter: {fileAbsolutePath: {regex: "/content/projects/"}, frontmatter: {featured: {ne: null}}}
+      sort: {frontmatter: {featured: ASC}}
     ) {
       edges {
         node {
