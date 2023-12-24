@@ -105,6 +105,7 @@ const Tabbar: React.FunctionComponent<TabbarProps> = ({ tabs, selectedTab = 0, o
           type="button"
           onClick={() => handleScrollClick(-1)}
           disabled={!canScrollLeft}
+          aria-label="Scroll Tablist left"
         >
           <LeftArrow />
         </Styled.ScrollButton>
@@ -118,6 +119,8 @@ const Tabbar: React.FunctionComponent<TabbarProps> = ({ tabs, selectedTab = 0, o
         {tabs.map((tab, index) => (
           <Styled.Tab
             type="button"
+            aria-selected={selectedTab === index}
+            role="tab"
             // eslint-disable-next-line react/no-array-index-key
             key={index}
             onClick={() => {
@@ -140,6 +143,7 @@ const Tabbar: React.FunctionComponent<TabbarProps> = ({ tabs, selectedTab = 0, o
           type="button"
           onClick={() => handleScrollClick(1)}
           disabled={!canScrollRight}
+          aria-label="Scroll Tablist right"
         >
           <RightArrow />
         </Styled.ScrollButton>
