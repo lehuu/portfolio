@@ -8,6 +8,7 @@ import Styled from './style';
 
 interface LayoutProps {
   additionalTitle?: string;
+  children: React.ReactNode;
 }
 
 const Layout: React.FunctionComponent<LayoutProps> = ({ additionalTitle, children }) => {

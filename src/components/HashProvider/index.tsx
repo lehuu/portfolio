@@ -1,5 +1,9 @@
 import React, { createContext, useEffect, useMemo, useRef, useState } from 'react';
 
+interface HashProviderProps {
+  children: React.ReactNode;
+}
+
 export const HashContext = createContext<{
   hash: null | string;
   setHash: (newHash: string) => void | never;
@@ -15,7 +19,7 @@ export const HashContext = createContext<{
   },
 });
 
-const HashProvider: React.FunctionComponent = ({ children }) => {
+const HashProvider: React.FunctionComponent<HashProviderProps> = ({ children }) => {
   const [hashState, setHash] = useState(() =>
     typeof window !== 'undefined' ? `${window.location.hash}` : ''
   );

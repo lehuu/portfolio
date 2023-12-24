@@ -22,6 +22,7 @@ export interface SectionContainerProps {
   className?: string;
   id?: string;
   onInView?: (intersectionRatio: number, boundingRect: DOMRectReadOnly, id?: string) => void;
+  children: React.ReactNode;
 }
 
 const SectionContainer: React.FunctionComponent<SectionContainerProps> = ({
