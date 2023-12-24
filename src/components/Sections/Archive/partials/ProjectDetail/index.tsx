@@ -1,5 +1,5 @@
 import React from 'react';
-import Img, { FluidObject } from 'gatsby-image';
+import { GatsbyImageProps, GatsbyImage } from 'gatsby-plugin-image';
 import extractProjectLink from '@utils/extractProjectLink';
 import { CSSTransition } from 'react-transition-group';
 import { THEME_TRANSITION_TIME_MS } from '@styles/mixin-transition';
@@ -10,7 +10,7 @@ interface ProjectDetailProps {
   company?: string;
   description?: string;
   techstack?: string[];
-  image?: FluidObject | FluidObject[];
+  image?: GatsbyImageProps['image'];
   links?: { type: string; link: string }[];
 }
 
@@ -37,7 +37,7 @@ const ProjectDetail: React.FunctionComponent<ProjectDetailProps> = ({
                       target="_blank"
                       rel="noreferrer"
                     >
-                      <Img fluid={image} alt="Project Image" />
+                      <GatsbyImage image={image} alt="Project Image" />
                     </a>
                   </Styled.ImageContainer>
                 )}

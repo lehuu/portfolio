@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import IconLink from '@components/IconLink';
-import { FluidObject } from 'gatsby-image';
+import { GatsbyImageProps } from 'gatsby-plugin-image';
 import Styled from './style';
 import ProjectDetail from '../ProjectDetail';
 
@@ -10,7 +10,7 @@ interface ProjectTableProps {
     description?: string;
     company?: string;
     techstack: string[];
-    image?: FluidObject | FluidObject[];
+    image?: GatsbyImageProps['image'];
     endDate: Date;
     links?: { type: string; link: string }[];
   }[];

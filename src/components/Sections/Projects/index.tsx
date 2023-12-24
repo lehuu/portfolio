@@ -1,7 +1,6 @@
 import React from 'react';
 import SectionHeader from '@components/SectionHeader';
 import { graphql, useStaticQuery } from 'gatsby';
-import { Project } from 'types';
 import { SectionContainerProps } from '@components/SectionContainer';
 import { ProjectCard } from './partials';
 import Styled from './style';
@@ -26,9 +25,7 @@ const PROJECT_QUERY = graphql`
             }
             picture {
               childImageSharp {
-                fluid(quality: 100) {
-                  ...GatsbyImageSharpFluid
-                }
+                gatsbyImageData(layout: CONSTRAINED)
               }
             }
           }
@@ -42,7 +39,7 @@ const PROJECT_QUERY = graphql`
 const Projects: React.FunctionComponent<Pick<SectionContainerProps, 'onInView'>> = ({
   onInView,
 }) => {
-  const { projects } = useStaticQuery<{ projects: { edges: { node: Project }[] } }>(PROJECT_QUERY);
+  const { projects } = useStaticQuery(PROJECT_QUERY);
 
   const content = projects.edges.map((edge) => ({
     ...edge.node.frontmatter,
@@ -57,7 +54,7 @@ const Projects: React.FunctionComponent<Pick<SectionContainerProps, 'onInView'>>
           <ProjectCard
             key={`${project.name}${project.startDate}`}
             title={project.name}
-            image={project.picture.childImageSharp.fluid}
+            image={project.picture.childImageSharp.gatsbyImageData}
             imagePosition={index % 2 === 0 ? 'right' : 'left'}
             techstack={project.techstack}
             description={project.descriptionHTML}

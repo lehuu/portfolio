@@ -1,5 +1,5 @@
 import React from 'react';
-import Img, { FluidObject } from 'gatsby-image';
+import { GatsbyImage, GatsbyImageProps } from 'gatsby-plugin-image';
 import IconLink from '@components/IconLink';
 import extractProjectLink from '@utils/extractProjectLink';
 import Styled from './style';
@@ -8,7 +8,7 @@ interface ProjectCardProps {
   title?: string;
   description?: string;
   techstack?: string[];
-  image: FluidObject | FluidObject[];
+  image: GatsbyImageProps['image'];
   imagePosition?: 'left' | 'right';
   links?: { type: string; link: string }[];
 }
@@ -24,7 +24,7 @@ const ProjectCard: React.FunctionComponent<ProjectCardProps> = ({
   const imageElement = (
     <Styled.ImageContainer hasShadow>
       <a href={extractProjectLink(links || []) || undefined} target="_blank" rel="noreferrer">
-        <Img fluid={image} alt="Project Image" />
+        <GatsbyImage image={image} alt="Project Image" />
       </a>
     </Styled.ImageContainer>
   );

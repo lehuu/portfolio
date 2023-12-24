@@ -1,7 +1,6 @@
 import SectionHeader from '@components/SectionHeader';
 import { graphql, useStaticQuery } from 'gatsby';
 import React, { useState } from 'react';
-import { Project } from 'types';
 import { CSSTransition } from 'react-transition-group';
 import { THEME_TRANSITION_TIME_MS } from '@styles/mixin-transition';
 import { SectionContainerProps } from '@components/SectionContainer';
@@ -28,9 +27,7 @@ const PROJECT_QUERY = graphql`
             }
             picture {
               childImageSharp {
-                fluid(quality: 100) {
-                  ...GatsbyImageSharpFluid
-                }
+                gatsbyImageData(layout: CONSTRAINED)
               }
             }
           }
@@ -44,7 +41,7 @@ const PROJECT_QUERY = graphql`
 const Archive: React.FunctionComponent<Pick<SectionContainerProps, 'onInView'>> = ({
   onInView,
 }) => {
-  const { projects } = useStaticQuery<{ projects: { edges: { node: Project }[] } }>(PROJECT_QUERY);
+  const { projects } = useStaticQuery(PROJECT_QUERY);
 
   const [isTableShown, setIsTableShown] = useState(false);
 
@@ -58,7 +55,7 @@ const Archive: React.FunctionComponent<Pick<SectionContainerProps, 'onInView'>> 
     company: edge.node.frontmatter.company,
     techstack: edge.node.frontmatter.techstack,
     endDate: edge.node.frontmatter.endDate ? new Date(edge.node.frontmatter.endDate) : new Date(),
-    image: edge.node.frontmatter.picture?.childImageSharp.fluid,
+    image: edge.node.frontmatter.picture?.childImageSharp.gatsbyImageData,
     links: edge.node.frontmatter.links,
   }));
 
