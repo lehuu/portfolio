@@ -1,8 +1,8 @@
 import React from 'react';
-import { Layout } from '@components';
+import { Layout, Head as DefaultHead } from '@components';
 import styled from '@emotion/styled';
 import { contentWidth, mixinTransition } from '@styles';
-import { graphql, useStaticQuery } from 'gatsby';
+import { graphql, useStaticQuery, HeadProps } from 'gatsby';
 
 const Container = styled.section`
   max-width: ${({ theme }) => `calc(${contentWidth.navigationBar} - ${theme.space.l} * 2)`};
@@ -56,10 +56,14 @@ const ImprintPage = () => {
   } = useStaticQuery(IMPRINT_QUERY);
 
   return (
-    <Layout additionalTitle="Imprint">
+    <Layout>
       <Container dangerouslySetInnerHTML={{ __html: html }} />
     </Layout>
   );
 };
 
 export default ImprintPage;
+
+export const Head: React.FunctionComponent<HeadProps> = ({ location }) => (
+  <DefaultHead pathname={location.pathname} additionalTitle="Imprint" />
+);

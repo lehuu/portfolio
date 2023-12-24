@@ -1,6 +1,6 @@
 import React from 'react';
-import { Link } from 'gatsby';
-import { Layout } from '@components';
+import { Link, HeadProps } from 'gatsby';
+import { Layout, Head as DefaultHead } from '@components';
 import styled from '@emotion/styled';
 import { breakpoints } from '@styles';
 
@@ -38,7 +38,7 @@ const Container = styled.section`
 `;
 
 const NotFoundPage = () => (
-  <Layout additionalTitle="Not Found">
+  <Layout>
     <Container>
       <Header>404</Header>
       <SubHeader>Page Not Found</SubHeader>
@@ -48,3 +48,7 @@ const NotFoundPage = () => (
 );
 
 export default NotFoundPage;
+
+export const Head: React.FunctionComponent<HeadProps> = ({ location }) => (
+  <DefaultHead pathname={location.pathname} additionalTitle="Not Found" />
+);

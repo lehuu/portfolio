@@ -30,7 +30,6 @@
     "gatsby-plugin-htaccess": "^1.4.0",
     "gatsby-plugin-image": "^3.13.0",
     "gatsby-plugin-no-sourcemaps": "^5.13.0",
-    "gatsby-plugin-react-helmet": "^6.13.0",
     "gatsby-plugin-react-svg": "^3.3.0",
     "gatsby-plugin-sharp": "^5.13.0",
     "gatsby-plugin-theme-ui": "^0.16.1",
@@ -42,7 +41,6 @@
     "gatsby-transformer-sharp": "^5.13.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-helmet": "^6.1.0",
     "react-intersection-observer": "^9.5.3",
     "react-transition-group": "^4.4.5",
     "theme-ui": "^0.16.1",
@@ -51,7 +49,6 @@
   "devDependencies": {
     "@types/node": "^20.10.5",
     "@types/react": "^18.2.45",
-    "@types/react-helmet": "^6.1.11",
     "@types/react-transition-group": "^4.4.10",
     "@typescript-eslint/eslint-plugin": "^6.15.0",
     "@typescript-eslint/parser": "^6.15.0",

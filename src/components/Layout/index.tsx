@@ -1,21 +1,15 @@
 import React, { useEffect, useLayoutEffect, useState } from 'react';
-import { Helmet } from 'react-helmet';
 import { GlobalStyle, THEME_TRANSITION_TIME, THEME_TRANSITION_VAR } from '@styles';
-import { useSiteMetadata } from '@hooks';
-import { useLocation } from '@reach/router';
 import { Footer, Header } from './partials';
 import Styled from './style';
 
 interface LayoutProps {
-  additionalTitle?: string;
   children: React.ReactNode;
 }
 
-const Layout: React.FunctionComponent<LayoutProps> = ({ additionalTitle, children }) => {
-  const { name, lang, siteUrl, description, image } = useSiteMetadata();
+const Layout: React.FunctionComponent<LayoutProps> = ({ children }) => {
   const [isClient, setIsClient] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { pathname } = useLocation();
 
   useLayoutEffect(() => {
     if (!isMenuOpen) {
@@ -44,35 +38,9 @@ const Layout: React.FunctionComponent<LayoutProps> = ({ additionalTitle, childre
     }
   }, []);
 
-  const imageUrl = `${siteUrl}${image}`;
-  const path = `${siteUrl}${pathname}`;
-
   return (
     <>
       <GlobalStyle />
-      <Helmet>
-        <title>
-          {name}
-          {additionalTitle ? ` - ${additionalTitle}` : ''}
-        </title>
-        <html lang={lang} />
-        <meta charSet="utf-8" />
-        <link rel="canonical" href={path} />
-        <meta name="description" content={description} />
-
-        <meta name="image" content={imageUrl} />
-
-        <meta property="og:title" content={name} />
-        <meta property="og:description" content={description} />
-        <meta property="og:image" content={imageUrl} />
-        <meta property="og:url" content={path} />
-        <meta property="og:type" content="website" />
-
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={name} />
-        <meta name="twitter:description" content={description} />
-        <meta name="twitter:image" content={imageUrl} />
-      </Helmet>
       <Styled.FlexContainer key={String(isClient)}>
         <Header isMenuOpen={isMenuOpen} onMenuClick={(isOpen) => setIsMenuOpen(!isOpen)} />
         <Styled.Main>{children}</Styled.Main>
