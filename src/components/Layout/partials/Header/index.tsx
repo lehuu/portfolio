@@ -32,7 +32,7 @@ interface HeaderProps {
 
 const Header: React.FunctionComponent<HeaderProps> = ({ isMenuOpen, onMenuClick }) => {
   const { hash, disableScrollTracking } = React.useContext(HashContext);
-  const { title } = useSiteMetadata();
+  const { name } = useSiteMetadata();
 
   const {
     markdownRemark: {
@@ -46,7 +46,7 @@ const Header: React.FunctionComponent<HeaderProps> = ({ isMenuOpen, onMenuClick 
         <Styled.Navigation>
           <div>
             <Styled.Title to="/" onClick={disableScrollTracking}>
-              {title}
+              {name}
             </Styled.Title>
           </div>
           <Styled.LinkList>

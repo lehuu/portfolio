@@ -12,7 +12,7 @@ interface LayoutProps {
 }
 
 const Layout: React.FunctionComponent<LayoutProps> = ({ additionalTitle, children }) => {
-  const { title, lang, siteUrl, description, image } = useSiteMetadata();
+  const { name, lang, siteUrl, description, image } = useSiteMetadata();
   const [isClient, setIsClient] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { pathname } = useLocation();
@@ -52,7 +52,7 @@ const Layout: React.FunctionComponent<LayoutProps> = ({ additionalTitle, childre
       <GlobalStyle />
       <Helmet>
         <title>
-          {title}
+          {name}
           {additionalTitle ? ` - ${additionalTitle}` : ''}
         </title>
         <html lang={lang} />
@@ -62,14 +62,14 @@ const Layout: React.FunctionComponent<LayoutProps> = ({ additionalTitle, childre
 
         <meta name="image" content={imageUrl} />
 
-        <meta property="og:title" content={title} />
+        <meta property="og:title" content={name} />
         <meta property="og:description" content={description} />
         <meta property="og:image" content={imageUrl} />
         <meta property="og:url" content={path} />
         <meta property="og:type" content="website" />
 
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={title} />
+        <meta name="twitter:title" content={name} />
         <meta name="twitter:description" content={description} />
         <meta name="twitter:image" content={imageUrl} />
       </Helmet>

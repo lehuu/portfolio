@@ -2,7 +2,7 @@ const productionPlugins =
   process.env.NODE_ENV === 'production' ? ['gatsby-plugin-no-sourcemaps'] : [];
 
 const metadata = {
-  title: 'Phuoc Le',
+  name: 'Phuoc Le',
   siteUrl: 'https://bytecruncher.com',
   description: "Phuoc Le's personal portfolio website. Software Engineer.",
   lang: 'en',

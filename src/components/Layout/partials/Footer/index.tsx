@@ -3,7 +3,7 @@ import { useSiteMetadata } from '@hooks';
 import Styled from './style';
 
 const Footer: React.FunctionComponent = () => {
-  const { title } = useSiteMetadata();
+  const { name } = useSiteMetadata();
   const year = new Date().getFullYear();
 
   return (
@@ -14,7 +14,7 @@ const Footer: React.FunctionComponent = () => {
         </div>
         <div>
           <Styled.NoBreakSpan>
-            © {year} {title}.
+            © {year} {name}.
           </Styled.NoBreakSpan>{' '}
           <Styled.NoBreakSpan>All rights reserved.</Styled.NoBreakSpan>
         </div>
