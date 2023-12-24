@@ -19,10 +19,10 @@ const theme = makeTheme({
     regular: 'hsla(0, 0%, 78%, 0.5)',
   },
   colors: {
-    text: 'hsla(0, 0%, 0%, 0.65)',
+    text: 'hsla(0, 0%, 0%, 0.75)',
     textStrong: 'hsla(0, 0%, 0%, 1)',
     background: '#FAFAFA',
-    accent: '#3997F7',
+    accent: '#2C91F6',
     hoverBg: 'hsla(0, 0%, 0%, 0.1)',
     overlay: 'hsla(0, 0%, 0%, 0.4)',
     themeSwitcher: {
@@ -35,6 +35,7 @@ const theme = makeTheme({
         text: 'hsla(0, 0%, 100%, 0.75)',
         textStrong: 'hsla(0, 0%, 100%, 1)',
         background: '#1D1D1F',
+        accent: '#74caf9',
         hoverBg: 'hsla(0, 0%, 100%, 0.1)',
         overlay: 'hsla(0, 0%, 0%, 0.6)',
         themeSwitcher: {
@@ -54,7 +55,8 @@ const theme = makeTheme({
     slideIn: '-10px 0px 30px -15px rgba(2,12,27,0.7)',
   },
   fonts: {
-    regular: 'Inter, sans-serif',
+    regular:
+      'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif',
     bold: 'inherit',
   },
   fontWeights: {
