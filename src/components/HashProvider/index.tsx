@@ -50,7 +50,6 @@ const HashProvider: React.FunctionComponent = ({ children }) => {
 
     const hashInUrl = newHash ? `#${newHash}` : '/';
     if (hashInUrl !== hashState) {
-      window.history.replaceState({}, '', hashInUrl);
       setHash(hashInUrl);
     }
   };
